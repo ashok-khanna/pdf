@@ -1,14 +1,38 @@
 /* All your print styles go here */
-  @page {
-  size: A5;
-}
+ @page {
+  size: A4;
 
-@page {
   @top-right {
     content: "My title";
   }
+
+}
+
+@page {
+
 }
 
 .page-break {
 	break-after: page;
+}
+
+.cover-page {
+	page: cover-page;
+}
+
+@page cover-page {
+    background-color: lightcyan;
+    
+    @top-right-corner {
+         content: none;
+    }
+    @top-right {
+        content: none;
+    }
+    @top-left-corner {
+         content: none;
+    }
+    @top-left {
+        content: none;
+    }
 }
