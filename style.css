@@ -44,6 +44,10 @@ p {
     content: "My title";
   }
 
+  @bottom-left {
+    	content: element(disclaimerRunning);
+    }
+
   @bottom-right {
         content: counter(page);
   }
@@ -52,6 +56,10 @@ p {
 
 .page-break {
 	break-after: page;
+}
+
+.disclaimer {
+	position: running(disclaimerRunning);
 }
 
 .counter-reset {
@@ -78,6 +86,10 @@ p {
     @top-left {
         content: none;
     }
+
+	@bottom-left {
+		content: none;
+	}
 
     @bottom-right {
         content: none;
