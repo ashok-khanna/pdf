@@ -71,4 +71,8 @@ p {
     @top-left {
         content: none;
     }
+
+    @bottom-right {
+        content: counter(page);
+  	}
 }
