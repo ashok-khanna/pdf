@@ -41,7 +41,7 @@ p {
     content: "My title";
   }
 
-  @bottom-left {
+  @bottom-right {
         content: counter(page);
   }
 
