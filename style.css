@@ -38,8 +38,11 @@ main {
 	page: main-page;
 }
 
+@page {
+	size: A4;
+}
+
 @page main-page {
-  size: A4;
 
   @top-right {
     content: "My title";
