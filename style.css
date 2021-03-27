@@ -1,5 +1,4 @@
-@media print {
-  /* All your print styles go here */
+/* All your print styles go here */
   @page {
   size: A5;
 }
@@ -9,4 +8,7 @@
     content: "My title";
   }
 }
+
+.page-break {
+	break-after: page;
 }
