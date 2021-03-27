@@ -45,6 +45,8 @@ p {
         content: counter(page);
   }
 
+  counter-reset: page 1;
+
 }
 
 .page-break {
