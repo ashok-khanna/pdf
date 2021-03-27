@@ -51,7 +51,7 @@ p {
   }
 
   @bottom-left {
-    	content: element(disclaimerRunning);
+    	content: element(footerRunning);
     }
 
   @bottom-right {
@@ -64,8 +64,8 @@ p {
 	break-after: page;
 }
 
-.disclaimer {
-	position: running(disclaimerRunning);
+.footer {
+	position: running(footerRunning);
 	font-family: 'Roboto Thin';
 	color: gray;
 }
