@@ -24,6 +24,12 @@
 	font-style: italic;
 }
 
+@font-face {
+	font-family: 'Roboto Thin';
+	src: url('fonts/Roboto-Thin.ttf') format('truetype');
+	font-weight: normal;
+}
+
 html {
 	font-family: 'Roboto', sans-serif;
 }
@@ -60,6 +66,7 @@ p {
 
 .disclaimer {
 	position: running(disclaimerRunning);
+	font-family: 'Roboto Thin';
 	color: gray;
 }
 
