@@ -52,7 +52,7 @@ p {
 }
 
 @page cover-page {
-    background-color: #334DBD;
+    background-color: #347DBD;
     color: white;
     
     @top-right-corner {
