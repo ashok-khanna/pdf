@@ -44,6 +44,25 @@ p {
 	size: A4;
 }
 
+
+.page-break {
+	break-after: page;
+}
+
+.footer {
+	position: running(footerRunning);
+	font-family: 'Roboto Thin';
+	color: gray;
+}
+
+.counter-reset {
+	counter-reset: page 1;
+}
+
+.cover-page {
+	page: cover-page;
+}
+
 @page {
 
   @top-right {
@@ -58,25 +77,6 @@ p {
         content: counter(page);
   }
 
-}
-
-.page-break {
-	break-after: page;
-}
-
-.footer {
-	position: running(footerRunning);
-	font-family: 'Roboto Thin';
-	color: gray;
-	display: none;
-}
-
-.counter-reset {
-	counter-reset: page 1;
-}
-
-.cover-page {
-	page: cover-page;
 }
 
 @page cover-page {
