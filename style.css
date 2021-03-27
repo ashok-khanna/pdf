@@ -27,6 +27,9 @@
 html {
 	font-family: 'Roboto', sans-serif;
 }
+p {
+	text-align: justify;
+}
 
 /* #347dbd #445a75 */
 
