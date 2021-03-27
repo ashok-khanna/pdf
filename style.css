@@ -60,6 +60,7 @@ p {
 
 .disclaimer {
 	position: running(disclaimerRunning);
+	color: gray;
 }
 
 .counter-reset {
