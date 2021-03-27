@@ -68,6 +68,7 @@ p {
 	position: running(footerRunning);
 	font-family: 'Roboto Thin';
 	color: gray;
+	display: none;
 }
 
 .counter-reset {
