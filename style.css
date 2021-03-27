@@ -73,6 +73,6 @@ p {
     }
 
     @bottom-right {
-        content: counter(page);
+        content: none;
   	}
 }
