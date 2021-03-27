@@ -7,7 +7,543 @@
 </head>
 
 <body>
-	test
+	Hacker News new | threads | past | comments | ask | show | jobs | submit	Abhinav2000 (54) | logout
+Wkhtmltopdf: Command line tools to render HTML into PDF (wkhtmltopdf.org)
+129 points by polm23 1 day ago | flag | hide | past | favorite | 91 comments
+ 
+
+
+
+
+	
+SigmundA 23 hours ago [–]
+
+Wkhtmltopdf is based on QtWebkit which is long deprecated. There was work to move it QtWebEngine but doesn't seem to be going anywhere: https://wkhtmltopdf.org/status.html
+In the meantime Chrome added headless support and with command line or puppeteer you can do the same thing with a much newer and more secure engine.
+However if you need full CSS-Paged support then PrinceXML is probably your only option and its not cheap: https://www.princexml.com
+reply
+	
+ognarb 21 hours ago [–]
+
+Instead of princexml, there is an open source alternative: https://www.pagedjs.org/. I saw a demo in 2019 at the libregraphicsmeeting and it was really nice and worked well for most browser already. It probably improved since then.
+reply
+	
+blowski 23 hours ago [–]
+
+Despite have a deprecated dependency, is there any issue using wkhtmltopdf? I'm running it in quite a few projects to generate letters and invoices, and not experiencing any issues.
+reply
+	
+fvdessen 18 hours ago [–]
+
+We were generating hundred of thousands of pdfs per day with wkhtmltopdf and had a lot of reliability issues. We switched to prince, and it has proven much better on all levels; no more crashes, better layout, smaller pdfs, faster generation, etc.
+reply
+	
+bckr 15 hours ago [–]
+
+Can you share any more about why you would need to generate so many PDFs from HTML?
+reply
+	
+CodesInChaos 15 hours ago [–]
+
+We generate invoice PDFs from templated html using wkhtmltopdf. For B2C applications hitting millions of invoices per month is quite possible.
+There are reliability problems with wkhtmltopdf, but it's possible to make it reasonably reliable with enough error detection and retrying.
+reply
+	
+daniellarusso 20 hours ago [–]
+
+I have run into issues where it would incorrectly render svg tags.
+reply
+	
+blowski 20 hours ago [–]
+
+That's interesting - have you got any more detail on that?
+reply
+	
+ognarb 21 hours ago [–]
+
+if it works for you and you control the html/css/js that is rendered, I don't think there is any problem.
+reply
+	
+abhinav22 23 hours ago [–]
+
+There is a cheap alternative to Prince called DocRaptor which uses the prince engine but is pay per use
+Basically prince adds a watermark on the first page - so you do all your revisions and then only pay for the final copy to remove the watermark (however as any editor would know, we always have many final, final final, final v3 versions ;) so paying for prince once-off at 500$ is probably the best way for anyone who needs professional pdfing.
+I wrote a latex / markdown / html editor with a simple mechanism (using the browsers default print settings), I think it’s not too bad for those looking to pdf from html:
+https://writer.math.dev
+Issue with mine is you would have to do all style sheets in line. I would recommend serious users to either pay for Prince if they want header/footer/page number control or just use print style sheets and code the html / css themselves and use headless chrome or chrome itself to print. Many people want JavaScript in their pages, I can’t recall if headless chrome can correctly account for that. File > print is the best imo :)
+reply
+	
+endless1234 22 hours ago [–]
+
+> In the meantime Chrome added headless support and with command line or puppeteer you can do the same thing with a much newer and more secure engine.
+Yep, this is the way to go now. Very simple API with puppeteer and everything looks the same as when viewing the page in a browser (save any @media print css).
+reply
+	
+Guillaume86 22 hours ago [–]
+
+FYI you can use the chrome dev tools to set the @media to print, great to fine tune your CSS for PDF rendering or just printing.
+reply
+	
+Guillaume86 22 hours ago [–]
+
+In my limited experience, the only thing I miss in chrome headless compared to commercial PDF to HTML tools is "smarter" page breaks support, aka avoid mostly empty pages.
+I already tried to fill in a bug: https://bugs.chromium.org/p/chromium/issues/detail?id=953313... but the spec is not very clear nor requires the most compact arrangement possible. It would probably be a worthy addition to the spec even just for the environmental impact (limiting number of pages when printing).
+reply
+	
+josefx 20 hours ago [–]
+
+What I mostly miss from browsers is page numbering support. As far as I remember there is a standard but only a few commercial tools actually support it.
+reply
+	
+Guillaume86 16 hours ago [–]
+
+You can try to polyfill that with something like https://github.com/pagedjs/pagedjs
+reply
+	
+josefx 15 hours ago [–]
+
+Interesting, that seems to do what I was missing.
+reply
+	
+casperb 22 hours ago [–]
+
+We use wkhtmltopdf and it works fine for us. But I would like better support for newer CSS.
+I like the functionality from Chrome to use it headless, but my main problem with it is that text is not selectable in the rendered PDF. It seems to be an screencapture as image or something. Anyone has this working? Selectable text is really needed for generating PDF invoices.
+reply
+	
+majkinetor 21 hours ago [–]
+
+> text is not selectable
+Here is reproducible demo that is selectable and clickable (links):
+- https://majkinetor.github.io/mm-docs-template/docs.pdf
+This is done using puppetear.
+The same can be achieved by Save as PDF in chrome of single page containing entire site:
+- https://majkinetor.github.io/mm-docs-template/print_page/
+This is all part of my mm-docs framework:
+- https://majkinetor.github.io/mm-docs-template
+reply
+	
+SigmundA 22 hours ago [–]
+
+Chrome definitely does not render text or other vectors like SVG as an image.
+I just tried printing the Hacker News front page to PDF in Edge which is the same engine as Chrome and the text was selectable.
+reply
+	
+infensus 20 hours ago [–]
+
+Most of the time. I'm using Chrome via Puppeteer to generate PDF reports, and I've seen certain CSS rules make it render pages (or parts of them) as images. One of them was `transform` I think.
+reply
+	
+SigmundA 9 hours ago [–]
+
+Yes transform may rasterize the content in order to transform it say as a GPU operation this is regardless of printing, this will be noticeable as blurry text and vectors on HiDpi displays.
+reply
+	
+igeligel_dev 22 hours ago [–]
+
+It might be related on how you include fonts, I have seen a lot of weird behaviors unfortunately with that. Especially this response of an issue was important for my team: https://github.com/puppeteer/puppeteer/issues/422#issuecomme...
+Source: working on automatic PDF reporting in my current company.
+reply
+	
+wolfi1 20 hours ago [–]
+
+flyingsaucer [1] is also an option. [1] https://github.com/flyingsaucerproject/flyingsaucer
+reply
+	
+russianbandit 15 hours ago [–]
+
+There’s also pdfreactor.com which we use to get full support of CSS.
+reply
+	
+machiaweliczny 18 hours ago [–]
+
+paged.js embeding seems to work fine
+reply
+	
+lihaoyi 1 day ago [–]
+
+I tried using wkhtmltopdf for rendering my book https://www.handsonscala.com/ to pdf, but in general I found it pretty buggy and unreliable. Lines of text would get split between pages, some CSS like flexbox didnt render properly, font sizes and page scaling was sometimes off (e.g. a big image on a page would make everything else shrink), etc. In general it "worked", but it didn't work well.
+I ended up swapping in Google's Puppeteer library to render my PDFs, and despite needing a bit of plumbing to get my Scala build script talking to the node.js runtime (and I needed to do e.g. page numbers and table-of-contents extraction myself using Apache PDFBox) in the end it worked much better. Things looked the same in puppeteer PDF as they did in the browser, which is something I could never quite achieve with wkhtmltopdf
+reply
+	
+captn3m0 20 hours ago [–]
+
+I prefer pandoc for known-text-to-pdf, much more cleaner output.
+reply
+	
+williamsmj 1 day ago [–]
+
+For my use case[0], I found weasyprint[1] easier to work with than wkthmltopdf, it gives better results (in the sense they look more like what I get when I save to PDF using a browser), and it seems to be more actively maintained.
+But in the end, I switched[2] to "chrome --headless --print-to-pdf-no-header", since it reproduces browser behavior pretty much by definition and, while it's a colossal dependency, it's also trivial for non-technical users to install.
+[0] https://github.com/mikepqr/resume.md [1] https://weasyprint.org/ [2] https://github.com/mikepqr/resume.md/commit/206a6cbc85fd0456...
+reply
+	
+the_jeremy 18 hours ago [–]
+
+I tried out weasyprint, wkhtmltopdf, and a trial of a paid one (forget which). They all vastly underperformed chrome and firefox's print to PDF functionality, which both worked exactly as expected (i.e., they print it looking like how the page would look under that browser).
+reply
+	
+busymom0 8 hours ago [–]
+
+I used jsPDF for my ResumeToPDF site and it worked pretty well. Only thing I sort of had pain with was that I had to include SVG icons in-line in the html/javascript and had to convert them to base64 to be included in the PDF. And same thing for the custom fonts - I had to include base64 of the font TTFs to be embedded in the PDF:
+https://resumetopdf.com
+https://github.com/MrRio/jsPDF
+reply
+	
+cies 21 hours ago [–]
+
+Since alternatives are being discussed, Latex needs to be mentioned, it is made for "page layouts" (contrary to HTML+CSS which is made for viewPort layouts (that scroll and need to respond to changing widths)). With Latex one writes the document in Latex, instead of some old version of HTML+CSS with limitations, some additional page break controllers, and some ways to set page numbers etc.
+Many docker containers exist for making Latex (the whole texlive[1] distro) into a service.
+[1]: https://www.tug.org/texlive/doc/texlive-en/texlive-en.pdf
+reply
+	
+SebastianKra 13 hours ago [–]
+
+Much of the appeal of these conversion tools is that they might finally allow us to drop Latex.
+Although HTML/CSS/JS aren't fully viable for print just yet, they're not missing much.
+reply
+	
+hnedeotes 1 day ago [–]
+
+The only thing I don't understand is why browsers doesn't expose an API for this? Or whatever it sends down to the printer menu, since you can already save a page as PDF?
+And the same for bare pictures since the rendering engine has to have drawn all of that to display it?
+Is it something to do with pdf's being Adobe's?
+(I still see the utility of a command line program but just wondering since they have some issues around font-sizing, fonts loaded through the web, etc)
+reply
+	
+abhinav22 23 hours ago [–]
+
+Pdf standard I believe is open now, or at least there is a very, very detailed guide by Adobe (I’ve read parts of it).
+Considering there are competing pdf readers to Adobe, this makes sense
+Browser pdf styling is quite good actually, I just hate the fact it prints date / web titles by default (only user can unselect) and doesn’t work that well with paged media
+I was thinking of building my own project in an adjacent area, so I did a lot of research. PrinceXML is my favourite, although it doesn’t work well as an integration to an app since then you have to share profits with them
+In the end I ditched my project (lol)
+reply
+	
+pluc 21 hours ago [–]
+
+Because the PDF standard is open doesn't mean it's good - that thing is one of the worst mess I've seen.
+reply
+	
+tinus_hn 21 hours ago [–]
+
+Is all of it open? Like the ‘3D models’, the dynamic scripting and the forms?
+reply
+	
+hnedeotes 22 hours ago [–]
+
+> Browser pdf styling is quite good actually
+It is but I remember going through so many hoops to do it, when a "browser.export_pdf()" would have been so handy.
+Does yours live in some repository online?
+reply
+	
+abhinav22 21 hours ago [–]
+
+Unfortunately not, I didn’t accomplish much of value in the end
+reply
+	
+jhoh 22 hours ago [–]
+
+They do. You can use something like puppeteer to use a headless Chrome or Firefox to generate PDFs from HTML for you.
+https://github.com/puppeteer/puppeteer/blob/v5.3.1/docs/api....
+reply
+	
+hnedeotes 22 hours ago [–]
+
+Yeap, I used this, but I had to setup a lambda, then get chrome in it, then use puppeteer. If this was something that you could programatically trigger from JS then you could have a button "Export to PDF" and just make a downloadable blob, because the rendering is pretty good and with css @media for print you can really make it tight.
+reply
+	
+williamsmj 17 hours ago [–]
+
+You don't need to use pupeteer: https://developers.google.com/web/updates/2017/04/headless-c...
+reply
+	
+andix 23 hours ago [–]
+
+I tried once to use Chromium as a library to create PDF. But even they don’t expose a nice C API for that, with all the settings you can make in the UI. Super messy.
+reply
+	
+sdeframond 21 hours ago [–]
+
+I feel like this it is the right time to mention WeasyPrint, an HTML to PDF converter supporting CSS Paged Media.
+It is a CLI tool written in python and quite usable in my experience.
+https://weasyprint.org/
+reply
+	
+jitl 1 day ago [–]
+
+I use Chromium and Puppeteer to automate creation of PDFs. I considered both wkhtlmtopdf and weasyprint but I decided you can’t beat a debugging UI like Chrome’s.
+reply
+	
+racl101 19 hours ago [–]
+
+Chromium and puppeteer is pretty great with the exception of a few scenarios like having header images in a PDF. Such a small thing can turn into a very annoying endeavour.
+reply
+	
+gitowiec 22 hours ago [–]
+
+In our project we use Chromium with puppeteer. The thing is good because it saves our time. Our project generates invoices PDFs. It's written in React so we can send invoice view component directly to PDF printer made of Chromium and puppeteer. Another pro is that puppeteer has a side project "swarm" and which makes it easy to scale when demand is high.
+reply
+	
+jhoh 22 hours ago [–]
+
+After trying many HTML2PDF libraries we're doing the same thing and are quite happy with this approach. I've tried using "professional" solutions like iText pdfHTML[0]. They all seem to be based on flyingsaucer[1] which only supports HTML4 and CSS2, and will fail rendering pages that use modern CSS let alone JavaScript.
+[0]: https://itextpdf.com/en/products/itext-7/convert-html-css-to... [1]: https://github.com/flyingsaucerproject/flyingsaucer
+reply
+	
+makkesk8 22 hours ago [–]
+
+At the company I work for we used chrome headless paired with https://github.com/pagedjs/pagedjs to fill in the gaps and it works very very well.
+reply
+	
+tyingq 18 hours ago [–]
+
+Chrome headless is nice for this:
+  $ google-chrome --headless --disable-gpu --print-to-pdf-no-header http://www.example.com/
+reply
+	
+thangalin 18 hours ago [–]
+
+ConTeXt[1] can render XHTML to PDF[2]. Throw Pandoc[3] into the mix for a powerful command-line document conversion solution. My desktop text editor, KeenWrite[4], will soon have the ability to render Markdown as PDF using ConTeXt by first converting Markdown to XHTML, then rendering XHTML as a PDF; however, KeenWrite doesn't support command-line operation, yet.
+[1]: https://wiki.contextgarden.net/Installation
+[2]: https://dl.contextgarden.net/myway/tas/xhtml.pdf
+[3]: https://pandoc.org/
+[4]: https://github.com/DaveJarvis/keenwrite
+reply
+	
+bni 1 day ago [–]
+
+One interesting problem in this space is how to extract the actual article content from webpages without all the "fluff". PDFs with navigation menus and ads don't look so nice.
+I have been experimenting with Mozillas JavaScript library Readability (Powers Firefox's Reader feature) to convert wikipedia articles to cleaned up text. It works quite nice for everything that works with Reader in Firefox or Safari.
+reply
+	
+abhinav22 23 hours ago [–]
+
+In CSS we can set media settings to hide many items from the print page and also change the styling of content in it. Not many people do it I guess
+reply
+	
+hyakosm 21 hours ago [–]
+
+Wkhtmltopdf is slow, inconsistent between platforms and can lead to leakage of sensitive informations on the server (an iframe pointing to file:///etc/passwd).
+Cf. https://news.ycombinator.com/item?id=17566887
+reply
+	
+cjcampbell 18 hours ago [–]
+
+Won’t debate the other critiques, but one thing I would say for any HTML to PDF solution, is that you need to properly encode or sanitize any dynamic content. As an additional layer of protection, dig into the options for the tool in order to limit the features supported. My recommendation would be to restrict local file support to a pre-determined directory and to disable JavaScript (if possible).
+reply
+	
+aaronbrethorst 1 day ago [–]
+
+I use this via the Ruby gems pdfkit and wkhtmltopdf-heroku in a service I built in Rails. It's been a fantastic, near-bulletproof way to generate attractive, complex PDFs with minimal effort.
+https://github.com/pdfkit/pdfkit
+https://github.com/rposborne/wkhtmltopdf-heroku
+reply
+	
+pmontra 1 day ago [–]
+
+I also use it in that way but not on Heroku. My single largest complaint is that it cuts lines in two at the end of pages, as in
+the top half of this line on page 1, the bottom half on page 2.
+I didn't find a way to CSS out of that. To be fair, my customer never allocated budget to find a solution so that is probably not very important to them in our scenario.
+reply
+	
+tuukkah 1 day ago [–]
+
+Hmm, I've used a wkhtmltopdf-based tool and never hit that issue - perhaps they have a workaround for that.
+reply
+	
+udp 23 hours ago [–]
+
+I once used this with pygmentize as part of a really hacky pipeline to convert code snippets to syntax highlighted PDFs with selectable text:
+    %.pdf: %.*
+        pygmentize -f html -O full $< | wkhtmltopdf -T 0 -B 0 --page-width 210mm --page-height 5000mm --no-background - - > .tmp.pdf
+        pdfcrop .tmp.pdf $@
+        rm -f .tmp.pdf
+reply
+	
+gliderShip 1 day ago [–]
+
+if you want to generate beautifully paginated pdf / printable pages from your html i cannot recommend enough https://www.pagedjs.org/. it supports page numbers, tos, footnotes, dynamic references (see table on page x link ) and a lot of other very cool stuff
+reply
+	
+abhinav22 23 hours ago [–]
+
+Thanks!! This looks super interesting. I couldn’t find any decent solutions except princexml but I will give this a whirl
+The fact that they are achieving it via poly fill sounds like a genius approach!
+reply
+	
+steve_mcdougall 1 day ago [–]
+
+on the paid side of things princexml is literally the best thing i have used, the owner of the company (who wrote the software) actually responds in the forums
+reply
+	
+SigmundA 23 hours ago [–]
+
+Prince is the only browser engine that fully supports the print css standards that I know of. There seems to be little incentive by the browser makers improve printable output so Prince has quite a niche.
+reply
+	
+abhinav22 23 hours ago [–]
+
+Prince is amazing, I’m thinking of buying a license at work soon. All the other solutions have some big flaws and are hard to use
+reply
+	
+ognarb 21 hours ago [–]
+
+Did you try paged.js?
+reply
+	
+abhinav22 19 hours ago [–]
+
+I’m trying it now - didn’t know about it until someone else mentioned it in this thread
+reply
+	
+jbigelow76 15 hours ago [–]
+
+We use pajed.js in conjunction with Arachnys/AthenaPdf [1] for HTML to PDF conversion, its a pretty nice experience.
+1. https://github.com/arachnys/athenapdf
+reply
+	
+abhinav22 14 hours ago [–]
+
+Nice! Will check it out - I was trying to build a electron word processor app that would use html and then convert to pdf, maybe I will start it again with this.
+Can this handle svg or JavaScript libraries like Charts.js? I’ll check the details but if you know off the top of your head :)
+Thanks again for the link
+reply
+	
+Lammy 18 hours ago [–]
+
+I use(d) wkhtmltopdf to implement PDF generation of certain pages in a Jekyll site (e.g. of my CV page) but was never really happy with the output since it was very hard to get it to look like a purpose-built PDF document even with a good print stylesheet. One of these days I'd like to try replacing it with a custom Kramdown converter that invokes HexaPDF: https://hexapdf.gettalong.org/
+reply
+	
+hutrdvnj 1 day ago [–]
+
+You don't need X11 by the way. It's possible to render PDFs with wkhtmltopdf + qt patches without Xorg.[0]
+[0] https://beuke.org/docker-alpine-wkhtmltopdf/
+reply
+	
+ogre_codes 17 hours ago [–]
+
+We used this about 10 years ago and it worked... ok. The problem as some have pointed out already is it’s using a very out-of-date HTML/ JS engine. If you want to turn some HTML reports into PDFs, it’ll do the job.
+But there are ways to do this same thing with Puppeteer which uses a modern version of headless Chrome. It’s pretty straight forward and there are easy to chase down documents on how to do it.
+reply
+	
+kevinhq 22 hours ago [–]
+
+I am just wondering, why its gem (wkhtmltoimage-binary) takes so much disk space? 170MB [0]
+[0] https://imgur.com/xEcZ7sv
+reply
+	
+SigmundA 22 hours ago [–]
+
+Because it is a full headless web browser (older version of Webkit).
+reply
+	
+dsr_ 21 hours ago [–]
+
+Take note: most of these HTML to PDF renderers run a headless browser.
+Does that pose a security concern to you? It might. Are you accepting any data from the outside? Are you requesting anything from the outside world? Does your rendering browser have a place to write any data?
+reply
+	
+cjcampbell 18 hours ago [–]
+
+Mentioned some guidance in a separate thread, but encoding/sanitization of dynamic content is crucial. Also, dig into the options for the tool and disable features that aren’t needed. As an example, wkhtmltopdf enables you to disable local file inclusion except for predetermined locations.
+reply
+	
+noxer 18 hours ago [–]
+
+Sadly this one messes up rendering of many more complex pages. Pages like nyan.cat are good way to test such tool and sadly the output is nothing like the website would render in a modern browser.
+reply
+	
+paulbjensen 23 hours ago [–]
+
+We used Wkhtmltopdf on a project making PDF reports. The challenge we ran into with it was generating PDFs with pixel-precision for content layout, and at the time support for CSS Flexbox. I think eventually we worked out how to do it, but that for us was the tricky bit.
+reply
+	
+sebbeau 1 day ago [–]
+
+We use it too, with an api on top of it https://github.com/acsone/kwkhtmltopdf
+reply
+	
+trenchgun 18 hours ago [–]
+
+Html into pdf? What's the problem with pandoc?
+reply
+	
+lancebeet 17 hours ago [–]
+
+Pandoc converts to pdf via latex the last time I checked. This may be what you want, but it may not be. When I did html to pdf conversion for a larger project, it wasn't what I wanted. Some of the html structure was lost in translation, and a lot of latex defaults were inserted which isn't what I wanted for that project, and overriding them would have been too time-consuming. Weasyprint didn't have these issues (weasyprint produced better results than wkhtmltopdf).
+reply
+	
+rangoon626 1 day ago [–]
+
+I always liked wkhtmltopdf.
+It makes it super easy for front end devs to layout and generate PDFs using tools they already know.
+Can't beat the price either, especially compared to coldfusion or some of the .net libraries out there.
+reply
+	
+subsubsub 20 hours ago [–]
+
+Can anyone recommend a PDF to HTML converter?
+reply
+	
+bob1029 20 hours ago [–]
+
+There is no reasonable way to do this. The only conversion of PDFs that makes sense in the general case is to rasterize them to images of some arbitrary DPI. Then, you could simply insert these images into an HTML document.
+This is more-or-less what we do in our application when we want to present a PDF for review or perform drawing on top of PDFs in contexts where we cannot rely on PDF libraries for whatever reason.
+reply
+	
+racl101 19 hours ago [–]
+
+Both amazing and frustrating software.
+reply
+	
+thrownaway561 1 day ago [–]
+
+i love this project but have found that i have experienced memory leaks where i would have to restart my rails application once a day.
+reply
+	
+pedregal 17 hours ago [–]
+
+This is dope
+reply
+	
+dmje 1 day ago [–]
+
+What's the advantage over print > save as PDF? Asking for a friend.
+reply
+	
+casperb 22 hours ago [–]
+
+There are lots of use cases where you need a PDF document, without letting the user print to PDF it manually. For example sending PDF invoices per email, or generating reports and uploading it to a Dropbox directory.
+reply
+	
+yreg 1 day ago [–]
+
+We use it for a CV portal (think internal linkedin without the social stuff). Advantage for us is in UX (we can have a download PDF button), although I'm not sure it was worth the bother.
+reply
+	
+kimi 1 day ago [–]
+
+That you can script it.
+reply
+	
+atleta 16 hours ago [–]
+
+User experience ("download PDF" link). You may also want to send it in an email. (We do both.)
+reply
+	
+aww_dang 21 hours ago [–]
+
+https://xmlgraphics.apache.org/fop/faq.html#xhtml-to-pdf
+I've been using Apache FOP with some success.
+reply
+
+
+
+
+Guidelines | FAQ | Lists | API | Security | Legal | Apply to YC | Contact
+
+Search:  
 </body>
 
 </html>
