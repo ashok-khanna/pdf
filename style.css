@@ -33,6 +33,9 @@ p {
 
 /* #347dbd #445a75 */
 
+body {
+	counter-reset: pageNumber;
+}
 
 main {
 	page: main-page;
@@ -48,8 +51,10 @@ main {
     content: "My title";
   }
 
+  counter-increment: pageNumber;
+
   @bottom-right {
-        content: counter(page);
+        content: counter(pageNumber);
   }
 
 }
