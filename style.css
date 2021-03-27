@@ -33,34 +33,29 @@ p {
 
 /* #347dbd #445a75 */
 
-body {
-	counter-reset: pageNumber;
-}
-
-main {
-	page: main-page;
-}
 
 @page {
 	size: A4;
 }
 
-@page main-page {
+@page {
 
   @top-right {
     content: "My title";
   }
 
-  counter-increment: pageNumber;
-
   @bottom-right {
-        content: counter(pageNumber);
+        content: counter(page);
   }
 
 }
 
 .page-break {
 	break-after: page;
+}
+
+.counter-reset {
+	counter-reset: page 1;
 }
 
 .cover-page {
