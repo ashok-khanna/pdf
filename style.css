@@ -34,7 +34,7 @@ p {
 /* #347dbd #445a75 */
 
 
-@page:not(cover-page){
+@page main-page {
   size: A4;
 
   @top-right {
