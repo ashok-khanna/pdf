@@ -34,11 +34,15 @@ p {
 /* #347dbd #445a75 */
 
 
- @page {
+@page {
   size: A4;
 
   @top-right {
     content: "My title";
+  }
+
+  @bottom-left {
+        content: counter(page);
   }
 
 }
