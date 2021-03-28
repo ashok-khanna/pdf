@@ -174,7 +174,7 @@ ol, ul a {
     font-weight: bold;
 }
 
-#list-toc-generated .toc-element-level-1:first) {
+.toc-element-level-1:first {
     border-bottom: 0.5px solid black;
     margin-top: 1rem; margin-bottom: 1rem;
     padding-bottom: 0.5rem;
