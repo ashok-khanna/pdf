@@ -143,8 +143,9 @@ ol a {
 }
 
 #list-toc-generated .toc-element-level-1{
-
     font-weight: bold;
+    border-bottom: 0.5px solid black;
+    margin-bottom: 0.5rem; padding-bottom: 0.25rem;
 }
 
 
