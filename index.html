@@ -39,7 +39,10 @@
 		    constructor(chunker, polisher, caller) {
 				super(chunker, polisher, caller);
 		    }
-		    beforeParsed(content){          
+		    beforeParsed(content){
+
+		     const math = document.getElementsByClassName("math") ;
+ 			 MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);          
 			    createToc({
 		    		content: content,
 
@@ -179,9 +182,11 @@ reply
 
 <h2>Math</h2>
 <h3>MathJax Library</h3>
+<div class="math">
 <p>MathJax is a high quality, popular library for rendering Math on the web.</p>
 
 $$ \alpha  = x/y $$
+</div>
 
 <div class="page-break"></div>
 	
