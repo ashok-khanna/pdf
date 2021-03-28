@@ -6,16 +6,9 @@
         flex: 0;
         flex-wrap: wrap;
         margin: 0 auto;
+        border-bottom: solid 1px black;
     }
 
-     .pagedjs_page {
-        background-color: var(--color-paper);
-        box-shadow: 0 0 0 1px var(--color-pageSheet);
-        margin: 0;
-        flex-shrink: 0;
-        flex-grow: 0;
-        margin-top: 10mm;
-    }
 
 
 }
