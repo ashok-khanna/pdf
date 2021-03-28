@@ -22,7 +22,7 @@
 		    		tocElement: '#toc',
 
 
-		    		titleElements: [ 'h2', 'h3' ]
+		    		titleElements: [ 'h2:not(cover-headers)', 'h3:not(cover-headers)' ]
 		    	});
 			}
 		  }
@@ -37,8 +37,8 @@
 
 <div class="cover-page">
 	<h1>Beautiful PDFs from HTML</h1>
-	<h3 class="no-counter">An Example Repo by Ashok Khanna</h3>
-	<h3 class="no-counter">March 2021</h3>
+	<h3 class="no-counter cover-header">An Example Repo by Ashok Khanna</h3>
+	<h3 class="no-counter cover-header">March 2021</h3>
 </div>
 
 <!-- As class "cover-page" uses a custom page rule,
