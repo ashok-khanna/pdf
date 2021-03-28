@@ -40,7 +40,7 @@ h2 { border-bottom: 1px solid black; margin-bottom: 1rem; padding-bottom: 0.5rem
 p {	text-align: justify; }
 body { counter-reset: sectionNumber; }
 h2:not(.no-counter) { counter-increment: sectionNumber; }
-h2:not(.no-counter)::before { content: counter(sectionNumber); }
+h2:not(.no-counter)::before { content: counter(sectionNumber) ". "; }
 
 
 
