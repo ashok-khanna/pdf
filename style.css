@@ -39,12 +39,6 @@ p {
 
 /* #347dbd #445a75 */
 
-
-@page {
-	size: A4;
-}
-
-
 .page-break {
 	break-after: page;
 }
@@ -64,20 +58,22 @@ p {
 }
 
 @page {
+	size: A4;
 
-  @top-right {
-    content: "My title";
-  }
+	@top-right {
+    	content: "My title";
+  	}
 
-  @bottom-left {
+  	@bottom-left {
     	content: element(footerRunning);
+    	width: 40mm;
     }
 
-  @bottom-right {
+  	@bottom-right {
         content: counter(page);
   }
-
 }
+
 
 @page cover-page {
     background-color: #347DBD;
