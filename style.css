@@ -126,7 +126,7 @@ rules, again removing headers/footers but not page numbers */
 
 /* Additional CSS: Advanced Styling for TOC */
 
-ol {
+ol, ul {
 	padding-inline-start: 0px;
 }
 
