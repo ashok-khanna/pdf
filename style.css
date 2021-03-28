@@ -182,7 +182,7 @@ ol a {
 }
 
 /* fake leading */
-#list-toc-generated .toc-element::after{
+#list-toc-generated .toc-element-level-2::after{
     content: 
         ".............................................."
         ".............................................."
