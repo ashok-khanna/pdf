@@ -102,8 +102,17 @@ e.g. adding background color, hiding headers/footers */
 }
 
 
+/* 12. Define a table of content class for custom page
+rules, again removing headers/footers but not page numbers */
+.table-of-contents { page: table-of-contents; }
 
-/* 12. Advanced Styling for TOC */
+@page table-of-contents {
+	@top-right { content: none; }
+	@bottom-left { content: none; }
+}
+
+
+/* Additional CSS: Advanced Styling for TOC */
 
 /* set the style for the list numbering to none */
 #list-toc-generated{ list-style: none;}
