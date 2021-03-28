@@ -126,8 +126,12 @@ rules, again removing headers/footers but not page numbers */
 
 /* Additional CSS: Advanced Styling for TOC */
 
+li {
+	margin-left: 0px;
+}
+
 /* set the style for the list numbering to none */
-#list-toc-generated{ list-style: none;}
+#list-toc-generated{ list-style: none; }
 
 #list-toc-generated .toc-element a::after{
     content: " p. " target-counter(attr(href), page);
@@ -135,8 +139,14 @@ rules, again removing headers/footers but not page numbers */
 }
 
 #list-toc-generated .toc-element-level-1{
+
     font-weight: bold;
 }
+
+#list-toc-generated .toc-element-level-2{
+    margin-left: 5px;
+}
+
 
 
 /* counters */
