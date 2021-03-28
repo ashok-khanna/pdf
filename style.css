@@ -138,7 +138,7 @@ ol a {
 #list-toc-generated{ list-style: none; }
 
 #list-toc-generated .toc-element a::after{
-    content: " p. " target-counter(attr(href), page);
+    content: target-counter(attr(href), page);
     float: right;
 }
 
