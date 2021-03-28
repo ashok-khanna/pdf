@@ -33,8 +33,14 @@
 html {
 	font-family: 'Roboto', sans-serif;
 }
+
 p {
 	text-align: justify;
+}
+
+h2 {
+	string-set: subtitle content(text);
+	break-before: page;
 }
 
 /* #347dbd #445a75 */
@@ -61,7 +67,7 @@ p {
 	size: A4;
 
 	@top-right {
-    	content: "My title";
+    	content: string(subtitle);
   	}
 
   	@bottom-left {
