@@ -2,7 +2,7 @@
 
 	 .pagedjs_pages {
         display: flex;
-        width: calc(var(--pagedjs-width) * 4);
+        width: calc(var(--pagedjs-width));
         flex: 0;
         flex-wrap: wrap;
         margin: 0 auto;
