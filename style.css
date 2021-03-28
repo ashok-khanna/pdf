@@ -53,6 +53,20 @@ preference, below is not required for producing pdfs) */
 	font-weight: normal;
 }
 
+
+@font-face {
+	font-family: 'Roboto Monospace';
+	src: url('fonts/RobotoMono-Light.ttf') format('truetype');
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Roboto Monospace';
+	src: url('fonts/RobotoMono-Bold.ttf') format('truetype');
+	font-weight: bold;
+}
+
+
 /* 2. Some generic styling (again for my own personal
 preference, below is not required for producing pdfs) */
 html { font-family: 'Roboto', sans-serif; font-size: 100%;}
@@ -67,6 +81,11 @@ h2:not(.no-counter)::before {
 }
 h3:not(.no-counter) { counter-increment: subsectionNumber; }
 h3:not(.no-counter)::before { content: counter(sectionNumber) "." counter(subsectionNumber) " "; }
+
+code {
+	background-color: lightgray;
+	font-family: 'Roboto Monospace', monospace;
+}
 
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
 
