@@ -39,8 +39,12 @@ p {
 }
 
 h2 {
-	string-set: subtitle content(text);
+	string-set: section content(text);
 	break-before: page;
+}
+
+h3 {
+	string-set: subsection content(text);
 }
 
 /* #347dbd #445a75 */
@@ -67,7 +71,7 @@ h2 {
 	size: A4;
 
 	@top-right {
-    	content: string(subtitle);
+    	content: string(section) " - " string(subsection);
   	}
 
   	@bottom-left {
