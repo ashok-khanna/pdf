@@ -137,7 +137,7 @@ e.g. adding background color, hiding headers/footers */
 
 /* 12. Define a table of content class for custom page
 rules, again removing headers/footers but not page numbers */
-.table-of-contents { page: table-of-contents; }
+.table-of-contents { page: table-of-contents; background-color: lightgray; }
 
 .toc-header { margin-bottom: 1rem; border-bottom: 0px; }
 
