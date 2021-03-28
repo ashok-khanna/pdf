@@ -45,7 +45,7 @@ h2:not(.no-counter)::before {
 	counter-reset: subsectionNumber;
 }
 h3:not(.no-counter) { counter-increment: subsectionNumber; }
-h3:not(.no-counter)::before { content: counter(subsectionNumber) ". "; }
+h3:not(.no-counter)::before { content: counter(sectionNumber) "." counter(subsectionNumber) " "; }
 
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
 
