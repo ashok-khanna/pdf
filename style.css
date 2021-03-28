@@ -82,7 +82,7 @@ h2:not(.no-counter)::before {
 h3:not(.no-counter) { counter-increment: subsectionNumber; }
 h3:not(.no-counter)::before { content: counter(sectionNumber) "." counter(subsectionNumber) " "; }
 
-code {
+pre {
 	background-color: lightgray;
 	font-family: 'Roboto Monospace', monospace;
 	padding: 0.5rem;
