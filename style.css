@@ -135,14 +135,8 @@ rules, again removing headers/footers but not page numbers */
 }
 
 #list-toc-generated .toc-element-level-1{
-    margin-top: 25px;
     font-weight: bold;
 }
-
-#list-toc-generated .toc-element-level-2{
-    margin-left: 25px;
-}
-
 
 
 /* counters */
