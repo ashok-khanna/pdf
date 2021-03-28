@@ -1,8 +1,10 @@
 @media screen {
 
 	 .pagedjs_pages {
-        display: block;
-        width: calc(var(--pagedjs-width) * 2);
+        display: flex;
+        width: calc(var(--pagedjs-width) * 4);
+        flex: 0;
+        flex-wrap: wrap;
         margin: 0 auto;
     }
 
