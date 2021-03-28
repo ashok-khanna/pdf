@@ -1,7 +1,27 @@
 <html>
 <head>
-	
+	<script src="toc.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script>
+		// TOC Script
+
+		class handlers extends Paged.Handler {
+		    constructor(chunker, polisher, caller) {
+		      super(chunker, polisher, caller);
+		    }
+
+		    beforeParsed(content){          
+		      createToc({
+		        content: content,
+		        tocElement: '#my-toc-content',
+		        titleElements: [ '.mw-content-ltr h2', 'h3' ]
+		      });
+		    }
+		    
+		  }
+		  
+		  Paged.registerHandlers(handlers);
+	</script>
 	<script src="paged.polyfill.js"></script>
 	<title>jason</title>
 </head>
