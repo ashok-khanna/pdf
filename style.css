@@ -126,8 +126,8 @@ rules, again removing headers/footers but not page numbers */
 
 /* Additional CSS: Advanced Styling for TOC */
 
-li {
-	margin-left: 0px;
+ol {
+	padding-inline-start: 0px;
 }
 
 /* set the style for the list numbering to none */
