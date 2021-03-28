@@ -130,6 +130,10 @@ ol, ul {
 	padding-inline-start: 0px;
 }
 
+ol a {
+	text-decoration: none;
+}
+
 /* set the style for the list numbering to none */
 #list-toc-generated{ list-style: none; }
 
