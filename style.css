@@ -85,6 +85,7 @@ h3:not(.no-counter)::before { content: counter(sectionNumber) "." counter(subsec
 code {
 	background-color: lightgray;
 	font-family: 'Roboto Monospace', monospace;
+	padding: 0.5rem;
 }
 
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
