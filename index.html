@@ -17,7 +17,11 @@
 		    beforeParsed(content){          
 			    createToc({
 		    		content: content,
+
+		    		// TOC inserted into element with id toc (refer below HTML):
 		    		tocElement: '#toc',
+
+		    		
 		    		titleElements: [ '.mw-content-ltr h2', 'h3' ]
 		    	});
 			}
