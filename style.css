@@ -192,8 +192,9 @@ ol, ul a {
     padding-right: 5px;
 }
 
-#list-toc-generated .toc-element-level-2{ 
-    counter-increment: counterTocLevel2; 
+#list-toc-generated .toc-element-level-2 { 
+    counter-increment: counterTocLevel2;
+    margin-bottom: 0.5rem;
 }
 
 #list-toc-generated .toc-element-level-2::before{ 
