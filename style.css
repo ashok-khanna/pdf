@@ -157,7 +157,6 @@ ol, ul a {
 
 .toc-element-level-1 a {
 	color: black;
-	font-weight: bold;
 }
 
 /* set the style for the list numbering to none */
@@ -170,7 +169,8 @@ ol, ul a {
 
 #list-toc-generated .toc-element-level-1 {
     border-bottom: 0.5px solid black;
-    margin-bottom: 0.5rem; padding-bottom: 0.25rem;
+    margin-bottom: 1rem; padding-bottom: 0.5rem;
+    font-weight: bold;
 }
 
 
