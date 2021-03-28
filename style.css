@@ -130,8 +130,12 @@ ol, ul {
 	padding-inline-start: 0px;
 }
 
-ol a {
+ol, ul a {
 	text-decoration: none;
+}
+
+.toc-element-level-1 a {
+	color: black;
 }
 
 /* set the style for the list numbering to none */
