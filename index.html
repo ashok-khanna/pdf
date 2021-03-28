@@ -40,10 +40,7 @@
 				super(chunker, polisher, caller);
 		    }
 		    beforeParsed(content){
-
-		     const math = document.getElementsByClassName("math");
-		     console.log(math);
- 			 MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);          
+        
 			    createToc({
 		    		content: content,
 
@@ -181,7 +178,11 @@ reply
 </div>
 
 <div class="page-break"></div>
-	
+<script>
+	const math = document.getElementsByClassName("math");
+	console.log(math);
+ 	MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);  
+</script>
 </body>
 
 </html>
