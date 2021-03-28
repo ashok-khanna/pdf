@@ -41,7 +41,8 @@
 		    }
 		    beforeParsed(content){
 
-		     const math = document.getElementsByClassName("math") ;
+		     const math = document.getElementsByClassName("math");
+		     console.log(math);
  			 MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);          
 			    createToc({
 		    		content: content,
@@ -180,7 +181,7 @@ reply
 <h3>asdf</h3>
 
 
-<h2>Math</h2>
+<h2>Rendering Math</h2>
 <h3>MathJax Library</h3>
 <div class="math">
 <p>MathJax is a high quality, popular library for rendering Math on the web.</p>
