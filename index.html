@@ -67,25 +67,10 @@
 <p>This guide provides a basic tutorial to using paged.js, for my own future reference and yours, and I highly recommend you visiting their site and supporting their project. In particular, their <a href="https://www.pagedjs.org/documentation/05-designing-for-print/">documentation</a> covers many aspects of advanced paged media and is a worthwhile next step after reading this guide.</p>
 
 <h2>Getting Started</h2>
-
 <h3>Media Queries</h3>
-<p>SigmundA 23 hours ago [–]
-
-Wkhtmltopdf is based on QtWebkit which is long deprecated. There was work to move it QtWebEngine but doesn't seem to be going anywhere: https://wkhtmltopdf.org/status.html
-In the meantime Chrome added headless support and with command line or puppeteer you can do the same thing with a much newer and more secure engine.
-However if you need full CSS-Paged support then PrinceXML is probably your only option and its not cheap: https://www.princexml.com
-reply
-	
-ognarb 21 hours ago [–]
-
-Instead of princexml, there is an open source alternative: https://www.pagedjs.org/. I saw a demo in 2019 at the libregraphicsmeeting and it was really nice and worked well for most browser already. It probably improved since then.
-reply
-	
-blowski 23 hours ago [–]
-
-Despite have a deprecated dependency, is there any issue using wkhtmltopdf? I'm running it in quite a few projects to generate letters and invoices, and not experiencing any issues.
-reply
-	</p>
+<p>Before we begin, I want to quickly introduce you to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a>. Media queries allow us to modify the stylesheet associated with our website depending on whether it is viewed on screen or for print (e.g. when printing to pdf or paper)  and allow us to set different style sheets for print, screen and mobile.</p>
+<p>
+For example, if you want your print stylesheets to only take effect when the page is printed, and have a different set of stylesheets for normal web viewing, you could do something like the following:</p>
 	<h3>Hello test</h3>
 
 	<p>SigmundA 23 hours ago [–]
