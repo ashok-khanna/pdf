@@ -198,7 +198,7 @@ ol, ul a {
 }
 
 #list-toc-generated .toc-element-level-2::before{ 
-    content: counter(counterTocLevel1) ". " counter(counterTocLevel2) ". ";
+    content: counter(counterTocLevel1) "." counter(counterTocLevel2) " ";
     padding-right: 5px;
 }
 
