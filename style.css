@@ -1,8 +1,13 @@
 @media screen {
-	body {
-		max-width: 960px;
-		margin: 0 auto;
-	}
+
+	 .pagedjs_pages {
+        display: flex;
+        width: calc(var(--pagedjs-width) * 2);
+        flex: 0;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+
 }
 
 /* 1. Some Font Definitons (just for my own personal
