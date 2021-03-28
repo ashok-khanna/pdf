@@ -139,7 +139,7 @@ e.g. adding background color, hiding headers/footers */
 rules, again removing headers/footers but not page numbers */
 .table-of-contents { page: table-of-contents; }
 
-.toc-header { margin-bottom: 1rem; border-bottom: 0px; }
+.toc-header { margin-bottom: 1rem; border-bottom: 0.25rem solid black; }
 
 @page table-of-contents {
 	@top-right { content: none; }
