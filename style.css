@@ -139,6 +139,8 @@ e.g. adding background color, hiding headers/footers */
 rules, again removing headers/footers but not page numbers */
 .table-of-contents { page: table-of-contents; }
 
+.toc-header { margin-bottom: 1rem; }
+
 @page table-of-contents {
 	@top-right { content: none; }
 	@bottom-left { content: none; }
@@ -167,16 +169,9 @@ ol, ul a {
     float: right;
 }
 
-#list-toc-generated .toc-element-level-1:not(:first) {
+#list-toc-generated .toc-element-level-1 {
     border-bottom: 0.5px solid black;
     margin-top: 2rem; margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-.toc-element-level-1:first {
-    border-bottom: 0.5px solid black;
-    margin-top: 1rem; margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     font-weight: bold;
 }
