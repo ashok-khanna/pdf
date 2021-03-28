@@ -55,15 +55,8 @@ preference, below is not required for producing pdfs) */
 
 
 @font-face {
-	font-family: 'Roboto Monospace';
-	src: url('fonts/RobotoMono-Light.ttf') format('truetype');
-	font-weight: normal;
-}
-
-@font-face {
-	font-family: 'Roboto Monospace';
-	src: url('fonts/RobotoMono-Bold.ttf') format('truetype');
-	font-weight: bold;
+	font-family: 'Hosted Courier';
+	src: url('fonts/Courier.ttf') format('truetype');
 }
 
 
@@ -84,7 +77,7 @@ h3:not(.no-counter)::before { content: counter(sectionNumber) "." counter(subsec
 
 pre {
 	background-color: #f0f0f0;
-	font-family: Courier, monospace;
+	font-family: 'Hosted Courier', monospace;
 	padding: 1rem;
 	font-size: smaller;
 }
