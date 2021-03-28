@@ -1,3 +1,10 @@
+@media screen {
+	body {
+		max-width: 960px;
+		margin: 0 auto;
+	}
+}
+
 /* 1. Some Font Definitons (just for my own personal
 preference, below is not required for producing pdfs) */
 @font-face {
