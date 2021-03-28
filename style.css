@@ -10,9 +10,9 @@
     }
 
     .pagedjs_page {
-        margin-top: 10mm;
-        margin-bottom: 10mm;
-        border-bottom: solid 1px black;
+        margin: 10mm;
+        margin: 10mm;
+        border: solid 1px gray;
     }
 
 
