@@ -1,3 +1,5 @@
+/* 1. Some Font Definitons (just for my own personal
+preference, below is not required for producing pdfs) */
 @font-face {
 	font-family: 'Roboto';
 	src: url('fonts/Roboto-Light.ttf') format('truetype');
@@ -30,89 +32,73 @@
 	font-weight: normal;
 }
 
-html {
-	font-family: 'Roboto', sans-serif;
-}
+/* 2. Some generic styling (again for my own personal
+preference, below is not required for producing pdfs) */
+html { font-family: 'Roboto', sans-serif; }
+h1 { border-bottom: 1px solid black; margin-bottom: 1rem; }
+p {	text-align: justify; }
 
-p {
-	text-align: justify;
-}
 
-h2 {
-	string-set: section content(text);
-	break-before: page;
-}
+/* Personal note: #347dbd & #445a75 for blue and dark blue colors */
 
-h3 {
-	string-set: subsection content(text);
-}
+/* 3. Setting our page size to A4 */
+@page { size: A4; }
 
-/* #347dbd #445a75 */
 
-.page-break {
-	break-after: page;
-}
+/* 4. Define page break class to allow us to manually page
+break whenever we want by inserting a div of this class */
+.page-break { break-after: page; }
 
+
+/* 5. Defining our styled footer element */
 .footer {
 	position: running(footerRunning);
-	font-family: 'Roboto Thin';
-	color: gray;
+	font-family: 'Roboto Thin';	color: gray;
 }
 
-.counter-reset {
-	counter-reset: page 1;
-}
-
-.cover-page {
-	page: cover-page;
-}
-
+/* 6. Adding our footer to the page rules */
 @page {
-	size: A4;
-
-	@top-right {
-    	content: string(section) " - " string(subsection);
-  	}
-
-  	@bottom-left {
+	@bottom-left {
     	content: element(footerRunning);
     	width: 40mm;
     }
-
-  	@bottom-right {
-        content: counter(page);
-  }
 }
 
+/* 7. Adding string-set to our <h2> and <h3> tags. We
+also force a page break before every <h2> tag */
+h2 { string-set: section content(text);	break-before: page; }
+h3 { string-set: subsection content(text); }
 
-@page cover-page {
-    background-color: #347DBD;
-    color: white;
-    
-    @top-right-corner {
-         content: none;
-    }
-    @top-right {
-        content: none;
-    }
-    @top-left-corner {
-         content: none;
-    }
-    @top-left {
-        content: none;
-    }
-
-	@bottom-left {
-		content: none;
-	}
-
-    @bottom-right {
-        content: none;
+/* 8. Adding our dynamic header to the page rules */
+@page {
+	@top-right {
+    	content: string(section) " - " string(subsection);
   	}
 }
 
+/* 9. Add page numbers to the page rules */
+@page {
+  	@bottom-right { content: counter(page); }
+}
 
-/* Advanced Styling for TOC */
+/* 10. Define a counter rest class to reset page numbers
+when we want to (e.g. after cover page) */
+.counter-reset { counter-reset: page 1; }
+
+/* 11. Define a cover page class for custom page rules,
+e.g. adding background color, hiding headers/footers */
+.cover-page { page: cover-page; }
+
+@page cover-page {
+    background-color: #347DBD; color: white;
+    @top-right { content: none; }
+    @bottom-left { content: none; }
+    @bottom-right { content: none; }
+}
+
+
+
+/* 12. Advanced Styling for TOC */
 
 /* set the style for the list numbering to none */
 #list-toc-generated{ list-style: none;}
@@ -135,7 +121,7 @@ h3 {
 
 /* counters */
 
-#list-toc-generated{ 
+#list-toc-generated {  
     counter-reset: counterTocLevel1; 
 }
 
