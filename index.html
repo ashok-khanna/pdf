@@ -29,8 +29,7 @@
 <body>
 
 
-<!-- We use the "cover-page" class for our cover page
-	Refer style.css for its style rules -->
+<!-- Cover Page (refer .cover-page in style.css) -->
 
 <div class="cover-page">
 	<h1>Beautiful PDFs from HTML</h1>
@@ -38,8 +37,18 @@
 	<h3>March 2021</h3>
 </div>
 
-<ul id="toc">
-</ul>
+<!-- As class "cover-page" uses a custom page rule,
+	it will automatically create a page break after it -->
+
+<!-- Table of Contents (refer .table-of-contents in style.css) -->
+
+<div class="table-of-contents">
+	<h1>Table of Contents</h1>
+	<ol id="toc"><!-- Our toc.js script will automatically insert
+		the table of content entries into this element --></ol>
+</div>
+
+
 
 <!-- Place after cover page to avoid incorrect generation of footer
 	on page before cover page -->
