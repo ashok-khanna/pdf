@@ -1,6 +1,31 @@
 <html>
 <head>
 	<title>Beautiful PDFs from HTML</title>
+
+ 	<!-- MathJax Configuration Settings -->
+	  <script>
+	  window.MathJax = {
+	    loader: { load: ['[tex]/ams'] },
+	    tex: { packages: {'[+]': ['ams']} },
+	    "fast-preview": { disabled: true },
+	    extensions: ["tex2jax.js", "asciimath2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noErrors.js"],
+	    jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"],
+	    displayAlign: "left",
+	    tex2jax: {
+	      inlineMath: [ ["\\(","\\)"] ],
+	      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+	      processEscapes: true
+	    }, 
+	    asciimath2jax: { delimiters: [['`','`']], preview: [""]},
+	    "HTML-CSS": { fonts: ["STIX"] }
+	  }
+	  </script>
+  
+  <!-- Load MathJax for rendering Math. Configuration settings are above
+    Note we use MathJax 2.7.7 and not the latest because we want to customise our font to STIX -->
+  <script type="text/javascript" sync src="MathJax-2.7.7/MathJax.js"></script>
+
+
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="toc.js"></script>
 	<script src="paged.polyfill.js"></script>
