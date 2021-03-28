@@ -4,28 +4,26 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="toc.js"></script>
 	<script src="paged.polyfill.js"></script>
+	<!-- The table of contents needs to be generated before paged.js
+		fragments the content into pages. Therfore, you need to register
+		the handler beforeParsed() and call the table of contents script
+		inside. The below code therefore needs to be added after loading
+		the paged.js library -->
 	<script>
-		// TOC Script
-
 		class handlers extends Paged.Handler {
 		    constructor(chunker, polisher, caller) {
-		      super(chunker, polisher, caller);
+				super(chunker, polisher, caller);
 		    }
-
 		    beforeParsed(content){          
-		      createToc({
-		        content: content,
-		        tocElement: '#toc',
-		        titleElements: [ '.mw-content-ltr h2', 'h3' ]
-		      });
-		    }
-		    
+			    createToc({
+		    		content: content,
+		    		tocElement: '#toc',
+		    		titleElements: [ '.mw-content-ltr h2', 'h3' ]
+		    	});
+			}
 		  }
-
 		  Paged.registerHandlers(handlers);
 	</script>
-
-	<title>jason</title>
 </head>
 
 <body>
