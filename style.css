@@ -61,7 +61,7 @@ break whenever we want by inserting a div of this class */
 @page {
 	@bottom-left {
     	content: element(footerRunning);
-    	width: 40mm;
+    	width: 80mm;
     }
 }
 
