@@ -55,10 +55,10 @@ preference, below is not required for producing pdfs) */
 
 /* 2. Some generic styling (again for my own personal
 preference, below is not required for producing pdfs) */
-html { font-family: 'Roboto', sans-serif; }
+html { font-family: 'Roboto', sans-serif; font-size: 100%;}
 h1 { border-bottom: 1px solid black; margin-bottom: 2rem; padding-bottom: 1rem; }
 h2 { border-bottom: 1px solid black; margin-bottom: 1rem; padding-bottom: 0.5rem; }
-p {	text-align: justify; line-height: 1.125rem;}
+p {	text-align: justify; line-height: 1.4rem;}
 a { color: #347dbd; }
 body { counter-reset: sectionNumber; counter-reset: subsectionNumber;}
 h2:not(.no-counter) { counter-increment: sectionNumber; counter-reset: subsectionNumber; }
