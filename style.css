@@ -155,7 +155,7 @@ ol, ul a {
 	text-decoration: none;
 }
 
-.toc-element-level-1 a {
+.toc-element-level-1 a, .toc-element-level-2 a {
 	color: black;
 }
 
@@ -167,13 +167,19 @@ ol, ul a {
     float: right;
 }
 
-#list-toc-generated .toc-element-level-1 {
+#list-toc-generated .toc-element-level-1:not(:first) {
     border-bottom: 0.5px solid black;
     margin-top: 2rem; margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     font-weight: bold;
 }
 
+#list-toc-generated .toc-element-level-1:first) {
+    border-bottom: 0.5px solid black;
+    margin-top: 1rem; margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    font-weight: bold;
+}
 
 /* counters */
 
