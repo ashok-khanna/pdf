@@ -89,6 +89,10 @@ when we want to (e.g. after cover page) */
 e.g. adding background color, hiding headers/footers */
 .cover-page { page: cover-page; }
 
+.cover-page h1 {
+	h1 { border-bottom: 1px solid white;
+}
+
 @page cover-page {
     background-color: #347DBD; color: white;
     @top-right { content: none; }
