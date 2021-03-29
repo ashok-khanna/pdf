@@ -82,6 +82,9 @@ pre {
 	font-size: smaller;
 }
 
+ 
+figcaption { caption-side: top; } 
+
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
 
 /* 3. Setting our page size to A4 */
