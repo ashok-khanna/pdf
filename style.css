@@ -56,7 +56,7 @@ preference, below is not required for producing pdfs) */
 
 @font-face {
 	font-family: 'Hosted Courier';
-	src: url('fonts/Courier.ttf') format('truetype');
+	src: url('fonts/RobotoMono-Regular.ttf') format('truetype');
 }
 
 
