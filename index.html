@@ -112,66 +112,57 @@
 <p>For the rest of this guide and the example repo, we will not make use of media queries. But please do remember them and use them liberally to create distinct views for screen, print and mobile based on your requirements. They are a central component of <a href="https://en.wikipedia.org/wiki/Responsive_web_design">responsive web design</a>, a topic we could dedicate an entire book to, but one that is not as relevant for pdf generation (as we know exactly in advance the dimensions our content will be viewed in).</p>
 	<h3>Hello test</h3>
 
-	<p>SigmundA 23 hours ago [–]
 
-Wkhtmltopdf is based on QtWebkit which is long deprecated. There was work to move it QtWebEngine but doesn't seem to be going anywhere: https://wkhtmltopdf.org/status.html
-In the meantime Chrome added headless support and with command line or puppeteer you can do the same thing with a much newer and more secure engine.
-However if you need full CSS-Paged support then PrinceXML is probably your only option and its not cheap: https://www.princexml.com
-reply
-	
-ognarb 21 hours ago [–]
-
-Instead of princexml, there is an open source alternative: https://www.pagedjs.org/. I saw a demo in 2019 at the libregraphicsmeeting and it was really nice and worked well for most browser already. It probably improved since then.
-reply
-	
-blowski 23 hours ago [–]
-
-Despite have a deprecated dependency, is there any issue using wkhtmltopdf? I'm running it in quite a few projects to generate letters and invoices, and not experiencing any issues.
-reply
-	SigmundA 23 hours ago [–]
-
-Wkhtmltopdf is based on QtWebkit which is long deprecated. There was work to move it QtWebEngine but doesn't seem to be going anywhere: https://wkhtmltopdf.org/status.html
-In the meantime Chrome added headless support and with command line or puppeteer you can do the same thing with a much newer and more secure engine.
-However if you need full CSS-Paged support then PrinceXML is probably your only option and its not cheap: https://www.princexml.com
-reply
-	
-ognarb 21 hours ago [–]
-
-Instead of princexml, there is an open source alternative: https://www.pagedjs.org/. I saw a demo in 2019 at the libregraphicsmeeting and it was really nice and worked well for most browser already. It probably improved since then.
-reply
-	
-blowski 23 hours ago [–]
-
-Despite have a deprecated dependency, is there any issue using wkhtmltopdf? I'm running it in quite a few projects to generate letters and invoices, and not experiencing any issues.
-reply
-	SigmundA 23 hours ago [–]
-
-Wkhtmltopdf is based on QtWebkit which is long deprecated. There was work to move it QtWebEngine but doesn't seem to be going anywhere: https://wkhtmltopdf.org/status.html
-In the meantime Chrome added headless support and with command line or puppeteer you can do the same thing with a much newer and more secure engine.
-However if you need full CSS-Paged support then PrinceXML is probably your only option and its not cheap: https://www.princexml.com
-reply
-	
-ognarb 21 hours ago [–]
-
-Instead of princexml, there is an open source alternative: https://www.pagedjs.org/. I saw a demo in 2019 at the libregraphicsmeeting and it was really nice and worked well for most browser already. It probably improved since then.
-reply
-	
-blowski 23 hours ago [–]
-
-Despite have a deprecated dependency, is there any issue using wkhtmltopdf? I'm running it in quite a few projects to generate letters and invoices, and not experiencing any issues.
-reply
-	SigmundA 23 hours ago [–]
-
-Wkhtmltopdf is based on QtWebkit which is long deprecated. There was work to move it QtWebEngine but doesn't seem to be going anywhere: https://wkhtmltopdf.org/status.html
-In the meantime Chrome added headless support and with command line or puppeteer you can do the same thing with a much newer and more secure engine.
-However if you need full CSS-Paged support then PrinceXML is probably your only option and its not cheap: https://www.princexml.com
-replyfew projects to generate letters and invoices, and not experiencing any issues.
-reply
-	</p>
 
 <h2>test</h2>
 <h3>asdf</h3>
 
+<h2>Advanced Features</h2>
+<h3>Automatic Counters</h3>
+<p>One useful feature is to automatically number sections, subsections and figures. We can achieve this with plain CSS. First, let's define the class <mark>no-counter</mark> as a general class to exclude a section or figure from the numbering. Subsequently we can generate the counters as follows, noting that the subsection and figure counters reset at every new instance of a section.</p>
+
+<figure>
+	<figcaption>CSS to Generate Counters</figcaption>
+  <code><pre>
+body {
+	counter-reset: sectionNumber;
+	counter-reset: subsectionNumber;
+	counter-reset: figureNumber; }
+
+h2:not(.no-counter) {
+	counter-increment: sectionNumber;
+	counter-reset: subsectionNumber;
+	counter-reset: figureNumber; 
+}
+
+h3:not(.no-counter) {
+	counter-increment: subsectionNumber;
+}
+
+figure:not(.no-counter) {
+	counter-increment: figureNumber;
+}
+</pre></code>
+</figure>
+
+<p>We then take this one step further and use CSS to automatically generate text labels to reflect the counter numbers within our sections and figures.</p>
+
+<figure>
+	<figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+  <code><pre>
+h2:not(.no-counter)::before {
+	content: counter(sectionNumber) ". ";
+}
+
+h3:not(.no-counter)::before {
+	content: counter(sectionNumber) "." counter(subsectionNumber) " ";
+}
+
+figcaption:not(.no-counter)::before {
+	content: counter(sectionNumber) "." counter(figureNumber) " ";
+}
+</pre></code>
+</figure>
 
 <h2>Rendering Math</h2>
 <h3>MathJax Library</h3>

@@ -76,13 +76,36 @@ p {	text-align: justify; line-height: 1.4rem;}
 a { color: #347dbd; text-decoration: none; }
 a:hover { color: #FC814A; }
 
-body { counter-reset: sectionNumber; counter-reset: subsectionNumber;}
-h2:not(.no-counter) { counter-increment: sectionNumber; counter-reset: subsectionNumber; }
+body {
+	counter-reset: sectionNumber;
+	counter-reset: subsectionNumber;
+	counter-reset: figureNumber; }
+
+h2:not(.no-counter) {
+	counter-increment: sectionNumber;
+	counter-reset: subsectionNumber;
+	counter-reset: figureNumber; 
+}
+
+h3:not(.no-counter) {
+	counter-increment: subsectionNumber;
+}
+
+figure:not(.no-counter) {
+	counter-increment: figureNumber;
+}
+
 h2:not(.no-counter)::before {
 	content: counter(sectionNumber) ". ";
 }
-h3:not(.no-counter) { counter-increment: subsectionNumber; }
-h3:not(.no-counter)::before { content: counter(sectionNumber) "." counter(subsectionNumber) " "; }
+
+h3:not(.no-counter)::before {
+	content: counter(sectionNumber) "." counter(subsectionNumber) " ";
+}
+
+figcaption:not(.no-counter)::before {
+	content: counter(sectionNumber) "." counter(figureNumber) " ";
+}
 
 pre {
 	background-color: #f0f0f0;
