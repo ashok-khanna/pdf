@@ -83,7 +83,7 @@ pre {
 }
 
  
-figcaption { caption-side: top; } 
+figcaption { caption-side: top; font-size: smaller; } 
 
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
 
