@@ -56,14 +56,14 @@ preference, below is not required for producing pdfs) */
 
 @font-face {
 	font-family: 'Custom Mono';
-	src: url('fonts/RobotoMono-Medium.ttf') format('truetype');
+	src: url('fonts/RobotoMono-Regular.ttf') format('truetype');
 	font-weight: bold;
 }
 
 
 @font-face {
 	font-family: 'Custom Mono';
-	src: url('fonts/RobotoMono-Regular.ttf') format('truetype');
+	src: url('fonts/RobotoMono-Medium.ttf') format('truetype');
 	font-weight: normal;
 }
 
@@ -73,7 +73,7 @@ html { font-family: 'Roboto', sans-serif; font-size: 100%;}
 h1 { border-bottom: 1px solid black; margin-bottom: 2rem; padding-bottom: 1rem; }
 h2 { border-bottom: 1px solid black; margin-bottom: 1rem; padding-bottom: 0.5rem; }
 p {	text-align: justify; line-height: 1.4rem;}
-a { color: #347dbd; }
+a { color: #347dbd; text-decoration: none; font-weight: bold; }
 body { counter-reset: sectionNumber; counter-reset: subsectionNumber;}
 h2:not(.no-counter) { counter-increment: sectionNumber; counter-reset: subsectionNumber; }
 h2:not(.no-counter)::before {
