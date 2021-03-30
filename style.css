@@ -55,8 +55,8 @@ preference, below is not required for producing pdfs) */
 
 
 @font-face {
-	font-family: 'Hosted Courier';
-	src: url('fonts/RobotoMono-Regular.ttf') format('truetype');
+	font-family: 'Custom Mono';
+	src: url('fonts/RobotoMono-Light.ttf') format('truetype');
 }
 
 
@@ -77,13 +77,13 @@ h3:not(.no-counter)::before { content: counter(sectionNumber) "." counter(subsec
 
 pre {
 	background-color: #f0f0f0;
-	font-family: 'Hosted Courier', monospace;
+	font-family: 'Custom Mono', monospace;
 	padding: 1rem;
 	font-size: smaller;
 }
 
- 
-figcaption { caption-side: top; font-size: smaller; } 
+fig { margin-top: 2rem; }
+figcaption { caption-side: top; font-size: smaller; font-family: 'Custom Mono', monospace; } 
 
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
 
