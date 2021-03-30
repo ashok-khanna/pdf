@@ -114,8 +114,27 @@
 
 
 
-<h2>test</h2>
-<h3>asdf</h3>
+<h2>Basic Features</h2>
+<h3>Page Breaks</h3>
+<p>By default, Paged.js will determine how much content fills up a page and then insert page breaks at the overflow points. We can manually insert page breaks by creating a <mark>page-break</mark> class and setting its <mark>break-after</mark> property to <mark>page</mark>.</p>
+
+<figure>
+	<figcaption>CSS to Create Page Break Class</figcaption>
+  <code><pre>
+.page-break {
+	break-after: page;
+}
+</pre></code>
+</figure>
+
+<p>We then simply have to add an empty page-break div in HTML at the points we want a page break.</p>
+
+<figure>
+	<figcaption>HTML to insert page breaks</figcaption>
+  <code><pre>
+&lt;div class="page-break"&gt;&lt;/div&gt;
+</pre></code>
+</figure>
 
 <h2>Advanced Features</h2>
 <h3>Automatic Counters</h3>
