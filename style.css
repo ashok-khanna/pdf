@@ -63,7 +63,7 @@ preference, below is not required for producing pdfs) */
 
 @font-face {
 	font-family: 'Custom Mono';
-	src: url('fonts/RobotoMono-Medium.ttf') format('truetype');
+	src: url('fonts/RobotoMono-Light.ttf') format('truetype');
 	font-weight: normal;
 }
 
@@ -112,6 +112,7 @@ pre {
 	font-family: 'Custom Mono', monospace;
 	padding: 1rem;
 	font-size: smaller;
+	white-space: pre-wrap;
 }
 
 figure {
