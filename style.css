@@ -89,13 +89,12 @@ body {
 	counter-reset: figureNumber;
 }
 
-h2 .counter {
+h2[class*='counter'] {
 	counter-increment: sectionNumber;
 	counter-reset: subsectionNumber;
-	counter-reset: figureNumber; 
 }
 
-h2 .counter::before {
+h2[class*='counter']:before {
 	content: counter(sectionNumber) ". ";
 }
 
