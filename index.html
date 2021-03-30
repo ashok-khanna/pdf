@@ -51,6 +51,9 @@
 		    		titleElements: [ 'h2:not(.cover-header)', 'h3:not(.cover-header)' ]
 		    	});
 			}
+			afterParsed(parsed) {
+				hljs.highlgtAll();
+			}
 		  }
 		  Paged.registerHandlers(handlers);
 	</script>
