@@ -92,11 +92,11 @@
 <p>This guide provides a basic tutorial to using paged.js, for my own future reference and yours, and I highly recommend you visiting their site and supporting their project. In particular, their <a href="https://www.pagedjs.org/documentation/05-designing-for-print/">documentation</a> covers many aspects of advanced paged media and is a worthwhile next step after reading this guide.</p>
 
 <h2 class="counter">Getting Started</h2>
-<h3>Media Queries</h3>
+<h3 class="counter">Media Queries</h3>
 <p>Before we begin, I want to quickly introduce you to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a>. Media queries allow us to modify the stylesheet associated with our website depending on whether it is viewed on screen or for print (e.g. when printing to pdf or paper)  and allow us to set different style sheets for print, screen and mobile.</p>
 <p>A common use case for media queries is to hide navigational menus from a print or mobile view. Say we have defined a class "sidebar", we could hide it from a print view, whilst keeping it visible in the primary screen view, as follows.</p>
 
-<figure>
+<figure class="counter">
 	<figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
   <pre><code class="language-css">
 @media print {
@@ -109,16 +109,16 @@
 
 
 <p>For the rest of this guide and the example repo, we will not make use of media queries. But please do remember them and use them liberally to create distinct views for screen, print and mobile based on your requirements. They are a central component of <a href="https://en.wikipedia.org/wiki/Responsive_web_design">responsive web design</a>, a topic we could dedicate an entire book to, but one that is not as relevant for pdf generation (as we know exactly in advance the dimensions our content will be viewed in).</p>
-	<h3>Hello test</h3>
+	<h3 class="counter">Hello test</h3>
 
 
 
-<h2>Basic Features</h2>
+<h2 class="counter">Basic Features</h2>
 
-<h3>Page Size</h3>
+<h3 class="counter">Page Size</h3>
 <p>Most properties for our pages will be captured in CSS as an attribute to the <mark>@page</mark> rule. For example, we can set the page size to A4 with the following. Other valid page sizes include letter, legal, ledged, A0 to A7, A10, B4 and B5.</p>
 
-<figure>
+<figure class="counter">
 	<figcaption>CSS to Set A4 Page Size</figcaption>
   <code><pre>
 @page { size: A4; }
@@ -127,24 +127,24 @@
 
 <p>Portrait is the default orientation, but you print in landscape by using the following variation. Finally, you can custom page sizes as the second example below shows. This would be useful if you wanted to create PowerPoint widescreen format slides for example (190.5mm x 338.67mm).</p>
 
-<figure>
+<figure class="counter">
 	<figcaption>CSS to Set A4 Landscape</figcaption>
   <code><pre>
 @page { size: A4 landscape; }
 </pre></code>
 </figure>
 
-<figure>
+<figure class="counter">
 	<figcaption>CSS to Set Custom Size</figcaption>
   <code><pre>
 @page { size: 140mm 200mm; }
 </pre></code>
 </figure>
 
-<h3>Page Breaks</h3>
+<h3 class="counter">Page Breaks</h3>
 <p>By default, Paged.js will determine how much content fills up a page and then insert page breaks at the overflow points. We can manually insert page breaks by creating a <mark>page-break</mark> class and setting its <mark>break-after</mark> property to <mark>page</mark>.</p>
 
-<figure>
+<figure class="counter">
 	<figcaption>CSS to Create Page Break Class</figcaption>
   <code><pre>
 .page-break { break-after: page; }
@@ -153,17 +153,17 @@
 
 <p>We then simply have to add an empty page-break div in HTML at the points we want a page break.</p>
 
-<figure>
+<figure class="counter">
 	<figcaption>HTML to insert page breaks</figcaption>
   <code><pre>
 &lt;div class="page-break"&gt;&lt;/div&gt;
 </pre></code>
 </figure>
 
-<h3>Page Numbers</h3>
+<h3 class="counter">Page Numbers</h3>
 <p>We can use CSS counters to add page numbers. The below CSS will add a page number to the bottom right of every page.</p>
 
-<figure>
+<figure class="counter">
 	<figcaption>CSS to Add Page Numbers</figcaption>
   <code><pre>
 @page {
@@ -172,10 +172,10 @@
 </pre></code>
 </figure>
 
-<h3>Basic Headers & Footers</h3>
+<h3 class="counter">Basic Headers & Footers</h3>
 <p>The above page number example gives us a sneak peek into how we could add headers and footers. We can add these in six locations - top-left, top-center, top-right, bottom-left, bottom-center and of course bottom-right as above. Below are some basic examples of simple headers & footers, with the second example showing how we can increase the width in case we need to.</p>
 
-<figure>
+<figure class="counter">
 	<figcaption>CSS to Add Headers/Footers</figcaption>
   <code><pre>
 @page {
@@ -192,11 +192,11 @@
 </pre></code>
 </figure>
 
-<h2>Advanced Features</h2>
-<h3>Automatic Counters</h3>
+<h2 class="counter">Advanced Features</h2>
+<h3 class="counter">Automatic Counters</h3>
 <p>One useful feature is to automatically number sections, subsections and figures. We can achieve this with plain CSS. First, let's define the class <mark>no-counter</mark> as a general class to exclude a section or figure from the numbering. Subsequently we can generate the counters as follows, noting that the subsection and figure counters reset at every new instance of a section.</p>
 
-<figure>
+<figure class="counter">
 	<figcaption>CSS to Generate Counters</figcaption>
   <code><pre>
 body {
@@ -222,7 +222,7 @@ figure:not(.no-counter) {
 
 <p>We then take this one step further and use CSS to automatically generate text labels to reflect the counter numbers within our sections and figures.</p>
 
-<figure>
+<figure class="counter">
 	<figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
   <code><pre>
 h2:not(.no-counter)::before {
@@ -239,8 +239,8 @@ figcaption:not(.no-counter)::before {
 </pre></code>
 </figure>
 
-<h2>Rendering Math</h2>
-<h3>MathJax Library</h3>
+<h2 class="counter">Rendering Math</h2>
+<h3 class="counter">MathJax Library</h3>
 <div class="math">
 <p>For a guide hosted on math.dev, it would be remiss of us not to discuss how to typeset math within our PDF framework.</p>
 <p>To begin with, MathJax is a high quality, popular library for rendering Math on the web.You can learn more about how to use MathJax from its website, but for now, we are interested in </p>
