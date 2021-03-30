@@ -91,8 +91,6 @@ body {
 
 h2:not(.no-counter) {
 	counter-increment: sectionNumber;
-	counter-reset: subsectionNumber;
-	counter-reset: figureNumber;
 }
 
 h3[class*='counter'] {
@@ -190,7 +188,7 @@ e.g. adding background color, hiding headers/footers */
 .cover-page { page: cover-page; }
 
 .cover-page h1 {
-	border-bottom: 0.5rem solid white; 
+	border-bottom: 0.25rem solid white; 
 }
 
 @page cover-page {
