@@ -173,6 +173,26 @@
 </pre></code>
 </figure>
 
+<h3>Basic Headers & Footers</h3>
+<p>The above page number example gives us a sneak peek into how we could add headers and footers. We can add these in six locations - top-left, top-center, top-right, bottom-left, bottom-center and of course bottom-right as above. Below are some basic examples of simple headers & footers, with the second example showing how we can increase the width in case we need to.</p>
+
+<figure>
+	<figcaption>CSS to Add Headers/Footers</figcaption>
+  <code><pre>
+@page {
+
+	@top-right {
+		content: "Confidential";
+	}
+
+  	@bottom-left {
+  		content: "Beautiful PDFs from HTML";
+     	width: 40mm
+    }
+}
+</pre></code>
+</figure>
+
 <h2>Advanced Features</h2>
 <h3>Automatic Counters</h3>
 <p>One useful feature is to automatically number sections, subsections and figures. We can achieve this with plain CSS. First, let's define the class <mark>no-counter</mark> as a general class to exclude a section or figure from the numbering. Subsequently we can generate the counters as follows, noting that the subsection and figure counters reset at every new instance of a section.</p>
