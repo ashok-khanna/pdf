@@ -107,6 +107,16 @@
 </code></pre>
 </figure>
 
+<pre><code class="language-js">const Prism = require('prismjs');
+const loadLanguages = require('prismjs/components/');
+loadLanguages(['haml']);
+
+// The code snippet you want to highlight, as a string
+const code = `= ['hi', 'there', 'reader!'].join " "`;
+
+// Returns a highlighted HTML string
+const html = Prism.highlight(code, Prism.languages.haml, 'haml');</code></pre>
+
 
 <p>For the rest of this guide and the example repo, we will not make use of media queries. But please do remember them and use them liberally to create distinct views for screen, print and mobile based on your requirements. They are a central component of <a href="https://en.wikipedia.org/wiki/Responsive_web_design">responsive web design</a>, a topic we could dedicate an entire book to, but one that is not as relevant for pdf generation (as we know exactly in advance the dimensions our content will be viewed in).</p>
 	<h3>Hello test</h3>
