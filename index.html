@@ -25,7 +25,7 @@
     Note we use MathJax 2.7.7 and not the latest because we want to customise our font to STIX -->
   <script type="text/javascript" sync src="MathJax-2.7.7/MathJax.js"></script>
 
-
+	<link rel="stylesheet" href="prism-js/prism.css" data-noprefix />
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="toc.js"></script>
 	<script src="paged.polyfill.js"></script>
@@ -249,6 +249,7 @@ figcaption:not(.no-counter)::before {
 </div>
 
 <div class="page-break"></div>
+<script src="prism-js/prism.js"></script>
 <script>
 	const math = document.getElementsByClassName("math");
  	MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);  
