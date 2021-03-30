@@ -92,29 +92,37 @@ body {
 h2[class*='counter'] {
 	counter-increment: sectionNumber;
 	counter-reset: subsectionNumber;
+	counter-reset: figureNumber;
 }
+
+h3[class*='counter'] {
+	counter-increment: subsectionNumber;
+	counter-reset: figureNumber;
+}
+
+figure[class*='counter'] {
+	counter-increment: figureNumber;
+}
+
+
 
 h2[class*='counter']:before {
 	content: counter(sectionNumber) ". ";
 }
 
-h3:not(.no-counter)::before {
+h3[class*='counter']::before {
 	content: counter(sectionNumber) "." counter(subsectionNumber) " ";
 }
 
-figcaption:not(.no-counter)::before {
-	content: "Figure " counter(sectionNumber) "." counter(figureNumber) " ";
+figcaption[class*='counter']::before {
+	content: "Figure " counter(sectionNumber) "." counter(subsectionNumber) "." counter(figureNumber) " ";
 }
 
 
 
-h3:not(.no-counter) {
-	counter-increment: subsectionNumber;
-}
 
-figure:not(.no-counter) {
-	counter-increment: figureNumber;
-}
+
+
 
 pre {
 	background-color: #f0f0f0;
