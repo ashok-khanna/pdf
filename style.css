@@ -89,6 +89,18 @@ body {
 	counter-reset: figureNumber;
 }
 
+h2:not(.no-counter)::before {
+	content: counter(sectionNumber) ". ";
+}
+
+h3:not(.no-counter)::before {
+	content: counter(sectionNumber) "." counter(subsectionNumber) " ";
+}
+
+figcaption:not(.no-counter)::before {
+	content: "Figure " counter(sectionaNumber) "." counter(figureNumber) " ";
+}
+
 h2:not(.no-counter) {
 	counter-increment: sectionaNumber;
 	counter-reset: subsectionNumber;
@@ -101,18 +113,6 @@ h3:not(.no-counter) {
 
 figure:not(.no-counter) {
 	counter-increment: figureNumber;
-}
-
-h2:not(.no-counter)::before {
-	content: counter(sectionaNumber) ". ";
-}
-
-h3:not(.no-counter)::before {
-	content: counter(sectionaNumber) "." counter(subsectionNumber) " ";
-}
-
-figcaption:not(.no-counter)::before {
-	content: "Figure " counter(sectionaNumber) "." counter(figureNumber) " ";
 }
 
 pre {
