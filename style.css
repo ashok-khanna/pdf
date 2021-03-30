@@ -79,9 +79,10 @@ a:hover { color: #FC814A; }
 body {
 	counter-reset: sectionNumber;
 	counter-reset: subsectionNumber;
-	counter-reset: figureNumber; }
+	counter-reset: figureNumber;
+}
 
-h2:not(.no-counter) {
+h2 .counter {
 	counter-increment: sectionNumber;
 	counter-reset: subsectionNumber;
 	counter-reset: figureNumber; 
