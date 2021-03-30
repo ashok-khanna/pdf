@@ -27,6 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="prism-js/prism.css" data-noprefix />
 	<script src="toc.js"></script>
+	<script src="prism-js/prism.js"></script>
 	<script src="paged.polyfill.js"></script>
 	<!-- The table of contents needs to be generated before paged.js
 		fragments the content into pages. Therfore, you need to register
@@ -39,7 +40,7 @@
 				super(chunker, polisher, caller);
 		    }
 		    beforeParsed(content){
-        
+          		Prism.highlightAll()
 			    createToc({
 		    		content: content,
 
@@ -258,7 +259,6 @@ figcaption:not(.no-counter)::before {
 </div>
 
 <div class="page-break"></div>
-<script src="prism-js/prism.js"></script>
 <script>
 	const math = document.getElementsByClassName("math");
  	MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);  
