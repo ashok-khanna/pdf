@@ -115,15 +115,40 @@
 
 
 <h2>Basic Features</h2>
+
+<h3>Page Size</h3>
+<p>Most properties for our pages will be captured in CSS as an attribute to the <mark>@page</mark> rule. For example, we can set the page size to A4 with the following. Other valid page sizes include letter, legal, ledged, A0 to A7, A10, B4 and B5.</p>
+
+<figure>
+	<figcaption>CSS to Set A4 Page Size</figcaption>
+  <code><pre>
+@page { size: A4; }
+</pre></code>
+</figure>
+
+<p>Portrait is the default orientation, but you print in landscape by using the following variation. Finally, you can custom page sizes as the second example below shows. This would be useful if you wanted to create PowerPoint widescreen format slides for example (190.5mm x 338.67mm).</p>
+
+<figure>
+	<figcaption>CSS to Set A4 Landscape</figcaption>
+  <code><pre>
+@page { size: A4 landscape; }
+</pre></code>
+</figure>
+
+<figure>
+	<figcaption>CSS to Set Custom Size</figcaption>
+  <code><pre>
+@page { size: 140mm 200mm; }
+</pre></code>
+</figure>
+
 <h3>Page Breaks</h3>
 <p>By default, Paged.js will determine how much content fills up a page and then insert page breaks at the overflow points. We can manually insert page breaks by creating a <mark>page-break</mark> class and setting its <mark>break-after</mark> property to <mark>page</mark>.</p>
 
 <figure>
 	<figcaption>CSS to Create Page Break Class</figcaption>
   <code><pre>
-.page-break {
-	break-after: page;
-}
+.page-break { break-after: page; }
 </pre></code>
 </figure>
 
@@ -133,6 +158,18 @@
 	<figcaption>HTML to insert page breaks</figcaption>
   <code><pre>
 &lt;div class="page-break"&gt;&lt;/div&gt;
+</pre></code>
+</figure>
+
+<h3>Page Numbers</h3>
+<p>We can use CSS counters to add page numbers. The below CSS will add a page number to the bottom right of every page.</p>
+
+<figure>
+	<figcaption>CSS to Add Page Numbers</figcaption>
+  <code><pre>
+@page {
+  	@bottom-right { content: counter(page); }
+}
 </pre></code>
 </figure>
 
