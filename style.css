@@ -82,7 +82,7 @@ body {
 	counter-reset: figureNumber;
 }
 
-h2 .counter {
+h2:not(.no-counter) {
 	counter-increment: sectionNumber;
 	counter-reset: subsectionNumber;
 	counter-reset: figureNumber; 
