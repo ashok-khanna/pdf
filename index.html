@@ -40,7 +40,6 @@
 				super(chunker, polisher, caller);
 		    }
 		    beforeParsed(content){
-          		Prism.highlightAll()
 			    createToc({
 		    		content: content,
 
@@ -108,7 +107,7 @@
 </code></pre>
 </figure>
 
-<pre><code class="language-js">const Prism = require('prismjs');
+<pre><code class="language-javascript">const Prism = require('prismjs');
 const loadLanguages = require('prismjs/components/');
 loadLanguages(['haml']);
 
