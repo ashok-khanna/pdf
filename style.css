@@ -97,15 +97,15 @@ figure:not(.no-counter) {
 }
 
 h2:not(.no-counter)::before {
-	content: counter(sectionNumber) ". ";
+	content: counter(sectionaNumber) ". ";
 }
 
 h3:not(.no-counter)::before {
-	content: counter(sectionNumber) "." counter(subsectionNumber) " ";
+	content: counter(sectionaNumber) "." counter(subsectionNumber) " ";
 }
 
 figcaption:not(.no-counter)::before {
-	content: "Figure " counter(sectionNumber) "." counter(figureNumber) " ";
+	content: "Figure " counter(sectionaNumber) "." counter(figureNumber) " ";
 }
 
 pre {
