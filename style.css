@@ -57,8 +57,15 @@ preference, below is not required for producing pdfs) */
 @font-face {
 	font-family: 'Custom Mono';
 	src: url('fonts/RobotoMono-Medium.ttf') format('truetype');
+	font-weight: bold;
 }
 
+
+@font-face {
+	font-family: 'Custom Mono';
+	src: url('fonts/RobotoMono-Regular.ttf') format('truetype');
+	font-weight: normal;
+}
 
 /* 2. Some generic styling (again for my own personal
 preference, below is not required for producing pdfs) */
@@ -82,7 +89,7 @@ pre {
 	font-size: smaller;
 }
 
-fig { padding-top: 2rem; padding-bottom: 2rem;}
+figure { margin-top: 1rem; margin-bottom: 2rem;}
 figcaption { caption-side: top; font-size: smaller; font-family: 'Custom Mono', monospace; } 
 
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
