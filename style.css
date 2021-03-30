@@ -84,9 +84,15 @@ a { color: #347dbd; text-decoration: none; font-family: 'Roboto Medium', sans-se
 a:hover { color: #FC814A; font-family: 'Roboto Medium', sans-serif;}
 
 body {
-	counter-reset: sectionaNumber;
+	counter-reset: sectionNumber;
 	counter-reset: subsectionNumber;
 	counter-reset: figureNumber;
+}
+
+h2:not(.no-counter) {
+	counter-increment: sectionNumber;
+	counter-reset: subsectionNumber;
+	counter-reset: figureNumber; 
 }
 
 h2:not(.no-counter)::before {
@@ -98,14 +104,10 @@ h3:not(.no-counter)::before {
 }
 
 figcaption:not(.no-counter)::before {
-	content: "Figure " counter(sectionaNumber) "." counter(figureNumber) " ";
+	content: "Figure " counter(sectionNumber) "." counter(figureNumber) " ";
 }
 
-h2:not(.no-counter) {
-	counter-increment: sectionaNumber;
-	counter-reset: subsectionNumber;
-	counter-reset: figureNumber; 
-}
+
 
 h3:not(.no-counter) {
 	counter-increment: subsectionNumber;
