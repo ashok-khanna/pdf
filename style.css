@@ -67,14 +67,21 @@ preference, below is not required for producing pdfs) */
 	font-weight: normal;
 }
 
+@font-face {
+	font-family: 'Roboto Medium';
+	src: url('fonts/Roboto-Medium.ttf') format('truetype');
+	font-weight: bold;
+}
+
+
 /* 2. Some generic styling (again for my own personal
 preference, below is not required for producing pdfs) */
 html { font-family: 'Roboto', sans-serif; font-size: 100%; color: #211A1D;}
 h1 { border-bottom: 1px solid black; margin-bottom: 2rem; padding-bottom: 1rem; }
 h2 { border-bottom: 0.25rem solid black; margin-bottom: 1rem; padding-bottom: 0.5rem; }
 p {	text-align: justify; line-height: 1.4rem;}
-a { color: #347dbd; text-decoration: none; }
-a:hover { color: #FC814A; }
+a { color: #347dbd; text-decoration: none; font-family: 'Roboto Medium', sans-serif;}
+a:hover { color: #FC814A; font-family: 'Roboto Medium', sans-serif;}
 
 body {
 	counter-reset: sectionaNumber;
