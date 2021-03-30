@@ -89,8 +89,12 @@ pre {
 	font-size: smaller;
 }
 
-figure { margin-block-start: 2rem; margin-block-end: 2rem; }
-figcaption { caption-side: top; font-size: smaller; font-family: 'Custom Mono', monospace; } 
+figure {
+	margin-block-start: 2rem; margin-block-end: 2rem;
+	margin-inline-start: 3rem; margin-inline-end: 3rem;
+}
+figcaption { caption-side: top; font-size: smaller;
+	font-family: 'Custom Mono', monospace; font-weight: bold; } 
 
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
 
