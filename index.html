@@ -25,7 +25,6 @@
     Note we use MathJax 2.7.7 and not the latest because we want to customise our font to STIX -->
   <script type="text/javascript" sync src="MathJax-2.7.7/MathJax.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="prism-js/prism.css" data-noprefix />
 	<script src="toc.js"></script>
 
 	<script src="paged.polyfill.js"></script>
@@ -50,10 +49,6 @@
 
 		    		titleElements: [ 'h2:not(.cover-header)', 'h3:not(.cover-header)' ]
 		    	});
-			}
-			afterParsed(parsed) {
-				hljs.highlightAll();
-				console.log("Hello World");
 			}
 		  }
 		  Paged.registerHandlers(handlers);
@@ -111,16 +106,6 @@
 }
 </code></pre>
 </figure>
-
-<pre><code class="language-javascript">const Prism = require('prismjs');
-const loadLanguages = require('prismjs/components/');
-loadLanguages(['haml']);
-
-// The code snippet you want to highlight, as a string
-const code = `= ['hi', 'there', 'reader!'].join " "`;
-
-// Returns a highlighted HTML string
-const html = Prism.highlight(code, Prism.languages.haml, 'haml');</code></pre>
 
 
 <p>For the rest of this guide and the example repo, we will not make use of media queries. But please do remember them and use them liberally to create distinct views for screen, print and mobile based on your requirements. They are a central component of <a href="https://en.wikipedia.org/wiki/Responsive_web_design">responsive web design</a>, a topic we could dedicate an entire book to, but one that is not as relevant for pdf generation (as we know exactly in advance the dimensions our content will be viewed in).</p>
@@ -263,8 +248,6 @@ figcaption:not(.no-counter)::before {
 </div>
 
 <div class="page-break"></div>
-<script src="prism-js/prism.js"></script>
-<script>hljs.highlightAll();</script>
 <script>
 	const math = document.getElementsByClassName("math");
  	MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);  
