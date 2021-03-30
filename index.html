@@ -84,14 +84,14 @@
 <p class="footer">Most of this is copy/paste from paged.js</p>
 <div class="counter-reset"></div>
 
-<h2 class="no-break">Foreword</h2>
+<h2 class="no-break counter">Foreword</h2>
 <p>HTML and CSS are <b><i>beautiful</i></b> languages, and to me, one of the landmark achievements of collaboration and the open web. Together, they allow you to create beautifully typeset digital content that can be viewed on any device, without any special software or paid licenses.</p>
 <p>The world wide web, however, was designed for scrolling content, and not paginated media (by which I mean discrete pages like physical paper or virtually in pdf). There remains a place for paginated media, indeed there is something comforting and homely from a consistent layout of A4 (or US Letter), that, in my belief, reduces the cognitive tax when consuming new content.</p>
 <p>Unfortunately, whilst there are <a href="https://www.w3.org/TR/css-page-3/">W3C standards</a> on paged media, adoption by browsers has not been adequate to date. High quality paid alternatives exist in <a href="https://www.princexml.com">PrinceXML</a>, but a native, free solution has been missing.</p>
 <p>A <a href="https://news.ycombinator.com/item?id=26578826">happenstance discussion</a> on HackerNews brought my attention to <a href="https://www.pagedjs.org">paged.js</a>, a genius idea to polyfill the required capabilities to allow browsers to natively handle paged media, without having to build the whole rendering engine from scratch.</p>
 <p>This guide provides a basic tutorial to using paged.js, for my own future reference and yours, and I highly recommend you visiting their site and supporting their project. In particular, their <a href="https://www.pagedjs.org/documentation/05-designing-for-print/">documentation</a> covers many aspects of advanced paged media and is a worthwhile next step after reading this guide.</p>
 
-<h2>Getting Started</h2>
+<h2 class="counter">Getting Started</h2>
 <h3>Media Queries</h3>
 <p>Before we begin, I want to quickly introduce you to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a>. Media queries allow us to modify the stylesheet associated with our website depending on whether it is viewed on screen or for print (e.g. when printing to pdf or paper)  and allow us to set different style sheets for print, screen and mobile.</p>
 <p>A common use case for media queries is to hide navigational menus from a print or mobile view. Say we have defined a class "sidebar", we could hide it from a print view, whilst keeping it visible in the primary screen view, as follows.</p>
@@ -242,9 +242,14 @@ figcaption:not(.no-counter)::before {
 <h2>Rendering Math</h2>
 <h3>MathJax Library</h3>
 <div class="math">
-<p>MathJax is a high quality, popular library for rendering Math on the web.</p>
+<p>For a guide hosted on math.dev, it would be remiss of us not to discuss how to typeset math within our PDF framework.</p>
+<p>To begin with, MathJax is a high quality, popular library for rendering Math on the web.You can learn more about how to use MathJax from its website, but for now, we are interested in </p>
 
 \(\alpha \cap \beta = 3\)
+
+
+
+
 </div>
 
 <div class="page-break"></div>

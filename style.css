@@ -89,13 +89,13 @@ body {
 	counter-reset: figureNumber;
 }
 
-h2:not(.no-counter) {
+h2 .counter {
 	counter-increment: sectionNumber;
 	counter-reset: subsectionNumber;
 	counter-reset: figureNumber; 
 }
 
-h2:not(.no-counter)::before {
+h2 .counter::before {
 	content: counter(sectionNumber) ". ";
 }
 
