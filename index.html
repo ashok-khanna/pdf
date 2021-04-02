@@ -220,20 +220,41 @@ figcaption:not(.no-counter)::before {
 <h3 class="counter">MathJax Library</h3>
 <div class="math">
 <p>For a guide hosted on math.dev, it would be remiss of us not to discuss how to typeset math within our PDF framework.</p>
-<p>As you are likely aware, MathJax is a high quality, popular library for rendering Math on the web. <a href="https://www.mathjax.org/#gettingstarted">MathJax</a> can take some time to load and render, so I have commented out the necessary code to ensure this page loads fast. To use MathJax simply uncomment the following code blocks in this file (index.html):</p>
+<p>As you are likely aware, MathJax is a high quality, popular library for rendering Math on the web. <a href="https://www.mathjax.org/#gettingstarted">MathJax</a> can take some time to load and render, so I have commented out the necessary code to ensure this page loads fast. To use MathJax simply uncomment the following code block towards the end of this file (index.html):</p>
 
 <figure class="counter">
-	<figcaption>This code is added to the end of the file to parse the document</figcaption>
-  <code><pre>
+<figcaption></figcaption>
+<code><pre>
 &lt;script&gt;
-	const math = document.getElementsByClassName("math");
- 	MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);  
+window.MathJax = {
+	loader: { load: ['[tex]/ams'] },
+	tex: { packages: {'[+]': ['ams']} },
+	"fast-preview": { disabled: true },
+	extensions: ["tex2jax.js", "asciimath2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noErrors.js"],
+	jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"],
+	displayAlign: "left",
+	tex2jax: {
+  		inlineMath: [ ["\\(","\\)"] ],
+  		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+  		processEscapes: true
+	}, 
+	asciimath2jax: { delimiters: [['`','`']], preview: [""]},
+	"HTML-CSS": { fonts: ["STIX"] }
+}
 &lt;/script&gt;
+&lt;script type="text/javascript" sync src="MathJax-2.7.7/MathJax.js"&gt;&lt;/script&gt;
 </pre></code>
 </figure>
 
-\(\alpha \cap \beta = 3\)
+You could also simply call the latest version of MathJax from a CDN with the following.
 
+<figure class="counter">
+<figcaption></figcaption>
+<code><pre>
+&lt;script src="https://polyfill.io/v3/polyfill.min.js?features=es6">&lt;/script&gt;
+&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;
+</pre></code>
+</figure>
 
 
 
