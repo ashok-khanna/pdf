@@ -239,27 +239,26 @@ figcaption:not(.no-counter)::before {
 
 </div>
 
-<script>
-	  window.MathJax = {
-	    loader: { load: ['[tex]/ams'] },
-	    tex: { packages: {'[+]': ['ams']} },
-	    "fast-preview": { disabled: true },
-	    extensions: ["tex2jax.js", "asciimath2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noErrors.js"],
-	    jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"],
-	    displayAlign: "left",
-	    tex2jax: {
-	      inlineMath: [ ["\\(","\\)"] ],
-	      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-	      processEscapes: true
-	    }, 
-	    asciimath2jax: { delimiters: [['`','`']], preview: [""]},
-	    "HTML-CSS": { fonts: ["STIX"] }
-	  }
-</script>
-<script type="text/javascript" sync src="MathJax-2.7.7/MathJax.js"></script>
-
 <div class="page-break"></div>
 
+<script>
+window.MathJax = {
+	loader: { load: ['[tex]/ams'] },
+	tex: { packages: {'[+]': ['ams']} },
+	"fast-preview": { disabled: true },
+	extensions: ["tex2jax.js", "asciimath2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noErrors.js"],
+	jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"],
+	displayAlign: "left",
+	tex2jax: {
+  		inlineMath: [ ["\\(","\\)"] ],
+  		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+  		processEscapes: true
+	}, 
+	asciimath2jax: { delimiters: [['`','`']], preview: [""]},
+	"HTML-CSS": { fonts: ["STIX"] }
+}
+</script>
+<script type="text/javascript" sync src="MathJax-2.7.7/MathJax.js"></script>
 <script>
 	const math = document.getElementsByClassName("math");
  	MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);  
