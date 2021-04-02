@@ -101,6 +101,7 @@ mark {
 	color: #7E5920;
 	background-color: inherit;
 	font-family: 'Custom Mono', monospace;
+	font-weight: bold;
 }
 
 body {
