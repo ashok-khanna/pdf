@@ -220,7 +220,7 @@ figcaption:not(.no-counter)::before {
 <h3 class="counter">MathJax Library</h3>
 <div class="math">
 <p>For a guide hosted on math.dev, it would be remiss of us not to discuss how to typeset math within our PDF framework.</p>
-<p>As you are likely aware, MathJax is a high quality, popular library for rendering Math on the web. MathJax can take some time to load and render, so I have commented out the necessary code to ensure this page loads fast. To use MathJax simply uncomment the following code blocks in this file (index.html):</p>
+<p>As you are likely aware, MathJax is a high quality, popular library for rendering Math on the web. <a href="https://www.mathjax.org/#gettingstarted">MathJax</a> can take some time to load and render, so I have commented out the necessary code to ensure this page loads fast. To use MathJax simply uncomment the following code blocks in this file (index.html):</p>
 
 <figure class="counter">
 	<figcaption>This code is added to the end of the file to parse the document</figcaption>
@@ -259,10 +259,13 @@ window.MathJax = {
 }
 </script>
 <script type="text/javascript" sync src="MathJax-2.7.7/MathJax.js"></script>
+
+<!-- Not required (use to re-render math)
 <script>
 	const math = document.getElementsByClassName("math");
  	MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);  
 </script>
+-->
 
 </body>
 
