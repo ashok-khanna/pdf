@@ -97,6 +97,7 @@ a:hover { color: #FC814A; font-family: 'Roboto Medium', sans-serif;}
 	font-family: 'Roboto', sans-serif; 
 }
 
+
 mark {
 	color: #F78E69;
 	background-color: inherit;
@@ -213,7 +214,7 @@ when we want to (e.g. after cover page) */
 /* 11. Define a cover page class for custom page rules,
 e.g. adding background color, hiding headers/footers */
 .cover-page { page: cover-page; }
-
+.cover-page h3 { font-weight: normal; }
 .cover-page h1 {
 	border-bottom: 0.25rem solid white; 
 }
