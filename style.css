@@ -85,7 +85,7 @@ a { color: #347dbd; text-decoration: none; font-family: 'Roboto Medium', sans-se
 a:hover { color: #FC814A; font-family: 'Roboto Medium', sans-serif;}
 
 .table-of-contents a, .table-of-contents a:hover {
-	font-family: font-family: 'Roboto', sans-serif; 
+	font-family: 'Roboto', sans-serif; 
 }
 
 mark {
