@@ -138,6 +138,10 @@ h2:not(.no-counter) {
 	counter-increment: sectionNumber;
 }
 
+h2 {
+	counter-reset: subsectionNumber;
+}
+
 h3[class*='counter'] {
 	counter-increment: subsectionNumber;
 	counter-reset: figureNumber;
