@@ -84,6 +84,10 @@ p {	text-align: justify; line-height: 1.4rem;}
 a { color: #347dbd; text-decoration: none; font-family: 'Roboto Medium', sans-serif;}
 a:hover { color: #FC814A; font-family: 'Roboto Medium', sans-serif;}
 
+.table-of-contents ol {
+	font-family: 'Roboto Medium', sans-serif;
+}
+
 body {
 	counter-reset: sectionNumber;
 	counter-reset: subsectionNumber;
@@ -309,7 +313,7 @@ ol, ul a {
     right: 0;
 }
 
-/* STIX FONTS
+/* STIX FONTS (for Math Publishing)
 
 @font-face {
 	font-family: 'STIX Two Math Regular';
