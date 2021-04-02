@@ -88,6 +88,13 @@ a:hover { color: #FC814A; font-family: 'Roboto Medium', sans-serif;}
 	font-family: 'Roboto Medium', sans-serif;
 }
 
+mark {
+	background-color: #f0f0f0;
+	font-family: 'Custom Mono', monospace;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
 body {
 	counter-reset: sectionNumber;
 	counter-reset: subsectionNumber;
