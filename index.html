@@ -62,40 +62,42 @@
 
 <!-- 3.2 Section 2 - Getting Started -->
 <h2>Getting Started</h2>
+
 <h3>Installation</h3>
 <p>There are three elements to producing PDFs from HTML through paged.js. First, you will need to load the paged.polyfill.js library either from <a href="https://www.pagedjs.org/documentation/releases/">here</a> or by linking to it directly via:</p>
 
-<pre><code>
+<code><pre>
 &lt;script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"&gt;&lt;/script&gt;
-</code></pre>
+</pre></code>
 
 <p>Second, you will need to have a web server as paged.js works by modifying your underlying HTML and CSS. One way is to host statically on <a href="https://pages.github.com">GitHub Pages</a> (or similar), another is use a local server like <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb">Web Server for Chrome</a>.</p>
 
 <p>Finally, you need to have your own custom stylesheet where you will enter all the formatting rules to apply. In our example repo, these rules are contained within <a href="https://github.com/ashok-khanna/pdf/blob/main/style.css">style.css.</a></p>
 
-<h3>Alternate (easier) Installation</h3>
 
+<h3>Alternate (easier) Installation</h3>
 <p>As an easier alternative, simply clone my <a href="https://github.com/ashok-khanna/pdf">example repo</a> (and set up GitHub Pages for the cloned repo) and then read through style.css and index.html to understand how it works. The rest of this guide takes you through the code example in my repo.</p>
 
 <h3>Media Queries</h3>
-<p>Before we begin, I want to quickly introduce you to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a>. Media queries allow us to modify the stylesheet associated with our website depending on whether it is viewed on screen or for print (e.g. when printing to pdf or paper)  and allow us to set different style sheets for print, screen and mobile.</p>
+
+<p>Before we begin with the main guide, I want to quickly introduce you to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a>. Media queries allow us to modify the stylesheet associated with our website depending on whether it is viewed on screen or for print (e.g. when printing to pdf or paper)  and allow us to set different style sheets for print, screen and mobile.</p>
+
 <p>A common use case for media queries is to hide navigational menus from a print or mobile view. Say we have defined a class "sidebar", we could hide it from a print view, whilst keeping it visible in the primary screen view, as follows.</p>
 
 <figure class="counter">
 	<figcaption>Example of media query to hide sidebars in print view</figcaption>
-  <pre><code class="language-css">
+<code><pre>
 @media print {
     .sidebar {
         display: none;
     }
 }
-</code></pre>
+</pre></code>
 </figure>
 
 
 <p>For the rest of this guide and the example repo, we will not make use of media queries. But please do remember them and use them liberally to create distinct views for screen, print and mobile based on your requirements. They are a central component of <a href="https://en.wikipedia.org/wiki/Responsive_web_design">responsive web design</a>, a topic we could dedicate an entire book to, but one that is not as relevant for pdf generation (as we know exactly in advance the dimensions our content will be viewed in).</p>
-	<h3 class="counter">Installation</h3>
-<p>The easiest way is to 
+
 
 
 <h2>Basic Features</h2>
