@@ -84,15 +84,13 @@ p {	text-align: justify; line-height: 1.4rem;}
 a { color: #347dbd; text-decoration: none; font-family: 'Roboto Medium', sans-serif;}
 a:hover { color: #FC814A; font-family: 'Roboto Medium', sans-serif;}
 
-.table-of-contents ol {
-	font-family: 'Roboto Medium', sans-serif;
+.table-of-contents a, .table-of-contents a:hover {
+	font-family: font-family: 'Roboto', sans-serif; 
 }
 
 mark {
-	background-color: #f0f0f0;
+	color: #445a75;
 	font-family: 'Custom Mono', monospace;
-	padding-left: 1rem;
-	padding-right: 1rem;
 }
 
 body {
