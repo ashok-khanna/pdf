@@ -162,36 +162,41 @@
 <h3>Automatic Counters</h3>
 <p>One useful feature is to automatically number sections, subsections and figures. We can achieve this with plain CSS. First, let's define the class <mark>no-counter</mark> as a general class to exclude a section or figure from the numbering. Subsequently we can generate the counters as follows, noting that the subsection and figure counters reset at every new instance of a section.</p>
 
-<figure>
-	<figcaption>CSS to Generate Counters</figcaption>
-  <code><pre>
+<code><pre>
 body {
 	counter-reset: sectionNumber;
 	counter-reset: subsectionNumber;
-	counter-reset: figureNumber; }
+	counter-reset: figureNumber;
+}
 
 h2:not(.no-counter) {
 	counter-increment: sectionNumber;
+}
+
+h2 {
 	counter-reset: subsectionNumber;
-	counter-reset: figureNumber; 
 }
 
 h3:not(.no-counter) {
 	counter-increment: subsectionNumber;
+	counter-reset: figureNumber;
+}
+
+h3 {
+	counter-reset: figureNumber;
 }
 
 figure:not(.no-counter) {
 	counter-increment: figureNumber;
 }
 </pre></code>
-</figure>
 
 <p>We then take this one step further and use CSS to automatically generate text labels to reflect the counter numbers within our sections and figures.</p>
 
 <figure>
-	<figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
-  <code><pre>
-h2:not(.no-counter)::before {
+<figcaption>Code to Auto-Generate Numbering Labels</figcaption>
+<code><pre>
+h2:not(.no-counter):before {
 	content: counter(sectionNumber) ". ";
 }
 
@@ -200,7 +205,7 @@ h3:not(.no-counter)::before {
 }
 
 figcaption:not(.no-counter)::before {
-	content: "Figure " counter(sectionNumber) "." counter(figureNumber) " ";
+	content: "Fig. " counter(sectionNumber) "." counter(subsectionNumber) "." counter(figureNumber) " ";
 }
 </pre></code>
 </figure>

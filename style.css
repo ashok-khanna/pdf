@@ -155,7 +155,7 @@ pre {
 
 figure {
 	margin-block-start: 2rem; margin-block-end: 2rem;
-	margin-inline-start: 3rem; margin-inline-end: 3rem;
+	margin-inline-start: 0rem; margin-inline-end: 0rem;
 }
 figcaption { caption-side: top; font-size: smaller;
 	font-family: 'Custom Mono', monospace; font-weight: bold; } 
