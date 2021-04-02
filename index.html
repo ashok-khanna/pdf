@@ -31,7 +31,7 @@
 </div>
 
 <!-- 2.0 Table of Contents -->
-<div class="table-of-contents" id="tocid">
+<div class="table-of-contents">
 	<h1 class="toc-header">Table of Contents</h1>
 	<ol id="toc">
 <!-- toc.js will automatically insert TOC here -->
@@ -42,7 +42,7 @@
 <!-- 3.0 Start of Main Content -->
 
 <!-- Setting the footer -->
-<p class="footer"><a href="#tocid">Return to Table of Contents</a></p>
+<p class="footer"><a href="#list-toc-generated">Return to Table of Contents</a></p>
 
 <!-- Reseting the header counters (as cover page also uses them) -->
 <div class="counter-reset"></div>
@@ -159,6 +159,7 @@
 </pre></code>
 
 <h2>Advanced Features</h2>
+
 <h3>Automatic Counters</h3>
 <p>One useful feature is to automatically number sections, subsections and figures. We can achieve this with plain CSS. First, let's define the class <mark>no-counter</mark> as a general class to exclude a section or figure from the numbering. Subsequently we can generate the counters as follows, noting that the subsection and figure counters reset at every new instance of a section.</p>
 
@@ -210,7 +211,8 @@ figcaption:not(.no-counter)::before {
 </pre></code>
 </figure>
 
-
+<h3>Advanced Headers & Foooters</h3>
+<p>We can generate formatted headers 
 
 
 </div>
