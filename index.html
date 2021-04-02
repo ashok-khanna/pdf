@@ -62,8 +62,8 @@
 <div class="counter-reset"></div>
 
 <h2 class="no-break">Foreword</h2>
-<p>HTML and CSS are <b><i>beautiful</i></b> languages, and to me, one of the landmark achievements of collaboration and the open web. Together, they allow you to create beautifully typeset digital content that can be viewed on any device, without any special software or paid licenses.</p>
-<p>The world wide web, however, was designed for scrolling content, and not paginated media (by which I mean discrete pages like physical paper or virtually in pdf). There remains a place for paginated media, indeed there is something comforting and homely from a consistent layout of A4 (or US Letter), that, in my belief, reduces the cognitive tax when consuming new content.</p>
+<p>HTML and CSS are beautiful languages and one of the landmark achievements of collaboration and the open web. Together, they allow you to create beautifully typeset digital content that can be viewed on any device, without any special software or paid licenses.</p>
+<p>The world wide web, however, was designed for scrolling content, and not paginated media (by which I mean discrete pages like physical paper or virtually in pdf). There remains a place for paginated media, indeed there is something comforting and homely from a consistent layout of A4 (or US Letter) that reduces the cognitive tax when consuming new content.</p>
 <p>Unfortunately, whilst there are <a href="https://www.w3.org/TR/css-page-3/">W3C standards</a> on paged media, adoption by browsers has not been adequate to date. High quality paid alternatives exist in <a href="https://www.princexml.com">PrinceXML</a>, but a native, free solution has been missing.</p>
 <p>A <a href="https://news.ycombinator.com/item?id=26578826">happenstance discussion</a> on HackerNews brought my attention to <a href="https://www.pagedjs.org">paged.js</a>, a genius idea to polyfill the required capabilities to allow browsers to natively handle paged media, without having to build the whole rendering engine from scratch.</p>
 <p>This guide provides a basic tutorial to using paged.js, for my own future reference and yours, and I highly recommend you visiting their site and supporting their project. In particular, their <a href="https://www.pagedjs.org/documentation/05-designing-for-print/">documentation</a> covers many aspects of advanced paged media and is a worthwhile next step after reading this guide.</p>
@@ -74,7 +74,7 @@
 <p>A common use case for media queries is to hide navigational menus from a print or mobile view. Say we have defined a class "sidebar", we could hide it from a print view, whilst keeping it visible in the primary screen view, as follows.</p>
 
 <figure class="counter">
-	<figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+	<figcaption>Example of media query to hide sidebars in print view</figcaption>
   <pre><code class="language-css">
 @media print {
     .sidebar {
@@ -86,8 +86,8 @@
 
 
 <p>For the rest of this guide and the example repo, we will not make use of media queries. But please do remember them and use them liberally to create distinct views for screen, print and mobile based on your requirements. They are a central component of <a href="https://en.wikipedia.org/wiki/Responsive_web_design">responsive web design</a>, a topic we could dedicate an entire book to, but one that is not as relevant for pdf generation (as we know exactly in advance the dimensions our content will be viewed in).</p>
-	<h3 class="counter">Hello test</h3>
-
+	<h3 class="counter">Installation</h3>
+<p>The easiest way is to 
 
 
 <h2 class="counter">Basic Features</h2>
@@ -216,96 +216,14 @@ figcaption:not(.no-counter)::before {
 </pre></code>
 </figure>
 
-<h2 class="counter">Rendering Math</h2>
-<h3 class="counter">MathJax Library</h3>
-<div class="math">
-<p>For a guide hosted on math.dev, it would be remiss of us not to discuss how to typeset math within our PDF framework.</p>
-<p>As you are likely aware, MathJax is a high quality, popular library for rendering Math on the web. <a href="https://www.mathjax.org/#gettingstarted">MathJax</a> can take some time to load and render, so I have commented out the necessary code to ensure this page loads fast. To use MathJax simply uncomment the following code block towards the end of this file (index.html):</p>
 
-<figure class="counter">
-<figcaption></figcaption>
-<code><pre>
-&lt;script&gt;
-window.MathJax = {
-	loader: { load: ['[tex]/ams'] },
-	tex: { packages: {'[+]': ['ams']} },
-	"fast-preview": { disabled: true },
-	extensions: ["tex2jax.js", "asciimath2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noErrors.js"],
-	jax: ["input/TeX", "input/AsciiMath", "output/HTML-CSS"],
-	displayAlign: "left",
-	tex2jax: {
-  		inlineMath: [ ["\\(","\\)"] ],
-  		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-  		processEscapes: true
-	}, 
-	asciimath2jax: { delimiters: [['`','`']], preview: [""]},
-	"HTML-CSS": { fonts: ["STIX"] }
-}
-&lt;/script&gt;
-&lt;script type="text/javascript" sync src="MathJax-2.7.7/MathJax.js"&gt;&lt;/script&gt;
-</pre></code>
-</figure>
 
-You could also simply call the latest version of MathJax from a CDN with the following.
-
-<figure class="counter">
-<figcaption></figcaption>
-<code><pre>
-&lt;script src="https://polyfill.io/v3/polyfill.min.js?features=es6">&lt;/script&gt;
-&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;
-</pre></code>
-</figure>
-
-<h3 class="counter">Using STIX Fonts</h3>
-<p>In my opinion, to make math look good digitally, the text font and the math font should largely match. Thus, I like to use STIX fonts across text and math. This is supported in MathJax 2, but not MathJax 3. Uncomment the following code in style.css to enable STIX fonts.</p>
-
-<figure class="counter">
-<figcaption></figcaption>
-<code><pre>
-@font-face {
-	font-family: 'STIX Two Math Regular';
-	src: url('fonts/STIXTwoMath-Regular.woff2') format('woff2');
-}
-
-@font-face {
-	font-family: 'STIX Two Text';
-	src: url('fonts/STIXTwoText-Regular.woff2') format('woff2');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'STIX Two Text';
-	src: url('fonts/STIXTwoText-Bold.woff2') format('woff2');
-	font-weight: bold;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'STIX Two Text';
-	src: url('fonts/STIXTwoText-Italic.woff2') format('woff2');
-	font-weight: normal;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'STIX Two Text';
-	src: url('fonts/STIXTwoText-BoldItalic.woff2') format('woff2');
-	font-weight: bold;
-	font-style: italic;
-}
-
-html, a, a:hover {
-	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
-}
-
-</pre></code>
-</figure>
 
 </div>
 
 <div class="page-break"></div>
 
+<!-- MathJax Add-on
 <script>
 window.MathJax = {
 	loader: { load: ['[tex]/ams'] },
@@ -324,14 +242,13 @@ window.MathJax = {
 }
 </script>
 <script type="text/javascript" sync src="MathJax-2.7.7/MathJax.js"></script>
+-->
 
-<!-- Not required (use to re-render math)
+<!-- Additional MathJax Code (if you want to re-render math)
 <script>
 	const math = document.getElementsByClassName("math");
  	MathJax.Hub.Queue(["Typeset",MathJax.Hub,math]);  
 </script>
 -->
-
 </body>
-
 </html>
