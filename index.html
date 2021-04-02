@@ -3,27 +3,16 @@
 	<title>Beautiful PDFs from HTML</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="toc.js"></script>
-
 	<script src="paged.polyfill.js"></script>
-	<!-- The table of contents needs to be generated before paged.js
-		fragments the content into pages. Therfore, you need to register
-		the handler beforeParsed() and call the table of contents script
-		inside. The below code therefore needs to be added after loading
-		the paged.js library -->
 	<script>
 		class handlers extends Paged.Handler {
 		    constructor(chunker, polisher, caller) {
 				super(chunker, polisher, caller);
 		    }
 		    beforeParsed(content){
-
 			    createToc({
 		    		content: content,
-
-		    		// TOC inserted into element with id toc (refer below HTML):
 		    		tocElement: '#toc',
-
-
 		    		titleElements: [ 'h2:not(.cover-header)', 'h3:not(.cover-header)' ]
 		    	});
 			}
@@ -34,42 +23,47 @@
 
 <body>
 
-
-<!-- Cover Page (refer .cover-page in style.css) -->
-
+<!-- 1.0 Cover Page -->
 <div class="cover-page">
 	<h1>Beautiful PDFs from HTML</h1>
 	<h3 class="cover-header">An Example Repo by Ashok Khanna</h3>
 	<h3 class="cover-header">March 2021</h3>
 </div>
 
-<!-- As class "cover-page" uses a custom page rule,
-	it will automatically create a page break after it -->
-
-<!-- Table of Contents (refer .table-of-contents in style.css) -->
-
+<!-- 2.0 Table of Contents -->
 <div class="table-of-contents">
 	<h1 class="toc-header">Table of Contents</h1>
-	<ol id="toc"><!-- Our toc.js script will automatically insert
-		the table of content entries into this element --></ol>
+	<ol id="toc">
+<!-- toc.js will automatically insert TOC here -->
+	</ol>
 </div>
 
 
+<!-- 3.0 Start of Main Content -->
 
-<!-- Place after cover page to avoid incorrect generation of footer
-	on page before cover page -->
+<!-- Setting the footer -->
 <p class="footer">Most of this is copy/paste from paged.js</p>
+
+<!-- Reseting the header counters (as cover page also uses them) -->
 <div class="counter-reset"></div>
 
+<!-- 3.1 Section 1 - Foreword -->
 <h2 class="no-break">Foreword</h2>
+
 <p>HTML and CSS are beautiful languages and one of the landmark achievements of collaboration and the open web. Together, they allow you to create beautifully typeset digital content that can be viewed on any device, without any special software or paid licenses.</p>
-<p>The world wide web, however, was designed for scrolling content, and not paginated media (by which I mean discrete pages like physical paper or virtually in pdf). There remains a place for paginated media, indeed there is something comforting and homely from a consistent layout of A4 (or US Letter) that reduces the cognitive tax when consuming new content.</p>
+
+<p>The web however was developed for scrolling content, and not paged media (by which we mean discrete pages, like in print or pdf). Paged media, especially pdfs, remains an important medium of communication. There is something about having discrete pages, a feeling of stability and comfort that comes from a consistent layout (typically A4 or US Letter), reducing the cognitive tax when consuming new content.</p>
+
 <p>Unfortunately, whilst there are <a href="https://www.w3.org/TR/css-page-3/">W3C standards</a> on paged media, adoption by browsers has not been adequate to date. High quality paid alternatives exist in <a href="https://www.princexml.com">PrinceXML</a>, but a native, free solution has been missing.</p>
+
 <p>A <a href="https://news.ycombinator.com/item?id=26578826">happenstance discussion</a> on HackerNews brought my attention to <a href="https://www.pagedjs.org">paged.js</a>, a genius idea to polyfill the required capabilities to allow browsers to natively handle paged media, without having to build the whole rendering engine from scratch.</p>
+
 <p>This guide provides a basic tutorial to using paged.js, for my own future reference and yours, and I highly recommend you visiting their site and supporting their project. In particular, their <a href="https://www.pagedjs.org/documentation/05-designing-for-print/">documentation</a> covers many aspects of advanced paged media and is a worthwhile next step after reading this guide.</p>
 
-<h2 class="counter">Getting Started</h2>
-<h3 class="counter">Media Queries</h3>
+<!-- 3.2 Section 2 - Getting Started -->
+<h2>Getting Started</h2>
+<h3>Installation</h3>
+<h3>Media Queries</h3>
 <p>Before we begin, I want to quickly introduce you to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a>. Media queries allow us to modify the stylesheet associated with our website depending on whether it is viewed on screen or for print (e.g. when printing to pdf or paper)  and allow us to set different style sheets for print, screen and mobile.</p>
 <p>A common use case for media queries is to hide navigational menus from a print or mobile view. Say we have defined a class "sidebar", we could hide it from a print view, whilst keeping it visible in the primary screen view, as follows.</p>
 
@@ -90,12 +84,12 @@
 <p>The easiest way is to 
 
 
-<h2 class="counter">Basic Features</h2>
+<h2>Basic Features</h2>
 
-<h3 class="counter">Page Size</h3>
+<h3>Page Size</h3>
 <p>Most properties for our pages will be captured in CSS as an attribute to the <mark>@page</mark> rule. For example, we can set the page size to A4 with the following. Other valid page sizes include letter, legal, ledged, A0 to A7, A10, B4 and B5.</p>
 
-<figure class="counter">
+<figure>
 	<figcaption>CSS to Set A4 Page Size</figcaption>
   <code><pre>
 @page { size: A4; }
@@ -104,24 +98,24 @@
 
 <p>Portrait is the default orientation, but you print in landscape by using the following variation. Finally, you can custom page sizes as the second example below shows. This would be useful if you wanted to create PowerPoint widescreen format slides for example (190.5mm x 338.67mm).</p>
 
-<figure class="counter">
+<figure>
 	<figcaption>CSS to Set A4 Landscape</figcaption>
   <code><pre>
 @page { size: A4 landscape; }
 </pre></code>
 </figure>
 
-<figure class="counter">
+<figure>
 	<figcaption>CSS to Set Custom Size</figcaption>
   <code><pre>
 @page { size: 140mm 200mm; }
 </pre></code>
 </figure>
 
-<h3 class="counter">Page Breaks</h3>
+<h3>Page Breaks</h3>
 <p>By default, Paged.js will determine how much content fills up a page and then insert page breaks at the overflow points. We can manually insert page breaks by creating a <mark>page-break</mark> class and setting its <mark>break-after</mark> property to <mark>page</mark>.</p>
 
-<figure class="counter">
+<figure>
 	<figcaption>CSS to Create Page Break Class</figcaption>
   <code><pre>
 .page-break { break-after: page; }
@@ -130,17 +124,17 @@
 
 <p>We then simply have to add an empty page-break div in HTML at the points we want a page break.</p>
 
-<figure class="counter">
+<figure>
 	<figcaption>HTML to insert page breaks</figcaption>
   <code><pre>
 &lt;div class="page-break"&gt;&lt;/div&gt;
 </pre></code>
 </figure>
 
-<h3 class="counter">Page Numbers</h3>
+<h3>Page Numbers</h3>
 <p>We can use CSS counters to add page numbers. The below CSS will add a page number to the bottom right of every page.</p>
 
-<figure class="counter">
+<figure>
 	<figcaption>CSS to Add Page Numbers</figcaption>
   <code><pre>
 @page {
@@ -149,10 +143,10 @@
 </pre></code>
 </figure>
 
-<h3 class="counter">Basic Headers & Footers</h3>
+<h3>Basic Headers & Footers</h3>
 <p>The above page number example gives us a sneak peek into how we could add headers and footers. We can add these in six locations - top-left, top-center, top-right, bottom-left, bottom-center and of course bottom-right as above. Below are some basic examples of simple headers & footers, with the second example showing how we can increase the width in case we need to.</p>
 
-<figure class="counter">
+<figure>
 	<figcaption>CSS to Add Headers/Footers</figcaption>
   <code><pre>
 @page {
@@ -169,11 +163,11 @@
 </pre></code>
 </figure>
 
-<h2 class="counter">Advanced Features</h2>
-<h3 class="counter">Automatic Counters</h3>
+<h2>Advanced Features</h2>
+<h3>Automatic Counters</h3>
 <p>One useful feature is to automatically number sections, subsections and figures. We can achieve this with plain CSS. First, let's define the class <mark>no-counter</mark> as a general class to exclude a section or figure from the numbering. Subsequently we can generate the counters as follows, noting that the subsection and figure counters reset at every new instance of a section.</p>
 
-<figure class="counter">
+<figure>
 	<figcaption>CSS to Generate Counters</figcaption>
   <code><pre>
 body {
@@ -199,7 +193,7 @@ figure:not(.no-counter) {
 
 <p>We then take this one step further and use CSS to automatically generate text labels to reflect the counter numbers within our sections and figures.</p>
 
-<figure class="counter">
+<figure>
 	<figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
   <code><pre>
 h2:not(.no-counter)::before {
@@ -223,7 +217,7 @@ figcaption:not(.no-counter)::before {
 
 <div class="page-break"></div>
 
-<!-- MathJax Add-on
+<!-- 4.0 MathJax Add-on
 <script>
 window.MathJax = {
 	loader: { load: ['[tex]/ams'] },

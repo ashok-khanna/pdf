@@ -73,42 +73,7 @@ preference, below is not required for producing pdfs) */
 	font-weight: bold;
 }
 
-/* STIX FONTS
 
-@font-face {
-	font-family: 'STIX Two Math Regular';
-	src: url('fonts/STIXTwoMath-Regular.woff2') format('woff2');
-}
-
-@font-face {
-	font-family: 'STIX Two Text';
-	src: url('fonts/STIXTwoText-Regular.woff2') format('woff2');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'STIX Two Text';
-	src: url('fonts/STIXTwoText-Bold.woff2') format('woff2');
-	font-weight: bold;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'STIX Two Text';
-	src: url('fonts/STIXTwoText-Italic.woff2') format('woff2');
-	font-weight: normal;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'STIX Two Text';
-	src: url('fonts/STIXTwoText-BoldItalic.woff2') format('woff2');
-	font-weight: bold;
-	font-style: italic;
-}
-
-*/
 
 /* 2. Some generic styling (again for my own personal
 preference, below is not required for producing pdfs) */
@@ -118,15 +83,6 @@ h2 { border-bottom: 0.125rem solid black; margin-bottom: 1rem; padding-bottom: 0
 p {	text-align: justify; line-height: 1.4rem;}
 a { color: #347dbd; text-decoration: none; font-family: 'Roboto Medium', sans-serif;}
 a:hover { color: #FC814A; font-family: 'Roboto Medium', sans-serif;}
-
-
-/* STIX FONTS OVERRIDE 
-
-html, a, a:hover {
-	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
-}
-
-*/
 
 body {
 	counter-reset: sectionNumber;
@@ -142,27 +98,29 @@ h2 {
 	counter-reset: subsectionNumber;
 }
 
-h3[class*='counter'] {
+h3:not(.no-counter) {
 	counter-increment: subsectionNumber;
 	counter-reset: figureNumber;
 }
 
-figure[class*='counter'] {
-	counter-increment: figureNumber;
+h3 {
+	counter-reset: figureNumber;
 }
 
-
+figure:not(.no-counter) {
+	counter-increment: figureNumber;
+}
 
 h2:not(.no-counter):before {
 	content: counter(sectionNumber) ". ";
 }
 
-h3[class*='counter']::before {
+h3:not(.no-counter)::before {
 	content: counter(sectionNumber) "." counter(subsectionNumber) " ";
 }
 
-figcaption[class*='counter']::before {
-	content: "Figure " counter(sectionNumber) "." counter(subsectionNumber) "." counter(figureNumber) " ";
+figcaption:not(.no-counter)::before {
+	content: "Fig. " counter(sectionNumber) "." counter(subsectionNumber) "." counter(figureNumber) " ";
 }
 
 
@@ -350,3 +308,44 @@ ol, ul a {
 #list-toc-generated .toc-element a{
     right: 0;
 }
+
+/* STIX FONTS
+
+@font-face {
+	font-family: 'STIX Two Math Regular';
+	src: url('fonts/STIXTwoMath-Regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'STIX Two Text';
+	src: url('fonts/STIXTwoText-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'STIX Two Text';
+	src: url('fonts/STIXTwoText-Bold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'STIX Two Text';
+	src: url('fonts/STIXTwoText-Italic.woff2') format('woff2');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'STIX Two Text';
+	src: url('fonts/STIXTwoText-BoldItalic.woff2') format('woff2');
+	font-weight: bold;
+	font-style: italic;
+}
+
+html, a, a:hover {
+	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
+}
+
+*/
