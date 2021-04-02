@@ -256,7 +256,51 @@ You could also simply call the latest version of MathJax from a CDN with the fol
 </pre></code>
 </figure>
 
+<h3 class="counter">Using STIX Fonts</h3>
+<p>In my opinion, to make math look good digitally, the text font and the math font should largely match. Thus, I like to use STIX fonts across text and math. This is supported in MathJax 2, but not MathJax 3. Uncomment the following code in style.css to enable STIX fonts.</p>
 
+<figure class="counter">
+<figcaption></figcaption>
+<code><pre>
+@font-face {
+	font-family: 'STIX Two Math Regular';
+	src: url('fonts/STIXTwoMath-Regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'STIX Two Text';
+	src: url('fonts/STIXTwoText-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'STIX Two Text';
+	src: url('fonts/STIXTwoText-Bold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'STIX Two Text';
+	src: url('fonts/STIXTwoText-Italic.woff2') format('woff2');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'STIX Two Text';
+	src: url('fonts/STIXTwoText-BoldItalic.woff2') format('woff2');
+	font-weight: bold;
+	font-style: italic;
+}
+
+html, a, a:hover {
+	font-family: 'Stix Two Text', 'Stix Two Math Regular', Serif;
+}
+
+</pre></code>
+</figure>
 
 </div>
 
