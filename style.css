@@ -70,7 +70,7 @@ preference, below is not required for producing pdfs) */
 html { font-family: 'Roboto', sans-serif; font-size: 100%; color: #211A1D;}
 h1 { border-bottom: 1px solid black; margin-bottom: 2rem; padding-bottom: 1rem; }
 h2 { border-bottom: 0.125rem solid black; margin-bottom: 1rem; padding-bottom: 0.5rem; }
-p {	text-align: justify; line-height: 1.4rem; vertical-align: middle; display: inline-block;}
+p {	text-align: justify; line-height: 1.4rem; }
 a { color: #347dbd; 
 /* ALT text-decoration: none; font-weight: bold; */
 }
@@ -92,6 +92,8 @@ mark {
 
 light-mark { font-family: 'Custom Mono', monospace;
 	font-size: smaller;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 body {
