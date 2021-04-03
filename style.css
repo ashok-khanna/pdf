@@ -189,6 +189,22 @@ break whenever we want by inserting a div of this class */
     }
 }
 
+@page top-banner {
+	div.pagedjs_marging-top-left-corner-holder {
+		background-color: #447a45;
+	}
+	div.pagedjs_marging-top {
+		background-color: #447a45;
+	}
+	div.pagedjs_marging-top-rigjt-corner-holder {
+		background-color: #447a45;
+	}
+}
+
+.banner-class {
+	page: top-banner;
+}
+
 /* 7. Adding string-set to our <h2> and <h3> tags. We
 also force a page break before every <h2> tag.
 Not how we added the class "no-break" to allow us to
