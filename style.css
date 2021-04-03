@@ -167,7 +167,7 @@ break whenever we want by inserting a div of this class */
 	@top-left {	background-color: #347dbd; content: " ";}
 	@top-center { background-color: #347dbd; 
 		color: white;
-		content: "Sample Header";
+		content: "Sample Banner Text";
 	}
 	@top-right { background-color: #347dbd;	content: " ";}
 	@top-right-corner { background-color: #347dbd; content: " ";}
