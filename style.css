@@ -132,6 +132,8 @@ figure:not(.no-counter) {
 	counter-increment: figureNumber;
 }
 
+img { max-width: 100%; }
+
 h2:not(.no-counter):before {
 	content: counter(sectionNumber) ". ";
 }
