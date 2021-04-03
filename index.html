@@ -58,13 +58,16 @@
 
 <p>This guide provides a basic tutorial to using paged.js, for my own future reference and yours, and I highly recommend you visiting their site and supporting their project. In particular, their <a href="https://www.pagedjs.org/documentation/05-designing-for-print/">documentation</a> covers many aspects of advanced paged media and is a worthwhile next step after reading this guide.</p>
 
+<br /><br /><br />
+<p><i>Guide begins on following page</i></p>
+
 <div class="page-break"></div>
 
 <!-- 3.2 Section 2 - Getting Started -->
 <h2>Getting Started</h2>
 
 <h3>Installation</h3>
-<p>There are three elements to producing PDFs from HTML through paged.js. First, you will need to load the <a href="https://www.pagedjs.org/documentation/releases/">paged.polyfill.js</a> library either by hosting locally or linking to it directly:</p>
+<p>There are three elements to producing PDFs from HTML through paged.js. First, you will need to load the <a href="https://www.pagedjs.org/documentation/releases/">paged.polyfill.js</a> library either by hosting it locally or linking to it directly:</p>
 
 <code><pre>
 &lt;script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"&gt;&lt;/script&gt;
@@ -72,7 +75,7 @@
 
 <p>Second, you will need to have a web server as paged.js works by modifying your underlying HTML and CSS. One way is to host statically on <a href="https://pages.github.com">GitHub Pages</a> (or similar), another is use a local server like <a href="https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb">Web Server for Chrome</a>.</p>
 
-<p>Finally, you need to have your own custom stylesheet where you will enter all the formatting rules to apply. In our example repo, these rules are contained within <a href="https://github.com/ashok-khanna/pdf/blob/main/style.css">style.css.</a></p>
+<p>Finally, you need to have your own custom stylesheet where you will enter all the formatting rules to apply. In our example repo, these rules are contained within <a href="https://github.com/ashok-khanna/pdf/blob/main/style.css">style.css</a>.</p>
 
 
 <h3>Alternate (easier) Installation</h3>
@@ -92,7 +95,7 @@
 }
 </pre></code>
 
-<p>Whilst we will not make use of media queries for the rest of this guide and in the example repo, please do remember them and use them liberally to create distinct views for screen, print and mobile based on your requirements. They are a central component of <a href="https://en.wikipedia.org/wiki/Responsive_web_design">responsive web design</a>, a topic we could dedicate an entire book to, but not one for today.</p>
+<p>Whilst we will not make use of media queries in the rest of this guide and in the example repo, please do remember them and use them liberally to create distinct views for screen, print and mobile based on your requirements. They are a central component of <a href="https://en.wikipedia.org/wiki/Responsive_web_design">responsive web design</a>, a topic we could dedicate an entire book to, but not one for today.</p>
 
 
 
@@ -106,7 +109,7 @@
 @page { size: A4; }
 </pre></code>
 
-<p>Portrait is the default orientation, but you print in landscape by using the following variation. Finally, you can custom page sizes as the second example below shows. This would be useful if you wanted to create PowerPoint widescreen format slides for example (190.5mm x 338.67mm).</p>
+<p>Portrait is the default orientation, but you print in landscape by using the following variation. Finally, you can use custom page sizes as the second example below shows.</p>
 
 <code><pre>
 @page { size: A4 landscape; }
