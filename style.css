@@ -190,7 +190,8 @@ to cause a page break */
 h2 { string-set: section content(text);	}
 h2:not(.top) { margin-top: 2rem; }
 
-h3 { string-set: subsection content(text); }
+h3 { string-set: subsection content(text);
+	margin-block-end: 0.5rem;}
 
 /* 8. Adding our dynamic header to the page rules */
 @page {
