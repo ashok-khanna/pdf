@@ -188,7 +188,8 @@ Not how we added the class "no-break" to allow us to
 prevent the automatic page break on every h2 tag. For 
 example, we do not want the first h2 tag after the TOC 
 to cause a page break */
-h2 { string-set: section content(text);	margin-top: 2rem;}
+h2 { string-set: section content(text);	}
+h2:not(.top) { margin-top: 2rem; }
 
 h3 { string-set: subsection content(text); }
 
