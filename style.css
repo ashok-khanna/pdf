@@ -164,11 +164,14 @@ break whenever we want by inserting a div of this class */
 }
 
 @page top-banner {
-	@top-left-corner { background-color: #447a45; content: " ";}
-	@top-left {	background-color: #447a45; content: " ";}
-	@top-center { background-color: #447a45; content: "Sample Header";}
-	@top-right { background-color: #447a45;	content: " ";}
-	@top-right-corner { background-color: #447a45; content: " ";}
+	@top-left-corner { background-color: #347dbd; content: " ";}
+	@top-left {	background-color: #347dbd; content: " ";}
+	@top-center { background-color: #347dbd; 
+		color: white;
+		content: "Sample Header";
+	}
+	@top-right { background-color: #347dbd;	content: " ";}
+	@top-right-corner { background-color: #347dbd; content: " ";}
 }
 
 .banner-class {
