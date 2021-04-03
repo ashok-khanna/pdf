@@ -152,7 +152,7 @@ break whenever we want by inserting a div of this class */
 
 /* 5. Defining our styled footer element */
 .footer { position: running(footerRunning); }
-.footer a { font-weight: bold; }
+.footer a { font-weight: bold; text-decoration: none;}
 
 /* 6. Adding our footer to the page rules */
 @page {
