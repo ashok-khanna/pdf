@@ -62,7 +62,6 @@ h2 { border-bottom: 0.125rem solid black; margin-bottom: 1rem; padding-bottom: 0
 p {	text-align: justify; line-height: 1.4rem; }
 a { color: #347dbd; }
 a:hover { color: #FC814A; }
-
 mark { color: #F78E69; background-color: inherit;
 	font-family: 'Custom Mono', monospace; font-weight: bold; }
 light-mark { font-family: 'Custom Mono', monospace; }
@@ -83,7 +82,8 @@ figure {
 	margin-inline-start: 0rem; margin-inline-end: 0rem;
 }
 figcaption { caption-side: top; font-size: smaller;
-	font-family: 'Custom Mono', monospace; font-weight: bold; } 
+	font-family: 'Custom Mono', monospace; font-weight: bold;
+	padding-bottom: 0.5rem; } 
 
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
 
