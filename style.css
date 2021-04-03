@@ -158,12 +158,8 @@ break whenever we want by inserting a div of this class */
 
 
 /* 5. Defining our styled footer element */
-.footer {
-   position: running(footerRunning);
-}
-.footer a {
-	font-family: 'Roboto Thin';
-}
+.footer { position: running(footerRunning); }
+.footer a { font-weight: bold; }
 
 /* 6. Adding our footer to the page rules */
 @page {
@@ -202,7 +198,7 @@ h3 { string-set: subsection content(text); }
 /* 8. Adding our dynamic header to the page rules */
 @page {
 	@top-right {
-		contnet: string(section);
+		content: string(section);
     	/* ALT: content: string(section) " - " string(subsection); */
   	}
 }
