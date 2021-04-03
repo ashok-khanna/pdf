@@ -17,8 +17,9 @@
 }
 
 
+
 /* - * - * - * - * - * - * - * - * - * - */
-/* 2.0 Some Custom Font Families */
+/* 1.5 Some Custom Font Families */
 
 @font-face {
 	font-family: 'Roboto';
@@ -52,8 +53,9 @@
 }
 
 
+
 /* - * - * - * - * - * - * - * - * - * - */
-/* 3.0 General Formatting */
+/* 2.0 General Formatting */
 html { font-family: 'Roboto', sans-serif; }
 h1 { border-bottom: 1px solid black; margin-bottom: 2rem; padding-bottom: 1rem; }
 h2 { border-bottom: 0.125rem solid black; margin-bottom: 1rem; padding-bottom: 0.5rem; }
@@ -69,34 +71,7 @@ light-mark { font-family: 'Custom Mono', monospace;
 	vertical-align: middle; display: inline-block;
 }
 
-body {
-	counter-reset: sectionNumber;
-	counter-reset: subsectionNumber;
-	counter-reset: figureNumber;
-}
-
-h2:not(.no-counter) { counter-increment: sectionNumber; }
-h2 { counter-reset: subsectionNumber; }
-
-h3:not(.no-counter) { counter-increment: subsectionNumber; }
-h3 { counter-reset: figureNumber; }
-
-figure:not(.no-counter) { counter-increment: figureNumber; }
-
 img { max-width: 100%; }
-
-h2:not(.no-counter):before {
-	content: counter(sectionNumber) ". ";
-}
-
-h3:not(.no-counter)::before {
-	content: counter(sectionNumber) "." counter(subsectionNumber) " ";
-}
-
-figcaption:not(.no-counter)::before {
-	content: "Fig. " counter(sectionNumber) "." counter(subsectionNumber) "." counter(figureNumber) " ";
-}
-
 
 pre {
 	background-color: #f0f0f0;
@@ -116,79 +91,77 @@ figcaption { caption-side: top; font-size: smaller;
 
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
 
-/* 3. Setting our page size to A4 */
+h3 { margin-block-end: 0.5rem; }
+
+
+
+/* - * - * - * - * - * - * - * - * - * - */
+/* 3.1 Page Size */
 @page { size: A4; }
 
-
-/* 4. Define page break class to allow us to manually page
-break whenever we want by inserting a div of this class */
+/* 3.2 Page Breaks */
 .page-break { break-after: page; }
+h2:not(.no-break) { break-before: page; }
+
+/* 3.3 Page Numbers */
+@page { @bottom-right { content: counter(page); } }
+
+/* We use the counter-reset class to prevent the page
+numbers starting from the cover page, but rather
+from the next page (table of contents) */
+.counter-reset { counter-reset: page 1; }
 
 
-/* 5. Defining our styled footer element */
+
+/* - * - * - * - * - * - * - * - * - * - */
+/* 4.1 Automatic Counters */
+body {
+	counter-reset: sectionNumber;
+	counter-reset: subsectionNumber;
+	counter-reset: figureNumber;
+}
+
+h2:not(.no-counter) { counter-increment: sectionNumber; }
+h2 { counter-reset: subsectionNumber; }
+
+h3:not(.no-counter) { counter-increment: subsectionNumber; }
+h3 { counter-reset: figureNumber; }
+
+figure:not(.no-counter) { counter-increment: figureNumber; }
+
+h2:not(.no-counter):before {
+	content: counter(sectionNumber) ". ";
+}
+
+h3:not(.no-counter)::before {
+	content: counter(sectionNumber) "." counter(subsectionNumber) " ";
+}
+
+figcaption:not(.no-counter)::before {
+	content: "Fig. " counter(sectionNumber) "." counter(subsectionNumber) "." counter(figureNumber) " ";
+}
+
+/* 4.2 Headers & Footers */
 .footer { position: running(footerRunning); }
 .footer a { font-weight: bold; text-decoration: none;}
-
-/* 6. Adding our footer to the page rules */
 @page {
 	@bottom-left {
-    	content: element(footerRunning);
-    	width: 80mm;
+    	content: element(footerRunning); width: 80mm;
     }
 }
 
-@page top-banner {
-	@top-left-corner { background-color: #347dbd; content: " ";}
-	@top-left {	background-color: #347dbd; content: " ";}
-	@top-center { background-color: #347dbd; 
-		color: white;
-		content: "Sample Banner Text";
-	}
-	@top-right { background-color: #347dbd;	content: " ";}
-	@top-right-corner { background-color: #347dbd; content: " ";}
-}
-
-.banner-class {
-	page: top-banner;
-}
-
-/* 7. Adding string-set to our <h2> and <h3> tags. We
-also force a page break before every <h2> tag.
-Not how we added the class "no-break" to allow us to
-prevent the automatic page break on every h2 tag. For 
-example, we do not want the first h2 tag after the TOC 
-to cause a page break */
 h2 { string-set: section content(text);	}
-h2:not(.no-break) { break-before: page; }
-
-h3 { string-set: subsection content(text);
-	margin-block-end: 0.5rem;}
-
-/* 8. Adding our dynamic header to the page rules */
+h3 { string-set: subsection content(text); }
 @page {
-	@top-right {
-		content: string(section);
+	@top-right { content: string(section);
     	/* ALT: content: string(section) " - " string(subsection); */
   	}
 }
 
-/* 9. Add page numbers to the page rules */
-@page {
-  	@bottom-right { content: counter(page); }
-}
-
-/* 10. Define a counter rest class to reset page numbers
-when we want to (e.g. after cover page) */
-.counter-reset { counter-reset: page 1; }
-
-/* 11. Define a cover page class for custom page rules,
-e.g. adding background color, hiding headers/footers */
+/* 4.3 Cover Pages */
 .cover-page { page: cover-page; }
+.cover-page h1 { border-bottom: 0.25rem solid white; }
 .cover-page h3 { font-weight: normal; }
-.cover-page h1 {
-	border-bottom: 0.25rem solid white; 
-}
-
 @page cover-page {
     background-color: #347DBD; color: white;
     @top-right { content: none; }
@@ -197,20 +170,17 @@ e.g. adding background color, hiding headers/footers */
 }
 
 
-/* 12. Define a table of content class for custom page
-rules, again removing headers/footers but not page numbers */
+
+/* - * - * - * - * - * - * - * - * - * - */
+/* 5.1 Table of Contents */
 .table-of-contents { page: table-of-contents; }
-
-.toc-header { margin-bottom: 1rem; border-bottom: 0.5rem solid black; }
-
 @page table-of-contents {
 	@top-right { content: none; }
 	@bottom-left { content: none; }
 }
 
-
 /* Additional CSS: Advanced Styling for TOC */
-
+.toc-header { margin-bottom: 1rem; border-bottom: 0.5rem solid black; }
 .table-of-contents a, .table-of-contents a:hover {
 	font-family: 'Roboto', sans-serif; 
 }
@@ -302,7 +272,23 @@ ol, ul a {
     right: 0;
 }
 
-/* STIX FONTS (for Math Publishing)
+/* 5.3 Banners */
+.banner-class {	page: top-banner; }
+@page top-banner {
+	@top-left-corner { background-color: #347dbd; content: " ";}
+	@top-left {	background-color: #347dbd; content: " ";}
+	@top-center { background-color: #347dbd; 
+		color: white;
+		content: "Sample Banner Text";
+	}
+	@top-right { background-color: #347dbd;	content: " ";}
+	@top-right-corner { background-color: #347dbd; content: " ";}
+}
+
+
+
+/* - * - * - * - * - * - * - * - * - * - */
+/* 6.0 STIX FONTS (for Math Publishing)
 
 @font-face {
 	font-family: 'STIX Two Math Regular';
