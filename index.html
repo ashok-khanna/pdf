@@ -341,7 +341,33 @@ class handlers extends Paged.Handler {
 
 <div class="banner-class">
 <h3>Banners</h3>
-<p>We can also create banners at the top or bottom of our pages with some more advanced CSS.</p>
+<p>We can also create banners at the top or bottom of our pages with some more advanced CSS. Below is a hacky example, there is probably a cleaner way to do this.</p>
+
+<code><pre>
+<b>In CSS</b>:
+
+@page top-banner {
+	@top-left-corner { background-color: #347dbd; content: " ";}
+	@top-left {	background-color: #347dbd; content: " ";}
+	@top-center { background-color: #347dbd; 
+		color: white;
+		content: "Sample Banner Text";
+	}
+	@top-right { background-color: #347dbd;	content: " ";}
+	@top-right-corner { background-color: #347dbd; content: " ";}
+}
+
+.banner-class {
+	page: top-banner;
+}
+
+
+<b>In HTML</b>:
+&lt;div class="banner-class"&gt;
+  Page content goes here
+&lt;div&gt;
+</pre></code>
+
 </div>
 
 <!-- 4.0 MathJax Add-on
