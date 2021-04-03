@@ -57,7 +57,7 @@
 html { font-family: 'Roboto', sans-serif; }
 h1 { border-bottom: 1px solid black; margin-bottom: 2rem; padding-bottom: 1rem; }
 h2 { border-bottom: 0.125rem solid black; margin-bottom: 1rem; padding-bottom: 0.5rem; }
-p {	text-align: justify; line-height: 1.4rem; }
+p {	text-align: justify; line-height: 1.4rem; display: table-cell; vertical-align: middle;}
 a { color: #347dbd; }
 a:hover { color: #FC814A; }
 
@@ -65,7 +65,7 @@ mark { color: #F78E69; background-color: inherit;
 	font-family: 'Custom Mono', monospace; font-weight: bold; }
 
 light-mark { font-family: 'Custom Mono', monospace;
-	font-size: smaller; display: inline-block; vertical-align: middle; }
+	font-size: smaller;  }
 
 body {
 	counter-reset: sectionNumber;
