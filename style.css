@@ -65,7 +65,9 @@ mark { color: #F78E69; background-color: inherit;
 	font-family: 'Custom Mono', monospace; font-weight: bold; }
 
 light-mark { font-family: 'Custom Mono', monospace;
-	font-size: smaller; line-height: 1.4rem;}
+	font-size: smaller; line-height: 1.4rem;
+	vertical-align: middle; display: inline-block;
+}
 
 body {
 	counter-reset: sectionNumber;
