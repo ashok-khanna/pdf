@@ -246,18 +246,6 @@ figcaption:not(.no-counter)::before {
 <p>To create headers with dynamic content we use the <mark>string-set</mark> property.</p>
 
 <code><pre>
-<b>In HTML</b>:
-
-&lt;h2&gt;Getting Started&lt;/h2&gt;
-&lt;h3&gt;1: Media Queries&lt;/h3&gt;
-....
-....
-&lt;h3&gt;2: Page Breaks&lt;/h3&gt;
-....
-&lt;h2&gt;Media Queries&lt;/h2&gt;
-
-<b>In CSS</b>:
-
 h2 {
   string-set: section content(text);
   break-before: page;
