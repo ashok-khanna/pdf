@@ -32,7 +32,7 @@
 
 <!-- 2.0 Table of Contents -->
 <div class="table-of-contents">
-	<h1 class="toc-header" id="twista">Table of Contents</h1>
+	<h1 class="toc-header" id="toc-start">Table of Contents</h1>
 	<ol id="toc">
 <!-- toc.js will automatically insert TOC here -->
 	</ol>
@@ -42,7 +42,7 @@
 <!-- 3.0 Start of Main Content -->
 
 <!-- Setting the footer -->
-<p class="footer"><a href="#twista">Return to Table of Contents</a></p>
+<p class="footer"><a href="#toc-start">Return to Table of Contents</a></p>
 
 <!-- Reseting the header counters (as cover page also uses them) -->
 <div class="counter-reset"></div>
@@ -212,12 +212,115 @@ figcaption:not(.no-counter)::before {
 </figure>
 
 <h3>Advanced Headers & Foooters</h3>
-<p>We can generate formatted headers</p>
+<p>We can generate formatted headers by first creating the formatted header in our HTML and then changing its position to be <mark>running</mark> to move it from its original place in HTML to the footer of each page:</p>
 
+
+<code><pre>
+&lt;p class="footer"&gt;&lt;a href="#toc-start"&gt;Return to Table of Contents&lt;/a&gt;&lt;/p&gt;
+</pre></code>
+
+<code><pre>
+.footer {
+   position: running(footerRunning);
+}
+.footer a {
+	font-family: 'Roboto Thin';
+}
+
+@page {
+  ...
+  @bottom-left {
+    content: element(footerRunning);
+    width: 40mm;
+  }
+}
+</pre></code>
+
+<p>To create headers with dynamic content we use the <mark>string-set</mark> property. An example is below.</p>
+
+<code><pre>
+In HTML:
+&lt;h2&gt;Getting Started&lt;/h2&gt;
+&lt;h3&gt;1: Media Queries&lt;/h3&gt;
+....
+....
+&lt;h3&gt;2: Page Breaks&lt;/h3&gt;
+....
+&lt;h2&gt;Media Queries&lt;/h2&gt;
+
+In CSS:
+h2 {
+  string-set: section content(text);
+  break-before: page;
+}
+h3 {
+  string-set: subsection content(text);
+}
+@page {
+  @top-right {
+    content: string(section) " - " string(subsection);
+   }
+}
+</pre></code>
+
+<h3>Cover Pages</h3>
+<p>We can create custom pages to create a cover page. Note that a custom page will automatically create a page break after it, so no need to manually page break after our cover page. Below is an example.</p>
+
+<code><pre>
+In HTML:
+&lt;div class="cover-page"&gt;
+ &lt;h1&gt;Beautiful PDFs from HTML&lt;/h1&gt;
+ &lt;h3&gt;An introductory guide by Ashok Khanna&lt;/h3&gt;
+ &lt;h3&gt;April 2021&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class="counter-reset"&gt;&lt;/div&gt;
+...
+...
+
+In CSS:
+.cover-page { page: cover-page; }
+@page cover-page {
+    background-color: #347DBD;
+    color: white;
+    
+    @top-right { content: none; }
+    @bottom-left { content: none; }
+    @bottom-right { content: none; }
+}
+</pre></code>
+
+<p>Note that the value in the header will refer to the first instance of the <mark>string-set</mark> property within the page (i.e. if there are multiple &lt;h3&gt; tags on a page, only the first will be used to populate the header).</h3>
 
 <h3>Table of Contents</h3>
-<p>Paged.Js has a great tutorial on adding table of contents to your pdf, together with the required code.
+<p>The Paged.Js team wrote a <a href="https://www.pagedjs.org/posts/2020-02-19-toc/">great tutorial on adding table of contents</a> to our pages. The first step is to load <mark>toc.js</mark> in our example repo into our HTML file. We then need to add the following script in our HTML, after the call for pajed.js:</p>
 
+<code><pre>
+class handlers extends Paged.Handler {
+    constructor(chunker, polisher, caller) {
+		super(chunker, polisher, caller);
+    }
+    beforeParsed(content){
+	    createToc({
+    		content: content,
+    		tocElement: '#toc',
+    		titleElements: [ 'h2:not(.cover-header)', 'h3:not(.cover-header)' ]
+    	});
+	}
+  }
+  Paged.registerHandlers(handlers);
+</pre></code>
+
+<p>Finally, we need to do add a toc element to our HTML code where we want the table of contents to appear. For example:</p>
+
+<code><pre>
+&lt;div class="table-of-contents"&gt;
+	&lt;h1 class="toc-header" id="toc-start"&gt;Table of Contents<&lt;/h1&gt;
+	&lt;ol id="toc"&gt;
+	&lt;/ol&gt;
+&lt;/div&gt;
+</pre></code>
+
+<p>For some advanced formatting of our table of contents, refer to <mark>style.css</mark> in the example repo.</p>
 
 </div>
 

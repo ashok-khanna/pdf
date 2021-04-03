@@ -173,8 +173,10 @@ break whenever we want by inserting a div of this class */
 
 /* 5. Defining our styled footer element */
 .footer {
-	position: running(footerRunning);
-	font-family: 'Roboto Thin';	color: gray;
+   position: running(footerRunning);
+}
+.footer a {
+	font-family: 'Roboto Thin';
 }
 
 /* 6. Adding our footer to the page rules */
