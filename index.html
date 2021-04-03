@@ -141,7 +141,9 @@ h2:not(.no-break) { break-before: page; }
 <p>We can use CSS counters to add page numbers. The below CSS will add a page number to the bottom right of every page.</p>
 
 <code><pre>
-@page {	@bottom-right { content: counter(page); } }
+@page {	
+	@bottom-right { content: counter(page); } 
+}
 </pre></code>
 
 
