@@ -1,40 +1,35 @@
-/* Colors:
-
-Brown 7E5920;
-Yellow Orange FFA737;
-Dark Sea Green: 94C595;
-Dark Salmon: F78E69;
-Mellow Apricot: F1BB87;
-
-*/
+/* - * - * - * - * - * - * - * - * - * - */
+/* 1.0 CSS to make A4 print preview as default web view */
 
 @media screen {
 
 	 .pagedjs_pages {
         display: flex;
         width: calc(var(--pagedjs-width));
-        flex: 0;
-        flex-wrap: wrap;
-        margin: 0 auto;
-        justify-content: center;
+        flex: 0; flex-wrap: wrap;
+        margin: 0 auto; justify-content: center;
 
     }
 
     .pagedjs_page {
-        margin: 10mm;
-        margin: 10mm;
-        border: solid 1px gray;
+        margin: 10mm; border: solid 1px gray;
     }
-
-
 }
 
-/* 1. Some Font Definitons (just for my own personal
-preference, below is not required for producing pdfs) */
+
+/* - * - * - * - * - * - * - * - * - * - */
+/* 2.0 Some Custom Font Families */
+
 @font-face {
 	font-family: 'Roboto';
 	src: url('fonts/Roboto-Light.ttf') format('truetype');
 	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('fonts/Roboto-Medium.ttf') format('truetype');
+	font-weight: bold;
 }
 
 @font-face {
@@ -45,9 +40,9 @@ preference, below is not required for producing pdfs) */
 }
 
 @font-face {
-	font-family: 'Roboto';
-	src: url('fonts/Roboto-Medium.ttf') format('truetype');
-	font-weight: bold;
+	font-family: 'Custom Mono';
+	src: url('fonts/RobotoMono-Light.ttf') format('truetype');
+	font-weight: normal;
 }
 
 @font-face {
@@ -57,44 +52,20 @@ preference, below is not required for producing pdfs) */
 }
 
 
-@font-face {
-	font-family: 'Custom Mono';
-	src: url('fonts/RobotoMono-Light.ttf') format('truetype');
-	font-weight: normal;
-}
-
-
-
-/* 2. Some generic styling (again for my own personal
-preference, below is not required for producing pdfs) */
-html { font-family: 'Roboto', sans-serif; font-size: 100%; color: #211A1D;}
+/* - * - * - * - * - * - * - * - * - * - */
+/* 3.0 General Formatting */
+html { font-family: 'Roboto', sans-serif; }
 h1 { border-bottom: 1px solid black; margin-bottom: 2rem; padding-bottom: 1rem; }
 h2 { border-bottom: 0.125rem solid black; margin-bottom: 1rem; padding-bottom: 0.5rem; }
 p {	text-align: justify; line-height: 1.4rem; }
-a { color: #347dbd; 
-/* ALT text-decoration: none; font-weight: bold; */
-}
-a:hover { color: #FC814A;
-/* ALT font-weight: bold; */
-}
+a { color: #347dbd; }
+a:hover { color: #FC814A; }
 
-.table-of-contents a, .table-of-contents a:hover {
-	font-family: 'Roboto', sans-serif; 
-}
-
-
-mark {
-	color: #F78E69;
-	background-color: inherit;
-	font-family: 'Custom Mono', monospace;
-	font-weight: bold;
-}
+mark { color: #F78E69; background-color: inherit;
+	font-family: 'Custom Mono', monospace; font-weight: bold; }
 
 light-mark { font-family: 'Custom Mono', monospace;
-	font-size: smaller;
-	display: inline-block;
-	vertical-align: middle;
-}
+	font-size: smaller; display: inline-block; vertical-align: middle; }
 
 body {
 	counter-reset: sectionNumber;
@@ -237,6 +208,10 @@ rules, again removing headers/footers but not page numbers */
 
 
 /* Additional CSS: Advanced Styling for TOC */
+
+.table-of-contents a, .table-of-contents a:hover {
+	font-family: 'Roboto', sans-serif; 
+}
 
 ol, ul {
 	padding-inline-start: 0px;
