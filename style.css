@@ -90,6 +90,8 @@ mark {
 	font-weight: bold;
 }
 
+light-mark { color: gray; font-family: 'Custom Mono', monospace; }
+
 body {
 	counter-reset: sectionNumber;
 	counter-reset: subsectionNumber;

@@ -85,7 +85,7 @@
 
 <p>Before we begin with the main guide, I want to quickly introduce you to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a>. Media queries allow us to modify the stylesheet associated with our website depending on whether it is viewed on screen or for print (e.g. when printing to pdf or paper)  and allow us to set different style sheets for print, screen and mobile.</p>
 
-<p>A common use case for media queries is to hide navigational menus from a print or mobile view. Say we have defined a class "sidebar", we could hide it from a print view, whilst keeping it visible in the primary screen view, as follows.</p>
+<p>A common use case for media queries is to hide navigational menus from a print or mobile view. Say we have defined a class <light-mark>sidebar</light-mark>, we could hide it from a print view, whilst keeping it visible in the primary screen view, as follows.</p>
 
 <code><pre>
 @media print {
@@ -121,7 +121,7 @@
 
 
 <h3>Page Breaks</h3>
-<p>By default, paged.js will determine how much content fills up a page and then insert page breaks at the overflow points. We can manually insert page breaks by creating a <mark>page-break</mark> class and setting its <mark>break-after</mark> property to <mark>page</mark>.</p>
+<p>By default, paged.js will determine how much content fills up a page and then insert page breaks at the overflow points. We can manually insert page breaks by creating a <light-mark>page-break</light-mark> class and setting its <mark>break-after</mark> property to <mark>page</mark>.</p>
 
 <code><pre>
 .page-break { break-after: page; }
