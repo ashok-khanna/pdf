@@ -65,13 +65,9 @@ a:hover { color: #FC814A; }
 
 mark { color: #F78E69; background-color: inherit;
 	font-family: 'Custom Mono', monospace; font-weight: bold; }
-
-light-mark { font-family: 'Custom Mono', monospace;
-	font-size: smaller; line-height: 1.4rem;
-	vertical-align: middle;
-}
-
+light-mark { font-family: 'Custom Mono', monospace; }
 img { max-width: 100%; }
+.img-100mm { max-height: 100mm; }
 
 pre {
 	background-color: #f0f0f0;
