@@ -98,22 +98,16 @@ body {
 	counter-reset: figureNumber;
 }
 
-h2:not(.no-counter) {
-	counter-increment: sectionNumber;
-}
+h2:not(.no-counter) { counter-increment: sectionNumber; }
 
-h2 {
-	counter-reset: subsectionNumber;
-}
+h2 { counter-reset: subsectionNumber; }
 
 h3:not(.no-counter) {
 	counter-increment: subsectionNumber;
 	counter-reset: figureNumber;
 }
 
-h3 {
-	counter-reset: figureNumber;
-}
+h3 { counter-reset: figureNumber; }
 
 figure:not(.no-counter) {
 	counter-increment: figureNumber;
@@ -173,11 +167,11 @@ break whenever we want by inserting a div of this class */
 }
 
 @page top-banner {
-	@top-left-corner { background-color: #447a45; }
-	@top-left {	background-color: #447a45; }
+	@top-left-corner { background-color: #447a45; content: " ";}
+	@top-left {	background-color: #447a45; content: " ";}
 	@top-center { background-color: #447a45; content: "Sample Header";}
-	@top-right { background-color: #447a45;	}
-	@top-right-corner { background-color: #447a45;	}
+	@top-right { background-color: #447a45;	content: " ";}
+	@top-right-corner { background-color: #447a45; content: " ";}
 }
 
 .banner-class {
