@@ -90,7 +90,10 @@ mark {
 	font-weight: bold;
 }
 
-light-mark { color: gray; font-family: 'Custom Mono', monospace; }
+light-mark { font-family: 'Custom Mono', monospace;
+	font-size: smaller;
+	font-weight: bold;
+}
 
 body {
 	counter-reset: sectionNumber;
