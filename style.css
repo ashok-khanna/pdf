@@ -46,7 +46,7 @@ preference, below is not required for producing pdfs) */
 
 @font-face {
 	font-family: 'Roboto';
-	src: url('fonts/Roboto-Medium.ttf.ttf') format('truetype');
+	src: url('fonts/Roboto-Medium.ttf') format('truetype');
 	font-weight: bold;
 }
 
