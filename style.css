@@ -211,14 +211,15 @@ Not how we added the class "no-break" to allow us to
 prevent the automatic page break on every h2 tag. For 
 example, we do not want the first h2 tag after the TOC 
 to cause a page break */
-h2 { string-set: section content(text);	}
+h2 { string-set: section content(text);	margin-top: 2rem;}
 
 h3 { string-set: subsection content(text); }
 
 /* 8. Adding our dynamic header to the page rules */
 @page {
 	@top-right {
-    	content: string(section) " - " string(subsection);
+		contnet: string(section);
+    	/* ALT: content: string(section) " - " string(subsection); */
   	}
 }
 
@@ -313,8 +314,6 @@ ol, ul a {
     content: counter(counterTocLevel1) "." counter(counterTocLevel2) " ";
     padding-right: 5px;
 }
-
-
 
 /* hack for leaders */
 
