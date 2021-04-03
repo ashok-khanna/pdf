@@ -190,13 +190,13 @@ break whenever we want by inserting a div of this class */
 }
 
 @page top-banner {
-	.div.pagedjs_marging-top-left-corner-holder {
+	pagedjs_marging-top-left-corner-holder {
 		background-color: #447a45;
 	}
-	.div.pagedjs_marging-top {
+	pagedjs_marging-top {
 		background-color: #447a45;
 	}
-	.div.pagedjs_marging-top-rigjt-corner-holder {
+	pagedjs_marging-top-right-corner-holder {
 		background-color: #447a45;
 	}
 }
