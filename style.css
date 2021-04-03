@@ -5,6 +5,7 @@ Yellow Orange FFA737;
 Dark Sea Green: 94C595;
 Dark Salmon: F78E69;
 Mellow Apricot: F1BB87;
+
 */
 
 @media screen {
@@ -170,15 +171,11 @@ break whenever we want by inserting a div of this class */
 }
 
 @page top-banner {
-	pagedjs_marging-top-left-corner-holder {
-		background-color: #447a45;
-	}
-	pagedjs_marging-top {
-		background-color: #447a45;
-	}
-	pagedjs_marging-top-right-corner-holder {
-		background-color: #447a45;
-	}
+	@top-left-corner { background-color: #447a45; }
+	@top-left {	background-color: #447a45; }
+	@top-center { background-color: #447a45; content: "Sample Header";}
+	@top-right { background-color: #447a45;	}
+	@top-right-corner { background-color: #447a45;	}
 }
 
 .banner-class {
