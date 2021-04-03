@@ -167,7 +167,7 @@ h2:not(.no-break) { break-before: page; }
 <h2>Advanced Features</h2>
 
 <h3>Automatic Counters</h3>
-<p>One useful feature is to automatically number sections, subsections and figures. We can achieve this with plain CSS. First, let's define the class <mark>no-counter</mark> as a general class to exclude a section or figure from the numbering. Subsequently we can generate the counters as follows, noting that the subsection and figure counters reset at every new instance of a section.</p>
+<p>One useful feature is to automatically number sections and figures. To achieve this, first define the class <light-mark>no-counter</light-mark> as a general class to allow us to manually exclude a section or figure from the numbering. Subsequently, we can generate the counters as follows, noting that the subsection and figure counters reset at every new instance of a section.</p>
 
 <code><pre>
 body {
@@ -176,26 +176,15 @@ body {
 	counter-reset: figureNumber;
 }
 
-h2:not(.no-counter) {
-	counter-increment: sectionNumber;
-}
+h2:not(.no-counter) { counter-increment: sectionNumber; }
 
-h2 {
-	counter-reset: subsectionNumber;
-}
+h2 { counter-reset: subsectionNumber; }
 
-h3:not(.no-counter) {
-	counter-increment: subsectionNumber;
-	counter-reset: figureNumber;
-}
+h3:not(.no-counter) { counter-increment: subsectionNumber; }
 
-h3 {
-	counter-reset: figureNumber;
-}
+h3 { counter-reset: figureNumber; }
 
-figure:not(.no-counter) {
-	counter-increment: figureNumber;
-}
+figure:not(.no-counter) { counter-increment: figureNumber; }
 </pre></code>
 
 <p>We then take this one step further and use CSS to automatically generate text labels to reflect the counter numbers within our sections and figures.</p>

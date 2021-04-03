@@ -102,19 +102,12 @@ body {
 }
 
 h2:not(.no-counter) { counter-increment: sectionNumber; }
-
 h2 { counter-reset: subsectionNumber; }
 
-h3:not(.no-counter) {
-	counter-increment: subsectionNumber;
-	counter-reset: figureNumber;
-}
-
+h3:not(.no-counter) { counter-increment: subsectionNumber; }
 h3 { counter-reset: figureNumber; }
 
-figure:not(.no-counter) {
-	counter-increment: figureNumber;
-}
+figure:not(.no-counter) { counter-increment: figureNumber; }
 
 img { max-width: 100%; }
 
