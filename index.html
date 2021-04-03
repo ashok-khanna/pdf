@@ -130,6 +130,11 @@
 &lt;div class="page-break"&gt;&lt;/div&gt;
 </pre></code>
 
+<p>Similarly, we could automatically force a page break before every h2 tag with the following (which also gives us the opportunity to avoid this behaviour by attaching the 'no-break' class to a h2 header we do not want to auto-break):</p>
+
+<code><pre>
+h2:not(.no-break) { break-before: page; }
+</pre></code>
 
 <h3>Page Numbers</h3>
 <p>We can use CSS counters to add page numbers. The below CSS will add a page number to the bottom right of every page.</p>

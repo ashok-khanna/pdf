@@ -196,7 +196,7 @@ prevent the automatic page break on every h2 tag. For
 example, we do not want the first h2 tag after the TOC 
 to cause a page break */
 h2 { string-set: section content(text);	}
-h2:not(.no-break) { break-before: page; }
+
 h3 { string-set: subsection content(text); }
 
 /* 8. Adding our dynamic header to the page rules */
