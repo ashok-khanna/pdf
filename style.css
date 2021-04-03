@@ -68,7 +68,7 @@ mark { color: #F78E69; background-color: inherit;
 
 light-mark { font-family: 'Custom Mono', monospace;
 	font-size: smaller; line-height: 1.4rem;
-	vertical-align: middle; display: inline-block;
+	vertical-align: middle;
 }
 
 img { max-width: 100%; }
