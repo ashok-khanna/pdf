@@ -170,7 +170,7 @@ h2:not(.no-break) { break-before: page; }
 <h2 class="top">Advanced Features</h2>
 
 <h3>Automatic Counters</h3>
-<p>One useful feature is to automatically number sections and figures. To achieve this, first define the class <light-mark>no-counter</light-mark> as a general class to allow us to manually exclude a section or figure from the numbering. Subsequently, we can generate the counters as follows, noting that the subsection and figure counters reset at every new instance of a section.</p>
+<p>One useful feature is to automatically number sections and figures. We achieve this with the following, noting that we use the class <light-mark>no-counter</light-mark> as a general class to manually exclude a section or figure from the numbering. Note that the subsection and figure counters reset at every new instance of a section.</p>
 
 <code><pre>
 body {
@@ -179,18 +179,28 @@ body {
 	counter-reset: figureNumber;
 }
 
-h2:not(.no-counter) { counter-increment: sectionNumber; }
+h2:not(.no-counter) { 
+	counter-increment: sectionNumber;
+}
 
-h2 { counter-reset: subsectionNumber; }
+h2 { 
+	counter-reset: subsectionNumber;
+}
 
-h3:not(.no-counter) { counter-increment: subsectionNumber; }
+h3:not(.no-counter) {
+	counter-increment: subsectionNumber;
+}
 
-h3 { counter-reset: figureNumber; }
+h3 {
+	counter-reset: figureNumber;
+}
 
-figure:not(.no-counter) { counter-increment: figureNumber; }
+figure:not(.no-counter) {
+	counter-increment: figureNumber;
+}
 </pre></code>
 
-<p>We then take this one step further and use CSS to automatically generate text labels to reflect the counter numbers within our sections and figures.</p>
+<p>We can then take this one step further and use CSS to automatically generate text labels to reflect the counters within our sections and figures.</p>
 
 <figure>
 <figcaption>Code to Auto-Generate Numbering Labels</figcaption>
@@ -209,24 +219,23 @@ figcaption:not(.no-counter)::before {
 </pre></code>
 </figure>
 
-<h3>Advanced Headers & Foooters</h3>
-<p>We can generate formatted headers by first creating the formatted header in our HTML and then changing its position to be <mark>running</mark> to move it from its original place in HTML to the footer of each page:</p>
+<h3>Headers & Foooters (contd.)</h3>
+<p>We can generate formatted headers by first creating the formatted header in our HTML and then changing its position to be <mark>running</mark> to move it to the footer of each page:</p>
 
 
 <code><pre>
-&lt;p class="footer"&gt;&lt;a href="#toc-start"&gt;Return to Table of Contents&lt;/a&gt;&lt;/p&gt;
+&lt;p class="footer"&gt;
+	&lt;a href="#toc-start"&gt;Return to Table of Contents&lt;/a&gt;
+&lt;/p&gt;
 </pre></code>
 
 <code><pre>
 .footer {
    position: running(footerRunning);
 }
-.footer a {
-	font-family: 'Roboto Thin';
-}
+
 
 @page {
-  ...
   @bottom-left {
     content: element(footerRunning);
     width: 40mm;
@@ -234,10 +243,11 @@ figcaption:not(.no-counter)::before {
 }
 </pre></code>
 
-<p>To create headers with dynamic content we use the <mark>string-set</mark> property. An example is below.</p>
+<p>To create headers with dynamic content we use the <mark>string-set</mark> property.</p>
 
 <code><pre>
-In HTML:
+<b>In HTML</b>:
+
 &lt;h2&gt;Getting Started&lt;/h2&gt;
 &lt;h3&gt;1: Media Queries&lt;/h3&gt;
 ....
@@ -246,14 +256,17 @@ In HTML:
 ....
 &lt;h2&gt;Media Queries&lt;/h2&gt;
 
-In CSS:
+<b>In CSS</b>:
+
 h2 {
   string-set: section content(text);
   break-before: page;
 }
+
 h3 {
   string-set: subsection content(text);
 }
+
 @page {
   @top-right {
     content: string(section) " - " string(subsection);
@@ -261,11 +274,13 @@ h3 {
 }
 </pre></code>
 
+<p>Note the value in the header will refer to the first instance of the <mark>string-set</mark> property within the page (i.e. if there are multiple &lt;h3&gt; tags on a page, only the first will be used to populate the header).</h3>
+
 <h3>Cover Pages</h3>
-<p>We can create custom pages to create a cover page. Note that a custom page will automatically create a page break after it, so no need to manually page break after our cover page. Below is an example.</p>
+<p>We can create a cover page by defining custom pages in our CSS. Note that a custom page will automatically create a page break after it, so no need to manually break after one. Below is an example.</p>
 
 <code><pre>
-In HTML:
+<b>In HTML</b>:
 &lt;div class="cover-page"&gt;
  &lt;h1&gt;Beautiful PDFs from HTML&lt;/h1&gt;
  &lt;h3&gt;An introductory guide by Ashok Khanna&lt;/h3&gt;
@@ -275,25 +290,23 @@ In HTML:
 ...
 ...
 
-In CSS:
+<b>In CSS</b>:
 .cover-page { page: cover-page; }
+
 @page cover-page {
     background-color: #347DBD;
     color: white;
-    
     @top-right { content: none; }
     @bottom-left { content: none; }
     @bottom-right { content: none; }
 }
 </pre></code>
 
-<p>Note that the value in the header will refer to the first instance of the <mark>string-set</mark> property within the page (i.e. if there are multiple &lt;h3&gt; tags on a page, only the first will be used to populate the header).</h3>
-
 <h2>Other Notes</h2>
 
 <h3>Table of Contents</h3>
 
-<p>The Paged.Js team wrote a <a href="https://www.pagedjs.org/posts/2020-02-19-toc/">great tutorial on adding table of contents</a> to our pages. The first step is to load <mark>toc.js</mark> in our example repo into our HTML file. We then need to add the following script in our HTML, after the call for pajed.js:</p>
+<p>The Paged.Js team wrote a <a href="https://www.pagedjs.org/posts/2020-02-19-toc/">great tutorial on adding table of contents</a> to our pages. The first step is to load <mark>toc.js</mark> from our example repo into our HTML file. We then need to add the following script in our HTML, after the call for paged.js:</p>
 
 <code><pre>
 class handlers extends Paged.Handler {
@@ -311,7 +324,7 @@ class handlers extends Paged.Handler {
   Paged.registerHandlers(handlers);
 </pre></code>
 
-<p>Finally, we need to do add a toc element to our HTML code where we want the table of contents to appear. For example:</p>
+<p>Finally, we need to do add our table of contents to our HTML code in the place we want it to appear:</p>
 
 <code><pre>
 &lt;div class="table-of-contents"&gt;
@@ -321,11 +334,11 @@ class handlers extends Paged.Handler {
 &lt;/div&gt;
 </pre></code>
 
-<p>For some advanced formatting of our table of contents, refer to <mark>style.css</mark> in the example repo.</p>
+<p>Refer to <mark>style.css</mark> in the example repo for advanced formatting of our table of contents.</p>
 
 <h3>Exporting to PDF</h3>
 
-<p>You can export your file to PDF using the browser's file > print option (selecting pdf as the printer). You want to select the print background option and delect the print headers & footers option.</p>
+<p>You can export your file to PDF using the browser's <light-mark>file > print</light-mark> option (selecting pdf as the printer). You want to select the print background option and delect the print headers & footers option.</p>
 
 <figure>
 <figcaption>Screenshot of Print Settings in Safari</figcaption>
