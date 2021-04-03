@@ -45,23 +45,9 @@ preference, below is not required for producing pdfs) */
 
 @font-face {
 	font-family: 'Roboto';
-	src: url('fonts/Roboto-Bold.ttf') format('truetype');
+	src: url('fonts/Roboto-Medium.ttf.ttf') format('truetype');
 	font-weight: bold;
 }
-
-@font-face {
-	font-family: 'Roboto';
-	src: url('fonts/Roboto-BoldItalic.ttf') format('truetype');
-	font-weight: bold;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Roboto Thin';
-	src: url('fonts/Roboto-Thin.ttf') format('truetype');
-	font-weight: normal;
-}
-
 
 @font-face {
 	font-family: 'Custom Mono';
@@ -76,12 +62,6 @@ preference, below is not required for producing pdfs) */
 	font-weight: normal;
 }
 
-@font-face {
-	font-family: 'Roboto Medium';
-	src: url('fonts/Roboto-Medium.ttf') format('truetype');
-	font-weight: bold;
-}
-
 
 
 /* 2. Some generic styling (again for my own personal
@@ -91,10 +71,10 @@ h1 { border-bottom: 1px solid black; margin-bottom: 2rem; padding-bottom: 1rem; 
 h2 { border-bottom: 0.125rem solid black; margin-bottom: 1rem; padding-bottom: 0.5rem; }
 p {	text-align: justify; line-height: 1.4rem;}
 a { color: #347dbd; 
-/* ALT text-decoration: none; font-family: 'Roboto Medium', sans-serif; */
+/* ALT text-decoration: none; font-weight: bold; */
 }
 a:hover { color: #FC814A;
-/* ALT font-family: 'Roboto Medium', sans-serif; */
+/* ALT font-weight: bold; */
 }
 
 .table-of-contents a, .table-of-contents a:hover {
