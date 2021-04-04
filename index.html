@@ -222,7 +222,7 @@ figcaption:not(.no-counter)::before {
 </figure>
 
 <h3>Headers & Foooters (contd.)</h3>
-<p>We can generate formatted headers by first creating the formatted header in our HTML and then changing its position to be <mark>running</mark> to move it to the footer of each page:</p>
+<p>We can generate formatted headers by first creating the formatted header in our HTML and then changing its position to be <mark>running</mark> to move it to each page's footer:</p>
 
 
 <code><pre>
@@ -313,7 +313,7 @@ class handlers extends Paged.Handler {
   Paged.registerHandlers(handlers);
 </pre></code>
 
-<p>Finally, we need to do add our table of contents to our HTML code in the place we want it to appear:</p>
+<p>We then need to do add our table of contents to our HTML code in the place we want it to appear:</p>
 
 <code><pre>
 &lt;div class="table-of-contents"&gt;
@@ -343,6 +343,9 @@ class handlers extends Paged.Handler {
 <h3>Banners</h3>
 <p>We can also create banners at the top or bottom of our pages with some more advanced CSS. Below is a hacky example, there is probably a cleaner way to do this.</p>
 
+
+<figure>
+<figcaption>Creating Custom Pages with Banners</figcaption>
 <code><pre>
 <b>In CSS</b>:
 
@@ -367,6 +370,8 @@ class handlers extends Paged.Handler {
   Page content goes here
 &lt;div&gt;
 </pre></code>
+</figure>
+
 
 </div>
 
