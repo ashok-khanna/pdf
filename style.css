@@ -140,7 +140,9 @@ figcaption:not(.no-counter)::before {
 
 /* 4.2 Headers & Footers */
 .footer { position: running(footerRunning); }
-.footer a { font-weight: bold; text-decoration: none;}
+.footer a { font-weight: bold;
+	text-decoration: none;
+	color: #445a75;}
 @page {
 	@bottom-left {
     	content: element(footerRunning); width: 80mm;
@@ -160,7 +162,7 @@ h3 { string-set: subsection content(text); }
 .cover-page h1 { border-bottom: 0.25rem solid white; }
 .cover-page h3 { font-weight: normal; }
 @page cover-page {
-    background-color: purple; color: white;
+    background-color: #445a75; color: white;
     @top-right { content: none; }
     @bottom-left { content: none; }
     @bottom-right { content: none; }
