@@ -52,9 +52,9 @@
 
 <p>HTML and CSS are beautiful languages and one of the landmark achievements of collaboration and the open web. Together, they allow you to create beautifully typeset digital content that can be viewed on any device, without any special software or paid licenses.</p>
 
-<p>The web however was developed for scrolling content, and not paged media (by which we mean discrete pages, like in print or pdf). Unfortunately, whilst there are <a href="https://www.w3.org/TR/css-page-3/">W3C standards</a> on paged media, adoption by browsers has not been adequate to date. High quality paid alternatives exist in <a href="https://www.princexml.com">PrinceXML</a>, but a native, free solution has been missing.</p>
+<p>The web however was developed for scrolling content, and not paged media (by which we mean discrete pages, like in print or PDF). Unfortunately, whilst there are <a href="https://www.w3.org/TR/css-page-3/">W3C standards</a> on paged media, adoption by browsers has not been adequate to date. High quality paid alternatives exist in <a href="https://www.princexml.com">PrinceXML</a>, but a native, free solution has been missing.</p>
 
-<p>A <a href="https://news.ycombinator.com/item?id=26578826">happenstance discussion</a> on HackerNews brought my attention to <a href="https://www.pagedjs.org">paged.js</a>, a genius idea to polyfill the required capabilities to allow browsers to natively handle paged media, without having to build the whole rendering engine from scratch.</p>
+<p>A <a href="https://news.ycombinator.com/item?id=26578826">happenstance discussion</a> on Hacker News brought my attention to <a href="https://www.pagedjs.org">paged.js</a>, a genius idea to polyfill the required capabilities to allow browsers to natively handle paged media, without having to build the whole rendering engine from scratch.</p>
 
 <p>This guide provides a basic tutorial to using paged.js, for my own future reference and yours, and I highly recommend you visiting their site and supporting their project. In particular, their <a href="https://www.pagedjs.org/documentation/05-designing-for-print/">documentation</a> covers many aspects of advanced paged media and is a worthwhile next step after reading this guide.</p>
 
@@ -63,8 +63,8 @@
 <!-- 3.2 Section 2 - Getting Started -->
 <h2 class="top">Getting Started</h2>
 
-<h3>Installation</h3>
-<p>There are three elements to producing PDFs from HTML through <light-mark>paged.js</light-mark>. First, you will need to load the <a href="https://www.pagedjs.org/documentation/releases/">paged.polyfill.js</a> library either by hosting it locally or linking to it directly:</p>
+<h3 class="top">Installation</h3>
+<p>There are three elements required to producing PDFs from HTML through paged.js. First, you will need to load the <a href="https://www.pagedjs.org/documentation/releases/">paged.polyfill.js</a> library either by hosting it locally or linking to it directly:</p>
 
 <code><pre>
 &lt;script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"&gt;&lt;/script&gt;
@@ -80,7 +80,7 @@
 
 <h3>Media Queries</h3>
 
-<p>Before we begin with the main guide, I want to quickly introduce you to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a>. Media queries allow us to modify the stylesheet associated with our website depending on whether it is viewed on screen or for print (e.g. when printing to pdf or paper)  and allow us to set different style sheets for print, screen and mobile.</p>
+<p>Before we begin with the main guide, I want to quickly introduce you to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a>. Media queries allow us to modify the stylesheet associated with our website depending on whether it is viewed on screen or for print (e.g. when printing to PDF or paper)  and allow us to set different style sheets for print, screen and mobile.</p>
 
 <p>A common use case for media queries is to hide navigational menus from a print or mobile view. Say we have defined a class <light-mark>sidebar</light-mark>, we could hide it from a print view, whilst keeping it visible in the primary screen view, as follows.</p>
 
@@ -163,7 +163,7 @@ h2:not(.no-break) { break-before: page; }
 
 <h2>Advanced Features</h2>
 
-<h3>Automatic Counters</h3>
+<h3 class="top">Automatic Counters</h3>
 <p>One useful feature is to automatically number sections and figures. We achieve this with the following, noting that we use the class <light-mark>no-counter</light-mark> as a general class to manually exclude a section or figure from the numbering. Note that the subsection and figure counters below reset at every new instance of a section.</p>
 
 <code><pre>
@@ -265,12 +265,14 @@ h3 {
 
 <code><pre>
 <b>In HTML</b>:
+
 &lt;div class="cover-page"&gt;
  &lt;h1&gt;Beautiful PDFs from HTML&lt;/h1&gt;
  &lt;h3&gt;An introductory guide by Ashok Khanna&lt;/h3&gt;
  &lt;h3&gt;April 2021&lt;/h3&gt;
 &lt;/div&gt;
 &lt;div class="counter-reset"&gt;&lt;/div&gt;
+
 
 
 <b>In CSS</b>:
@@ -287,7 +289,7 @@ h3 {
 
 <h2>Other Notes</h2>
 
-<h3>Table of Contents</h3>
+<h3 class="top">Table of Contents</h3>
 
 <p>The Paged.Js team wrote a <a href="https://www.pagedjs.org/posts/2020-02-19-toc/">great tutorial on adding table of contents</a> to our pages. The first step is to load <mark>toc.js</mark> from our example repo into our HTML file. We then need to add the following script in our HTML, after the call for paged.js:</p>
 
@@ -321,7 +323,7 @@ class handlers extends Paged.Handler {
 
 <h3>Exporting to PDF</h3>
 
-<p>You can export your file to PDF using the browser's <light-mark>file > print</light-mark> option (selecting pdf as the printer). You want to select the print background option and delect the print headers & footers option.</p>
+<p>You can export your file to PDF using the browser's <light-mark>file > print</light-mark> option (selecting PDF as the printer). You want to select the print background option and delect the print headers & footers option.</p>
 
 <div class="page-break"></div>
 
@@ -338,7 +340,7 @@ class handlers extends Paged.Handler {
 </figure>
 
 <div class="banner-class">
-<h3>Banners</h3>
+<h3 class="top">Banners</h3>
 <p>We can also create banners at the top or bottom of our pages with some more advanced CSS. Below is a hacky example, there is probably a cleaner way to do this.</p>
 
 
@@ -363,7 +365,9 @@ class handlers extends Paged.Handler {
 }
 
 
+
 <b>In HTML</b>:
+
 &lt;div class="banner-class"&gt;
   Page content goes here
 &lt;div&gt;
