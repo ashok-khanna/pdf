@@ -97,8 +97,8 @@ h2:not(.no-break) { break-before: page; margin-block-start: 0rem; }
 h2.no-break:not(.top) { margin-block-start: 3rem; }
 h2.top { margin-block-start: 0rem; }
 
-h3:not(.top) {margin-block-start: 2rem; margin-block-end: 0.5rem;}
-h3.top { margin-block-start: 1rem; margin-block-end: 0.5rem; }
+h3:not(.top) {margin-block-start: 2.49rem; margin-block-end: 0.83rem;}
+h3.top { margin-block-start: 1.66rem; margin-block-end: 0.83rem; }
 
 /* 3.3 Page Numbers */
 @page { @bottom-right { content: counter(page); } }
