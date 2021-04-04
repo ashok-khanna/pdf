@@ -76,7 +76,7 @@ pre {
 	white-space: pre-wrap;
 }
 code { margin-bottom: 1.5rem; display: block;}
-
+figure code { margin-bottom: 0; }
 figure {
 	margin-block-start: 2rem; margin-block-end: 2rem;
 	margin-inline-start: 0rem; margin-inline-end: 0rem;
