@@ -271,14 +271,14 @@ ol, ul a {
 /* 5.3 Banners */
 .banner-class {	page: top-banner; }
 @page top-banner {
-	@top-left-corner { background-color: darkslateblue; content: " ";}
-	@top-left {	background-color: darkslateblue; content: " ";}
-	@top-center { background-color: darkslateblue; 
+	@top-left-corner { background-color: #445a75; content: " ";}
+	@top-left {	background-color: #445a75; content: " ";}
+	@top-center { background-color: #445a75; 
 		color: white;
 		content: "Sample Banner Text";
 	}
-	@top-right { background-color: darkslateblue;	content: " ";}
-	@top-right-corner { background-color: darkslateblue; content: " ";}
+	@top-right { background-color: #445a75;	content: " ";}
+	@top-right-corner { background-color: #445a75; content: " ";}
 }
 
 
