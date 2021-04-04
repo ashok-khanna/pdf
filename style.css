@@ -82,9 +82,7 @@ figure {
 	margin-inline-start: 0rem; margin-inline-end: 0rem;
 	border: 0.5px solid gray; padding: 1.5rem;
 }
-figcaption { caption-side: top; font-size: smaller;
-	font-family: 'Custom Mono', monospace; font-weight: bold;
-	padding-bottom: 0.5rem; } 
+figcaption { caption-side: top; padding-bottom: 0.5rem; } 
 
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
 
