@@ -140,9 +140,7 @@ figcaption:not(.no-counter)::before {
 
 /* 4.2 Headers & Footers */
 .footer { position: running(footerRunning); }
-.footer a { font-weight: bold;
-	text-decoration: none;
-	color: #347dbd;}
+.footer a { text-decoration: none; color: #347dbd;}
 @page {
 	@bottom-left {
     	content: element(footerRunning); width: 80mm;
