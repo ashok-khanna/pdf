@@ -80,7 +80,7 @@ figure code { margin-bottom: 0; }
 figure {
 	margin-block-start: 2rem; margin-block-end: 2rem;
 	margin-inline-start: 0rem; margin-inline-end: 0rem;
-	border: 0.5px solid gray; padding: 1.5rem;
+	border: 0.25px solid black; padding: 1.5rem;
 }
 figcaption { caption-side: top; padding-bottom: 0.5rem; } 
 
