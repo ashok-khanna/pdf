@@ -202,7 +202,7 @@ ol, ul a {
 }
 
 #list-toc-generated .toc-element-level-1 {
-    border-bottom: 0.03125rem solid black;
+    border-bottom: 0.0625rem solid black;
     margin-top: 2rem; margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     font-weight: bold;
