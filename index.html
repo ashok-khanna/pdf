@@ -85,8 +85,8 @@
 <p>A common use case for media queries is to hide navigational menus from a print or mobile view. Say we have defined a class <light-mark>sidebar</light-mark>, we could hide it from a print view, whilst keeping it visible in the primary screen view, as follows.</p>
 
 <code><pre>
-@media print {
-    .sidebar { display: none; }
+@media print { 
+  .sidebar { display: none; }
 }
 </pre></code>
 
@@ -137,8 +137,8 @@ h2:not(.no-break) { break-before: page; }
 <p>We can use CSS counters to add page numbers. The below CSS will add a page number to the bottom right of every page.</p>
 
 <code><pre>
-@page {	
-	@bottom-right { content: counter(page); } 
+@page {
+  @bottom-right { content: counter(page); }
 }
 </pre></code>
 
@@ -148,15 +148,11 @@ h2:not(.no-break) { break-before: page; }
 
 <code><pre>
 @page {
-
-	@top-right {
-		content: "Confidential"
-	}
-
-  	@bottom-left {
-		content: "Beautiful PDFs from HTML";
-		width: 40mm
-    }
+  @top-right { content: "Confidential" }
+  @bottom-left {
+    content: "Beautiful PDFs from HTML";
+    width: 40mm
+  }
 }
 </pre></code>
 
@@ -167,29 +163,29 @@ h2:not(.no-break) { break-before: page; }
 
 <code><pre>
 body {
-	counter-reset: sectionNumber;
-	counter-reset: subsectionNumber;
-	counter-reset: figureNumber;
+  counter-reset: sectionNumber;
+  counter-reset: subsectionNumber;
+  counter-reset: figureNumber;
 }
 
 h2:not(.no-counter) { 
-	counter-increment: sectionNumber;
+  counter-increment: sectionNumber;
 }
 
 h2 { 
-	counter-reset: subsectionNumber;
+  counter-reset: subsectionNumber;
 }
 
 h3:not(.no-counter) {
-	counter-increment: subsectionNumber;
+  counter-increment: subsectionNumber;
 }
 
 h3 {
-	counter-reset: figureNumber;
+  counter-reset: figureNumber;
 }
 
 figure:not(.no-counter) {
-	counter-increment: figureNumber;
+  counter-increment: figureNumber;
 }
 </pre></code>
 
@@ -201,15 +197,15 @@ figure:not(.no-counter) {
 <figcaption>Code to Auto-Generate Numbering Labels</figcaption>
 <code><pre>
 h2:not(.no-counter):before {
-	content: counter(sectionNumber) ". ";
+  content: counter(sectionNumber) ". ";
 }
 
 h3:not(.no-counter)::before {
-	content: counter(sectionNumber) "." counter(subsectionNumber) " ";
+  content: counter(sectionNumber) "." counter(subsectionNumber) " ";
 }
 
 figcaption:not(.no-counter)::before {
-	content: "Fig. " counter(sectionNumber) "." counter(subsectionNumber) "." counter(figureNumber) " ";
+  content: "Fig. " counter(sectionNumber) "." counter(subsectionNumber) "." counter(figureNumber) " ";
 }
 </pre></code>
 </figure>
@@ -220,20 +216,19 @@ figcaption:not(.no-counter)::before {
 
 <code><pre>
 &lt;p class="footer"&gt;
-	&lt;a href="#toc-start"&gt;Return to Table of Contents&lt;/a&gt;
+  &lt;a href="#toc-start"&gt;Return to Table of Contents&lt;/a&gt;
 &lt;/p&gt;
 </pre></code>
 
 <code><pre>
 .footer {
-   position: running(footerRunning);
+  position: running(footerRunning);
 }
-
 
 @page {
   @bottom-left {
     content: element(footerRunning);
-    width: 40mm;
+   width: 40mm;
   }
 }
 </pre></code>
@@ -253,7 +248,7 @@ h3 {
 @page {
   @top-right {
     content: string(section) " - " string(subsection);
-   }
+  }
 }
 </pre></code>
 
@@ -266,23 +261,22 @@ h3 {
 <b>In HTML</b>:
 
 &lt;div class="cover-page"&gt;
- &lt;h1&gt;Beautiful PDFs from HTML&lt;/h1&gt;
- &lt;h3&gt;An introductory guide by Ashok Khanna&lt;/h3&gt;
- &lt;h3&gt;April 2021&lt;/h3&gt;
+  &lt;h1&gt;Beautiful PDFs from HTML&lt;/h1&gt;
+  &lt;h3&gt;An introductory guide by Ashok Khanna&lt;/h3&gt;
+  &lt;h3&gt;April 2021&lt;/h3&gt;
 &lt;/div&gt;
-&lt;div class="counter-reset"&gt;&lt;/div&gt;
-
 
 
 <b>In CSS</b>:
+
 .cover-page { page: cover-page; }
 
 @page cover-page {
-    background-color: #347DBD;
-    color: white;
-    @top-right { content: none; }
-    @bottom-left { content: none; }
-    @bottom-right { content: none; }
+  background-color: #347DBD;
+  color: white;
+  @top-right { content: none; }
+  @bottom-left { content: none; }
+  @bottom-right { content: none; }
 }
 </pre></code>
 
@@ -294,27 +288,28 @@ h3 {
 
 <code><pre>
 class handlers extends Paged.Handler {
-    constructor(chunker, polisher, caller) {
-		super(chunker, polisher, caller);
-    }
-    beforeParsed(content){
-	    createToc({
-    		content: content,
-    		tocElement: '#toc',
-    		titleElements: [ 'h2:not(.cover-header)', 'h3:not(.cover-header)' ]
-    	});
-	}
+  constructor(chunker, polisher, caller) {
+    super(chunker, polisher, caller);
   }
-  Paged.registerHandlers(handlers);
+  beforeParsed(content){
+    createToc({
+      content: content,
+      tocElement: '#toc',
+      titleElements: [ 'h2:not(.cover-header)', 'h3:not(.cover-header)' ]
+    });
+  }
+}
+
+Paged.registerHandlers(handlers);
 </pre></code>
 
 <p>We then need to do add our table of contents to our HTML code in the place we want it to appear:</p>
 
 <code><pre>
 &lt;div class="table-of-contents"&gt;
-	&lt;h1 class="toc-header" id="toc-start"&gt;Table of Contents<&lt;/h1&gt;
-	&lt;ol id="toc"&gt;
-	&lt;/ol&gt;
+  &lt;h1 class="toc-header" id="toc-start"&gt;Table of Contents<&lt;/h1&gt;
+  &lt;ol id="toc"&gt;
+  &lt;/ol&gt;
 &lt;/div&gt;
 </pre></code>
 
@@ -349,27 +344,22 @@ class handlers extends Paged.Handler {
 <b>In CSS</b>:
 
 @page top-banner {
-	@top-left-corner { background-color: #347dbd; content: " ";}
-	@top-left {	background-color: #347dbd; content: " ";}
-	@top-center { background-color: #347dbd; 
-		color: white;
-		content: "Sample Banner Text";
-	}
-	@top-right { background-color: #347dbd;	content: " ";}
-	@top-right-corner { background-color: #347dbd; content: " ";}
+  @top-left-corner { background-color: #347dbd; content: " ";}
+  @top-left {	background-color: #347dbd; content: " ";}
+  @top-center { background-color: #347dbd; 
+    color: white;
+    content: "Sample Banner Text";
+  }
+  @top-right { background-color: #347dbd;	content: " ";}
+  @top-right-corner { background-color: #347dbd; content: " ";}
 }
 
-.banner-class {
-	page: top-banner;
-}
-
+.banner-class { page: top-banner; }
 
 
 <b>In HTML</b>:
 
-&lt;div class="banner-class"&gt;
-  Page content goes here
-&lt;div&gt;
+&lt;div class="banner-class"&gt;Content Goes Here&lt;div&gt;
 </pre></code>
 </figure>
 
