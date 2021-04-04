@@ -80,7 +80,7 @@ figure {
 	margin-block-start: 2rem; margin-block-end: 2rem;
 	margin-inline-start: 0rem; margin-inline-end: 0rem;
 }
-figcaption { caption-side: top; padding-bottom: 0.75rem; margin-bottom: 0.5px solid black;} 
+figcaption { caption-side: top; padding-bottom: 0.75rem; border-bottom: 0.5px solid black;} 
 
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
 
