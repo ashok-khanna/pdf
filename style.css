@@ -81,7 +81,7 @@ figure {
 	margin-inline-start: 0rem; margin-inline-end: 0rem;
 }
 figcaption { caption-side: top; padding-bottom: 0.75rem;
-	border-bottom: 0.5px solid black; margin-bottom: 1.5rem; } 
+	border-bottom: 0.5px solid gray; margin-bottom: 1.5rem; color: gray;} 
 
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
 
