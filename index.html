@@ -38,7 +38,6 @@
 	</ol>
 </div>
 
-
 <!-- 3.0 Start of Main Content -->
 
 <!-- Setting the footer -->
@@ -49,7 +48,6 @@
 
 <!-- 3.1 Section 1 - Foreword -->
 <h2 class="no-break top">Foreword</h2>
-
 <p>HTML and CSS are beautiful languages and one of the landmark achievements of collaboration and the open web. Together, they allow you to create beautifully typeset digital content that can be viewed on any device, without any special software or paid licenses.</p>
 
 <p>The web however was developed for scrolling content, and not paged media (by which we mean discrete pages, like in print or PDF). Unfortunately, whilst there are <a href="https://www.w3.org/TR/css-page-3/">W3C standards</a> on paged media, adoption by browsers has not been adequate to date. High quality paid alternatives exist in <a href="https://www.princexml.com">PrinceXML</a>, but a native, free solution has been missing.</p>
@@ -62,7 +60,6 @@
 
 <!-- 3.2 Section 2 - Getting Started -->
 <h2 class="top">Getting Started</h2>
-
 <h3 class="top">Installation</h3>
 <p>There are three elements required to producing PDFs from HTML through paged.js. First, you will need to load the <a href="https://www.pagedjs.org/documentation/releases/">paged.polyfill.js</a> library either by hosting it locally or linking to it directly:</p>
 
@@ -74,12 +71,10 @@
 
 <p>Finally, you need to have your own custom stylesheet where you will enter all the formatting rules to apply. In our example repo, these rules are contained within <a href="https://github.com/ashok-khanna/pdf/blob/main/style.css">style.css</a>.</p>
 
-
 <h3>Alternate (easier) Installation</h3>
 <p>As an easier alternative, simply clone my <a href="https://github.com/ashok-khanna/pdf">example repo</a> (and set up GitHub Pages for the cloned repo) and then read through <light-mark>style.css</light-mark> and <light-mark>index.html</light-mark> to understand how it works. The rest of this guide takes you through the code example in my repo.</p>
 
 <h3>Media Queries</h3>
-
 <p>Before we begin with the main guide, I want to quickly introduce you to <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">media queries</a>. Media queries allow us to modify the stylesheet associated with our website depending on whether it is viewed on screen or for print (e.g. when printing to PDF or paper)  and allow us to set different style sheets for print, screen and mobile.</p>
 
 <p>A common use case for media queries is to hide navigational menus from a print or mobile view. Say we have defined a class <light-mark>sidebar</light-mark>, we could hide it from a print view, whilst keeping it visible in the primary screen view, as follows.</p>
@@ -92,10 +87,8 @@
 
 <p>Whilst we will not make use of media queries in the rest of this guide and in the example repo, please do remember them and use them liberally to create distinct views for screen, print and mobile based on your requirements. They are a central component of <a href="https://en.wikipedia.org/wiki/Responsive_web_design">responsive web design</a>, a topic we could dedicate an entire book to, but not one for today.</p>
 
-
-
+<!-- 3.3 Section 3 - Basic Features -->
 <h2 class="no-break">Basic Features</h2>
-
 <h3 class="top">Page Size</h3>
 <p>Most properties will be captured in CSS as an attribute to the <mark>@page</mark> rule. For example, we can set the page size to A4 with the following. Other valid page sizes include letter, legal, ledged, A0 to A7, A10, B4 and B5.</p>
 
@@ -112,7 +105,6 @@
 <code><pre>
 @page { size: 140mm 200mm; }
 </pre></code>
-
 
 <h3>Page Breaks</h3>
 <p>By default, paged.js will determine how much content fills up a page and then insert page breaks at the overflow points. We can manually insert page breaks by creating a <light-mark>page-break</light-mark> class and setting its <mark>break-after</mark> property to <mark>page</mark>.</p>
@@ -142,7 +134,6 @@ h2:not(.no-break) { break-before: page; }
 }
 </pre></code>
 
-
 <h3>Headers & Footers</h3>
 <p>The preceding page number example gives us a sneak peek into how we could add headers and footers. We can add these in six locations - <light-mark>top-left</light-mark>, <light-mark>top-center</light-mark>, <light-mark>top-right</light-mark>, <light-mark>bottom-left</light-mark>, <light-mark>bottom-center</light-mark> and of course <light-mark>bottom-right</light-mark> as before. Below are some basic examples of simple headers & footers, with the second example showing how we can increase the width in case we need to.</p>
 
@@ -156,8 +147,8 @@ h2:not(.no-break) { break-before: page; }
 }
 </pre></code>
 
+<!-- 3.4 Section 4 - Advanced Features -->
 <h2>Advanced Features</h2>
-
 <h3 class="top">Automatic Counters</h3>
 <p>One useful feature is to automatically number sections and figures. We achieve this with the following, noting that we use the class <light-mark>no-counter</light-mark> as a general class to manually exclude a section or figure from the numbering. Note that the subsection and figure counters below reset at every new instance of a section.</p>
 
@@ -212,7 +203,6 @@ figcaption:not(.no-counter)::before {
 
 <h3>Headers & Foooters (contd.)</h3>
 <p>We can generate formatted headers by first creating the formatted header in our HTML and then changing its position to be <mark>running</mark> to move it to each page's footer:</p>
-
 
 <code><pre>
 &lt;p class="footer"&gt;
@@ -280,10 +270,9 @@ h3 {
 }
 </pre></code>
 
+<!-- 3.5 Section 5 - Other Notes -->
 <h2>Other Notes</h2>
-
 <h3 class="top">Table of Contents</h3>
-
 <p>The Paged.Js team wrote a <a href="https://www.pagedjs.org/posts/2020-02-19-toc/">great tutorial on adding table of contents</a> to our pages. The first step is to load <mark>toc.js</mark> from our example repo into our HTML file. We then need to add the following script in our HTML, after the call for paged.js:</p>
 
 <code><pre>
@@ -316,7 +305,6 @@ Paged.registerHandlers(handlers);
 <p>Refer to <mark>style.css</mark> in the example repo for advanced formatting of our table of contents.</p>
 
 <h3>Exporting to PDF</h3>
-
 <p>You can export your file to PDF using the browser's <light-mark>file > print</light-mark> option (selecting PDF as the printer). You want to select the print background option and delect the print headers & footers option.</p>
 
 <div class="page-break"></div>
@@ -334,9 +322,9 @@ Paged.registerHandlers(handlers);
 </figure>
 
 <div class="banner-class">
+
 <h3 class="top">Banners</h3>
 <p>We can also create banners at the top or bottom of our pages with some more advanced CSS. Below is a hacky example, there is probably a cleaner way to do this.</p>
-
 
 <figure>
 <figcaption>Creating Custom Pages with Banners</figcaption>
@@ -362,7 +350,6 @@ Paged.registerHandlers(handlers);
 &lt;div class="banner-class"&gt;Content Goes Here&lt;div&gt;
 </pre></code>
 </figure>
-
 
 </div>
 
