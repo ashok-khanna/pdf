@@ -67,7 +67,7 @@ light-mark { color: purple; }
 img { max-width: calc(100% - 3rem); }
 .img-75mm { height: 75mm; }
 
-center { border: 0.5px solid black; padding: 1.5rem; }
+center { border: 0.5px solid gray; padding: 1.5rem; }
 
 pre {
 	background-color: #f0f0f0;
@@ -82,7 +82,7 @@ figure {
 	margin-inline-start: 0rem; margin-inline-end: 0rem;
 }
 figcaption { caption-side: top; padding-bottom: 0.75rem;
-	border-bottom: 0.5px solid black; margin-bottom: 1.5rem;
+	border-bottom: 0.5px solid gray; margin-bottom: 1.5rem;
 	color: gray; font-weight: bold;} 
 
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
