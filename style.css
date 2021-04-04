@@ -177,7 +177,7 @@ h3 { string-set: subsection content(text); }
 }
 
 /* Additional CSS: Advanced Styling for TOC */
-.toc-header { margin-bottom: 1rem; border-bottom: 0.5rem solid black; }
+.toc-header { margin-bottom: 1rem; border-bottom: 0.375rem solid black; }
 .table-of-contents a, .table-of-contents a:hover {
 	font-family: 'Roboto', sans-serif; 
 }
