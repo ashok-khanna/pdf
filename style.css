@@ -62,11 +62,12 @@ h2 { border-bottom: 0.125rem solid black; margin-bottom: 1rem; padding-bottom: 0
 p {	text-align: justify; line-height: 1.4rem; }
 a { color: #347dbd; }
 a:hover { color: #FC814A; }
-mark { color: #F78E69; background-color: inherit;
-	font-family: 'Custom Mono', monospace; font-weight: bold; }
+mark { color: #b45f06; background-color: inherit; }
 light-mark { color: #b45f06; }
-img { max-width: calc(100% - 3rem); border: 0.5px solid gray; padding: 1.5rem; }
+img { max-width: calc(100% - 3rem); }
 .img-75mm { height: 75mm; }
+
+center { border: 0.5px solid gray; padding: 1.5rem; }
 
 pre {
 	background-color: #f0f0f0;
