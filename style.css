@@ -62,12 +62,12 @@ h2 { border-bottom: 0.125rem solid black; margin-bottom: 1rem; padding-bottom: 0
 p {	text-align: justify; line-height: 1.4rem; }
 a { color: #347dbd; }
 a:hover { color: #FC814A; }
-mark { color: #b45f06; background-color: inherit; }
-light-mark { color: #b45f06; }
+mark { color: #445a75; background-color: inherit; }
+light-mark { color: #445a75; }
 img { max-width: calc(100% - 3rem); }
 .img-75mm { height: 75mm; }
 
-center { border: 0.5px solid gray; padding: 1.5rem; }
+center { border: 0.5px solid black; padding: 1.5rem; }
 
 pre {
 	background-color: #f0f0f0;
@@ -82,12 +82,12 @@ figure {
 	margin-inline-start: 0rem; margin-inline-end: 0rem;
 }
 figcaption { caption-side: top; padding-bottom: 0.75rem;
-	border-bottom: 0.5px solid gray; margin-bottom: 1.5rem;
+	border-bottom: 0.5px solid black; margin-bottom: 1.5rem;
 	color: gray; font-weight: bold;} 
 
 /* Personal note: #347dbd & #445a75 for blue and dark blue colors */
 
-h3:not(.top) { margin-block-end: 0.5rem; margin-block-start: 3rem; }
+h3:not(.top) { margin-block-end: 0.5rem; margin-block-start: 2.5rem; }
 
 
 
@@ -98,7 +98,7 @@ h3:not(.top) { margin-block-end: 0.5rem; margin-block-start: 3rem; }
 /* 3.2 Page Breaks */
 .page-break { break-after: page; }
 h2:not(.no-break) { break-before: page; }
-h2 .no-break {margin-top: 2rem;}
+h2 .no-break {margin-top: 4rem;}
 
 /* 3.3 Page Numbers */
 @page { @bottom-right { content: counter(page); } }
