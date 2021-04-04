@@ -66,7 +66,7 @@ mark { color: #F78E69; background-color: inherit;
 	font-family: 'Custom Mono', monospace; font-weight: bold; }
 light-mark { color: brown; }
 img { max-width: 100%; }
-.img-75mm { width: 75mm; height: 75mm; margin: 0 auto;}
+.img-75mm { height: 75mm; margin: 0 auto;}
 
 pre {
 	background-color: #f0f0f0;
