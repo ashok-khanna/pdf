@@ -160,7 +160,7 @@ h3 { string-set: subsection content(text); }
 .cover-page h1 { border-bottom: 0.25rem solid white; }
 .cover-page h3 { font-weight: normal; }
 @page cover-page {
-    background-color: #347DBD; color: white;
+    background-color: royalblue; color: white;
     @top-right { content: none; }
     @bottom-left { content: none; }
     @bottom-right { content: none; }
