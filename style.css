@@ -98,7 +98,7 @@ h3:not(.top) { margin-block-end: 0.5rem; margin-block-start: 2rem; }
 /* 3.2 Page Breaks */
 .page-break { break-after: page; }
 h2:not(.no-break) { break-before: page; }
-h2.no-break { margin-block-start: 4rem; }
+h2.no-break { margin-block-start: 3rem; }
 
 /* 3.3 Page Numbers */
 @page { @bottom-right { content: counter(page); } }
@@ -160,7 +160,7 @@ h3 { string-set: subsection content(text); }
 .cover-page h1 { border-bottom: 0.25rem solid white; }
 .cover-page h3 { font-weight: normal; }
 @page cover-page {
-    background-color: royalblue; color: white;
+    background-color: purple; color: white;
     @top-right { content: none; }
     @bottom-left { content: none; }
     @bottom-right { content: none; }
