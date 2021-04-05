@@ -303,7 +303,7 @@ Paged.registerHandlers(handlers);
 <p>Refer to <mark>style.css</mark> in the example repo for advanced formatting of our table of contents.</p>
 
 <h3>Exporting to PDF</h3>
-<p>You can export your file to PDF using the browser's <light-mark>file > print</light-mark> option (selecting PDF as the printer). You want to select the print background option and delect the print headers & footers option.</p>
+<p>You can export your file to PDF using the browser's <light-mark>file > print</light-mark> option (selecting PDF as the printer). You want to select the print background option and deselect the print headers & footers option.</p>
 
 <div class="page-break"></div>
 
@@ -331,12 +331,13 @@ Paged.registerHandlers(handlers);
 
 @page top-banner {
   @top-left-corner { background-color: #445a75; content: " "; }
-  @top-left {	background-color: #445a75; content: " "; }
+  @top-left { background-color: #445a75; content: " "; }
   @top-center {
     background-color: #445a75; 
     color: white;
-    content: "Sample Banner Text"; }
-  @top-right { background-color: #445a75;	content: " "; }
+    content: "Sample Banner Text";
+  }
+  @top-right { background-color: #445a75; content: " "; }
   @top-right-corner { background-color: #445a75; content: " "; }
 }
 
