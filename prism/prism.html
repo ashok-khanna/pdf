@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Inachevé d&#39;imprimer</title>
+    <meta name="description" content="Inachevé d&#39;imprimer est un espace d’échanges consacrés à la publication hybride, en particulier lorsqu&#39;elle se fait expérimentale, systémique et collaborative.">
+    <meta name="keywords" content="">
+    <meta name="author" content="pub nerd folks">
+    <base href="./">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+
+    
+    <script src="https://unpkg.com/pagedjs@0.1.42/dist/paged.legacy.polyfill.js"></script>
+        <link rel="stylesheet" href="css/interface.css">
+
+
+
+
+<script>
+	class prismjs extends Paged.Handler {
+		constructor(chunker, polisher, caller) {
+			super(chunker, polisher, caller);
+		}
+
+		beforeParsed(content) {
+			content.querySelectorAll('pre').forEach(pre =>{
+                Prism.highlightElement(pre);
+            })
+		}
+	}
+	Paged.registerHandlers(prismjs);
+</script>
+    
+    </script>
+
+    
+    <link href="css/prism.css" rel="stylesheet"/>
+
+    
+  </head>
+
+  <body class="">
+
+    
+      <aside class="topbar" style="--logoColor: ">
+        <a class="logo" href="/">Pagedjs samples</a>
+        
+      </aside>
+    
+
+    
+    <h1>This is fun</h1>
+    <pre class="language-css"><code> p { color: red; } </code></pre>
+
+
+    
+
+      <footer>
+      
+      </footer>
+
+
+
+    
+
+
+    <script src="js/prism.js"></script>
+
+
+  </body>
+</html>
